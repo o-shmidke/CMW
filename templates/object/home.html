@@ -1,0 +1,84 @@
+{% extends 'registration/../wrapper.html' %}
+{% load static %}
+{% block add_style %}
+    <link rel="stylesheet" href="{% static 'css/objects_table.css' %}">
+{% endblock %}
+{% block entr %}
+    {% if user.is_authenticated %}
+        <section class="table_position">
+            <table>
+                <thead>
+                <tr>
+                    <th style="text-align: left" colspan=""><h3>{{ name_project.Name_Project }} </h3><input
+                            type="hidden" id="proj_a" value={{ id_project }}></th>
+                </tr>
+                </thead>
+                <tr>
+                    <td class="td_border">
+                        <div class="zone">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th style="text-align: center" id="title_table"><h4>Наименование объекта</h4></th>
+                                    <th style="text-align: center" class="col2" id="title_table"><h4>Адрес</h4></th>
+                                    <th style="text-align: center" class="col2" id="title_table"><h4>Н/Ч общее</h4></th>
+                                    <th style="text-align: center" class="col2" id="title_table"><h4>Н/Ч затрачено</h4>
+                                    </th>
+                                    <th style="text-align: center" class="col2" id="title_table"><h4>Выполнено</h4></th>
+                                    <th style="text-align: center" class="col2" id="title_table"></th>
+                                </tr>
+                                </thead>
+                                {% for table in object_list %}
+                                    <tr class="str ">
+                                        <td><a href="{{ table.id }}"><h4>{{ table.Name_Object }}</h4></a></td>
+                                        <td><a href="{{ table.id }}"><h4>{{ table.Adress_Object }}</h4></a></td>
+                                        <td style="text-align: center"><a href="objects/{{ table.id }}">
+                                            <h4>{{ table.NCH_General }}</h4></a></td>
+                                        <td style="text-align: center"><a href="objects/{{ table.id }}">
+                                            <h4>{{ table.NCH_Spent }}</h4></a></td>
+                                        <td style="text-align: center" class="col2"><a href="objects/{{ table.id }}">
+                                            <h4>{{ table.Perform_proc }} %</h4></a></td>
+                                        <td>
+
+                                            <a class="btn btn-outline-secondary btn-sm mx-auto" type="button"
+                                               id="btn_change_object"
+                                               href="{% url 'object:update' pk=table.pk %}">
+                                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                            </a>
+                                            <a class="btn btn-outline-danger btn-sm mx-auto" type="button"
+                                               id="btn_change_object"
+                                               href="{% url 'object:delete' pk=table.pk %}">
+                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                            </a>
+
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+
+                        </div>
+
+                        <ul class="btn_control">
+                            <div id="btn_back">
+                                <a href="{% url 'project:home' %}" class="btn_form_add_object_add eventBtn"><i
+                                        class="fa fa-caret-left" aria-hidden="true"></i></a>
+                            </div>
+                            <li>
+                                <a class="btn btn-outline-dark" id="btn_add_object" type="button"
+                                   href="{% url 'object:add' pk=pk_project %}">
+                                    Добавить
+                                </a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+
+        </section>
+    {% else %}
+        {% include 'registration/errorPage_auth.html' %}
+    {% endif %}
+{% endblock %}
+
+
+

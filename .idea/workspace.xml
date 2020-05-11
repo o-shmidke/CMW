@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d9cf457d-cf38-4b22-adc6-b7b5a1e3f8a8" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+        <item name="project_customuser: table" type="3d80ac25:SqliteImplModel$Table" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/CMW_v1" />
+  </component>
+  <component name="ProjectId" id="1bhwexivwgVW7wPXHFLCNeG5TC4" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../travel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\daze0\PycharmProjects\CMW\templates\object" />
+      <recent name="C:\Users\daze0\PycharmProjects\CMW\templates\create" />
+      <recent name="C:\Users\daze0\PycharmProjects\CMW\templates\project" />
+      <recent name="C:\Users\daze0\PycharmProjects\CMW\templates" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="CMW" type="Python.DjangoServer" factoryName="Django server">
+      <module name="CMW" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="CMW.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d9cf457d-cf38-4b22-adc6-b7b5a1e3f8a8" name="Default Changelist" comment="" />
+      <created>1589097731936</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1589097731936</updated>
+      <workItem from="1589097799805" duration="35479000" />
+      <workItem from="1589181202630" duration="6043000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1589182945541">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1589182945541" />
+    <state width="1493" height="170" key="GridCell.Tab.0.bottom" timestamp="1589188206054">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="170" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589188206054" />
+    <state width="1493" height="170" key="GridCell.Tab.0.center" timestamp="1589188206054">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="170" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1589188206054" />
+    <state width="1493" height="170" key="GridCell.Tab.0.left" timestamp="1589188206054">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="170" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1589188206054" />
+    <state width="1493" height="170" key="GridCell.Tab.0.right" timestamp="1589188206054">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="170" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1589188206054" />
+    <state width="1332" height="131" key="GridCell.Tab.1.bottom" timestamp="1589141726247">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1332" height="131" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589141726247" />
+    <state width="1332" height="131" key="GridCell.Tab.1.center" timestamp="1589141726247">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1332" height="131" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1589141726247" />
+    <state width="1332" height="131" key="GridCell.Tab.1.left" timestamp="1589141726247">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1332" height="131" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1589141726247" />
+    <state width="1332" height="131" key="GridCell.Tab.1.right" timestamp="1589141726247">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1332" height="131" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1589141726247" />
+  </component>
+</project>

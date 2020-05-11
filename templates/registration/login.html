@@ -1,0 +1,57 @@
+{% extends 'registration/../wrapper.html' %}
+{#{% load static %}#}
+{% block entr %}
+
+    <section class="content">
+        <div class="modal-sm">
+            <div class="container">
+                <form role='form' class="form-horizontal" id="register" action="{% url 'login' %}" method="post">
+                    {% csrf_token %}
+                    <div class="container">
+                        <div class="high">
+                            <h3 class="'modal-title"> Авторизация</h3><br/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <ul class="icons d-flex">
+                            <li class="icons__item">
+                                <i class="fa fa-user"></i>
+                            </li>
+                            <li class="field">
+                                {{ form.username }}
+{#                                <input type="text" name="user" class="form-control" placeholder="Пользователь">#}
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="">
+                        <ul class="icons d-flex">
+                            <li class="icons__item">
+                                <i class="fa fa-lock"></i>
+                            </li>
+                            <li class="field">
+                                {{ form.password }}
+{#                                <input type="password" name="password" class="form-control" placeholder="Пароль">#}
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-offset-2 col-xs-5">
+                            <input id="btn" class="btn btn-primary btn-dark" role="button" form="register"
+                                   value="Войти" type="submit">
+                        </div>
+                    </div>
+                    <input type="hidden" name="next" value="{{ next }}"/>
+                    <div class="vstavka">
+                        {% if form.errors %}
+                            <p>Пользователь отсутствует. Пожалуйста попробуйте снова.</p>
+                        {% endif %}
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

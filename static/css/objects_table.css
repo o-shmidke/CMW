@@ -1,0 +1,39 @@
+#title_table {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+    border-top: none;
+
+}
+
+.btn_control {
+    display: flex;
+    border: #c6c8ca solid 1px;
+    background-color: white;
+    padding-left: 70%;
+}
+.btn_control li{
+    margin: 12px;
+}
+.btn_control .btn_form_add_object_add {
+    padding: 5px 15px;
+    border: 1px solid #5a6268;
+    border-radius: 8px;
+
+    background-color: #f5f5f5;
+}
+/*.btn_control .btn_form_add_object_add:hover {*/
+/*    color: white;*/
+/*    background-color: #5a6268;*/
+/*}*/
+h3{
+     font-size: 22px;
+}
+#btn_back{
+    margin-right: 600px;
+    margin-left: -700px;
+}
+.btn_form_add_object_add i {
+    font-size: 25px;
+
+}
