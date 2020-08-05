@@ -16,21 +16,21 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='object',
             name='ID_Ingener',
-            field=models.ForeignKey(blank=True, default='-', on_delete=django.db.models.deletion.CASCADE, related_name='Инженер', to=settings.AUTH_USER_MODEL, verbose_name='Инженер'),
+            field=models.ForeignKey(blank=True,  on_delete=django.db.models.deletion.CASCADE, related_name='Инженер', to=settings.AUTH_USER_MODEL, verbose_name='Инженер'),
         ),
         migrations.AlterField(
             model_name='object',
             name='ID_Menedger',
-            field=models.ForeignKey(blank=True, default='-', on_delete=django.db.models.deletion.CASCADE, related_name='Менеджер', to=settings.AUTH_USER_MODEL, verbose_name='Менеджер'),
+            field=models.ForeignKey(blank=True,  on_delete=django.db.models.deletion.CASCADE, related_name='Менеджер', to=settings.AUTH_USER_MODEL, verbose_name='Менеджер'),
         ),
         migrations.AlterField(
             model_name='object',
             name='ID_Montazhnik',
-            field=models.ForeignKey(blank=True, default='-', on_delete=django.db.models.deletion.CASCADE, related_name='Старший_монтажник', to=settings.AUTH_USER_MODEL, verbose_name='Старший_монтажник'),
+            field=models.ForeignKey(blank=True,  on_delete=django.db.models.deletion.CASCADE, related_name='Старший_монтажник', to=settings.AUTH_USER_MODEL, verbose_name='Старший_монтажник'),
         ),
         migrations.AlterField(
             model_name='object',
             name='ID_Rukovoditel',
-            field=models.ForeignKey(blank=True, default='-', on_delete=django.db.models.deletion.CASCADE, related_name='Руководитель', to=settings.AUTH_USER_MODEL, verbose_name='Руководитель'),
+            field=models.ForeignKey(blank=True,  on_delete=django.db.models.deletion.CASCADE, related_name='Руководитель', to=settings.AUTH_USER_MODEL, verbose_name='Руководитель'),
         ),
     ]
