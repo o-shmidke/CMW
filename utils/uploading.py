@@ -10,7 +10,6 @@ import django
 django.setup()
 
 from work.models import  TypeOfWork
-from xlrd import open_workbook
 import xlrd
 
 
