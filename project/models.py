@@ -24,7 +24,7 @@ class Position(models.Model):
 
 class CustomUser(AbstractUser):
     patronymic_name = models.CharField(_('Отчество'), max_length=150, blank=True)  # ---add
-    ID_Position = models.ForeignKey(Position, on_delete=models.CASCADE, default=1, verbose_name="Должность",
+    ID_Position = models.ForeignKey(Position, on_delete=models.CASCADE,  verbose_name="Должность",
                                     related_name='ID_Position')  # -------add
     objects = UserManager()
 
