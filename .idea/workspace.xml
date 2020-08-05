@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9cf457d-cf38-4b22-adc6-b7b5a1e3f8a8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/CMW/settings/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CMW/settings/production.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMW/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/CMW/settings/local.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMW/settings/local.py" beforeDir="false" afterPath="$PROJECT_DIR$/CMW/settings/local.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +176,7 @@
       <workItem from="1596551614296" duration="12092000" />
       <workItem from="1596603346248" duration="56000" />
       <workItem from="1596603425212" duration="15887000" />
-      <workItem from="1596627382450" duration="17341000" />
+      <workItem from="1596627382450" duration="17612000" />
     </task>
     <servers />
   </component>
