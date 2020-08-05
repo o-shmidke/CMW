@@ -5,19 +5,119 @@
 {% endblock %}
 
 {% block entr %}
-    <div class="container my-4">
-        <div class="display-5 text-center">Редактировать Объект</div>
-        <div class="row mx-auto">
-            <div class="col-md-4">
-                <form action="" method="post">{% csrf_token %}
-                    {{ form.as_p }}
-{#                    <input type="submit" value="{{ pk_project }}">#}
-                    <input type="submit" value="Изменить">
-                    <br/><br/>
+    {% if user.is_authenticated %}
+    <div class="container my-4 ">
+        <div class="display-5 text-center"><h3>Редактировать Объект {{ object.Name_Object }}</h3></div>
+        <div class="row mx-auto ">
+            <div class="">
+{#                <form action="" method="post">{% csrf_token %}#}
+{#                    {{ form.as_p }}#}
+{##}
+{#                    <input type="submit" value="{{ pk }}">#}
+{#                    <input type="submit" value="Изменить">#}
+{#                    <br/><br/>#}
+{#                </form>#}
+                 <form action="" method="post">{% csrf_token %}
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3 {% if obj_form.Name_Object.errors %} error_add_object{% endif %}">
+                            <label for="id_Name_Object">Наименование объекта</label>
+                            {#                            <input type="text" class="form-control is-valid" id="validationServer01" value="Mark"#}
+                            {#                                   required>#}
+                            {{ obj_form.Name_Object }}
+                            <div class="msgError_add_object">
+                                {% if obj_form.Name_Object.errors %} {{ obj_form.Name_Object.errors }} {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3 {% if obj_form.Adress_Object.errors %} error_add_object{% endif %}">
+                            <label for="id_Adress_Object">Адрес</label>
+                            {#                            <input type="text" class="form-control is-valid" id="validationServer02" value="Otto"#}
+                            {#                                   required>#}
+                            {{ obj_form.Adress_Object }}
+                            <div class="msgError_add_object">
+                                {% if obj_form.Adress_Object.errors %} {{ obj_form.Adress_Object.errors }} {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3 {% if obj_form.FIO_zakazchika.errors %} error_add_object{% endif %}">
+                            <label for="id_FIO_zakazchika">ФИО заказчика</label>
+                            {#                            <input type="text" class="form-control is-invalid" id="validationServer03" required>#}
+                            {{ obj_form.FIO_zakazchika }}
+                            <div class="msgError_add_object">
+                                {% if obj_form.FIO_zakazchika.errors %} {{ obj_form.FIO_zakazchika.errors }} {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3 {% if obj_form.Number_phone.errors %} error_add_object{% endif %} ">
+                            <label for="id_Number_phone_0">Номер телефона</label>
+                            {{ obj_form.Number_phone }}
+                            <div class="msgError_add_object">
+                                {% if obj_form.Number_phone.errors %} {{ obj_form.Number_phone.errors }} {% endif %}
+                            </div>
+                        </div>
+{#                        <div class="col-md-6 mb-3 {% if obj_form.NCH_General.errors %} error_add_object{% endif %}">#}
+{#                            <label for="id_NCH_General">Общее кол-во Н/Ч</label>#}
+{#                            {{ obj_form.NCH_General }}#}
+{#                            <div class="msgError_add_object">#}
+{#                                {% if obj_form.NCH_General.errors %} {{ obj_form.NCH_General.errors }}  {% endif %}#}
+{#                            </div>#}
+{##}
+{#                        </div>#}
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-3 mb-3 ">
+                            <label for="id_ID_Rukovoditel">Руководитель</label>
+                            {#                            <select class="custom-select is-invalid" id="validationServer04" required>#}
+                            {#                                <option selected disabled value="">Choose...</option>#}
+                            {#                                <option>...</option>#}
+                            {#                            </select>#}
+                            {{ obj_form.ID_Rukovoditel }}
+
+                        </div>
+                        <div class="col-md-3 mb-3 ">
+                            <label for="id_ID_Menedger">Менеджер</label>
+                            {#                            <select class="custom-select is-invalid" id="validationServer04" required>#}
+                            {#                                <option selected disabled value="">Choose...</option>#}
+                            {#                                <option>...</option>#}
+                            {#                            </select>#}
+                            {{ obj_form.ID_Menedger }}
+
+                        </div>
+                        <div class="col-md-3 mb-3 ">
+                            <label for="id_ID_Ingener">Инженер</label>
+                            {#                            <select class="custom-select is-invalid" id="validationServer04" required>#}
+                            {#                                <option selected disabled value="">Choose...</option>#}
+                            {#                                <option>...</option>#}
+                            {#                            </select>#}
+                            {{ obj_form.ID_Ingener }}
+
+                        </div>
+                        <div class="col-md-3 mb-3 ">
+                            <label for="id_ID_Montazhnik">Старший монтажник</label>
+                            {#                            <select class="custom-select is-invalid" id="validationServer04" required>#}
+                            {#                                <option selected disabled value="">Choose...</option>#}
+                            {#                                <option>...</option>#}
+                            {#                            </select>#}
+                            {{ obj_form.ID_Montazhnik }}
+
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label for="id_Note">Примечание</label>
+                            {{ obj_form.Note }}
+                        </div>
+                    </div>
+                    <div class="form-btn" style="text-align: center">
+                        <button style="margin-right: 30px; padding: 8px 50px" class="btn btn-outline-dark"
+                                type="submit">Изменить
+                        </button>
+                        <a style="margin-right: 30px; padding: 8px 50px" class="btn btn-outline-dark"
+                           href="{% url 'object:home' slug_proj=slug_proj %}">Отмена</a>
+
+                    </div>
                 </form>
             </div>
         </div>
     </div>
+            {% else %}
+        {% include 'registration/errorPage_auth.html' %}
+    {% endif %}
 {% endblock %}
 
 {% block add_script %}

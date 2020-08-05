@@ -2,79 +2,89 @@
 {% load static %}
 {% block add_style %}
     <link rel="stylesheet" href="{% static 'css/objects_table.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plan_work.css' %}">
 {% endblock %}
 {% block entr %}
     {% if user.is_authenticated %}
-        <section class="table_position">
-            <table>
-                <thead>
-                <tr>
-                    <th style="text-align: left" colspan=""><h3>{{ name_project.Name_Project }} </h3><input
-                            type="hidden" id="proj_a" value={{ id_project }}></th>
-                </tr>
-                </thead>
-                <tr>
-                    <td class="td_border">
-                        <div class="zone">
-                            <table>
-                                <thead>
-                                <tr>
-                                    <th style="text-align: center" id="title_table"><h4>Наименование объекта</h4></th>
-                                    <th style="text-align: center" class="col2" id="title_table"><h4>Адрес</h4></th>
-                                    <th style="text-align: center" class="col2" id="title_table"><h4>Н/Ч общее</h4></th>
-                                    <th style="text-align: center" class="col2" id="title_table"><h4>Н/Ч затрачено</h4>
-                                    </th>
-                                    <th style="text-align: center" class="col2" id="title_table"><h4>Выполнено</h4></th>
-                                    <th style="text-align: center" class="col2" id="title_table"></th>
-                                </tr>
-                                </thead>
-                                {% for table in object_list %}
-                                    <tr class="str ">
-                                        <td><a href="{{ table.id }}"><h4>{{ table.Name_Object }}</h4></a></td>
-                                        <td><a href="{{ table.id }}"><h4>{{ table.Adress_Object }}</h4></a></td>
-                                        <td style="text-align: center"><a href="objects/{{ table.id }}">
-                                            <h4>{{ table.NCH_General }}</h4></a></td>
-                                        <td style="text-align: center"><a href="objects/{{ table.id }}">
-                                            <h4>{{ table.NCH_Spent }}</h4></a></td>
-                                        <td style="text-align: center" class="col2"><a href="objects/{{ table.id }}">
-                                            <h4>{{ table.Perform_proc }} %</h4></a></td>
-                                        <td>
+        <div class="">
+            <div class="" style="margin-top: 90px; margin-bottom: -95px">
+                <h3>{{ name_project.Name_Project }} </h3><input type="hidden" id="proj_a">
+            </div>
+            <div class="zone">
+                <table class="table " style="">
+                    <thead class="thead-dark">
 
-                                            <a class="btn btn-outline-secondary btn-sm mx-auto" type="button"
-                                               id="btn_change_object"
-                                               href="{% url 'object:update' pk=table.pk %}">
-                                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                            </a>
-                                            <a class="btn btn-outline-danger btn-sm mx-auto" type="button"
-                                               id="btn_change_object"
-                                               href="{% url 'object:delete' pk=table.pk %}">
-                                                <i class="fa fa-trash" aria-hidden="true"></i>
-                                            </a>
+                    <tr>
+                        <th scope="col" class="higher">Наименование объекта</th>
+                        <th scope="col" class="higher">Н/Ч общее</th>
+                        <th scope="col" class="higher">Н/Ч затрачено</th>
+                        <th scope="col" class="higher">Н/Ч осталось</th>
+                        <th scope="col" class="higher">Выполнено</th>
+                        {% if not error_perm %}
+                            <th scope="col" class="higher"></th>
+                        {% endif %}
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for table in object_list %}
+                        <tr class="str">
+                            <td class="str"><a
+                                    href="{% url 'object:detail' slug=table.slug slug_proj=name_project.slug %}">
+                                <h5>{{ table.Name_Object }}</h5></a></td>
+                            <td class="str"><a
+                                    href="{% url 'object:detail' slug=table.slug slug_proj=name_project.slug %}">
+                                <h5>{{ table.NCH_General }}</h5></a></td>
+                            <td class="str"><a
+                                    href="{% url 'object:detail' slug=table.slug slug_proj=name_project.slug %}">
+                                <h5>{{ table.NCH_Spent }}</h5></a></td>
+                            <td><a href="{% url 'object:detail' slug=table.slug slug_proj=name_project.slug %}">
+                                <h5>{{ table.NCH_Left }}</h5></a></td>
+                            <td><a href="{% url 'object:detail' slug=table.slug slug_proj=name_project.slug %}">
+                                <h5>{{ table.Perform_proc }} %</h5></a></td>
+                            {% if not  error_perm %}
+                                <td>
 
-                                        </td>
-                                    </tr>
-                                {% endfor %}
-                            </table>
+                                    <a class="btn btn-outline-secondary btn-sm mx-auto"
+                                       style="width: 30px"
+                                       type="button"
+                                       id="btn_change_object"
+                                       href="{% url 'object:update' slug=table.slug slug_proj=name_project.slug %}">
+                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                    </a>
 
-                        </div>
+                                    <a class="btn btn-outline-danger btn-sm mx-auto" style="width: 30px"
+                                       type="button"
+                                       id="btn_change_object"
+                                       href="{% url 'object:delete' slug=table.slug slug_proj=name_project.slug %}">
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </a>
 
-                        <ul class="btn_control">
-                            <div id="btn_back">
-                                <a href="{% url 'project:home' %}" class="btn_form_add_object_add eventBtn"><i
-                                        class="fa fa-caret-left" aria-hidden="true"></i></a>
-                            </div>
-                            <li>
-                                <a class="btn btn-outline-dark" id="btn_add_object" type="button"
-                                   href="{% url 'object:add' pk=pk_project %}">
-                                    Добавить
-                                </a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-            </table>
-
-        </section>
+                                </td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="btns">
+            <ul class="btn_control">
+                <li id="btn_back">
+                    <a href="{% url 'project:home' %}"
+                       class=" btn btn-outline-dark">
+                        <i class="fa fa-caret-left" aria-hidden="true"></i></a>
+                </li>
+                <li class="ml-lg-auto" id="btn_add">
+                    {% if not error_perm %}
+                        <a class="btn btn-outline-dark " id="btn_add_object"
+                                               type="button"
+                                               href="{% url 'object:add' slug_proj=name_project.slug %}">
+                        Добавить
+                    </a>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
     {% else %}
         {% include 'registration/errorPage_auth.html' %}
     {% endif %}

@@ -1,0 +1,53 @@
+{% extends 'card_object.html' %}
+{% load static %}
+{% block add_style %}
+    <link rel="stylesheet" href="{% static 'css/form_add_object.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plan_work.css' %}">
+{% endblock %}
+
+{% block info %}
+    {% if user.is_authenticated %}
+
+
+        {% if not error_perm %}
+            <div class="container my-4">
+                <div class="display-5 "><h3>Добавить работу</h3></div>
+                {% if error %}
+                    <div class="msgError_add_object" style="font-size: 15px; margin-top: -8px"><i
+                            class="fa fa-exclamation-triangle" aria-hidden="true"></i> {{ error }}</div>
+                {% endif %}
+                <div class="row ">
+                    <div class="col-md-6 mx-auto">
+                        <form action="{% url 'work:create_plan_work' slug_proj slug %}" method="post">{% csrf_token %}
+                            {% for field in form %}
+                                <div class="form-group">
+                                    <div style="text-align: left; padding-left: 15px">{{ field.label_tag }}</div>
+                                    <div {% if field.errors %} class="error_add_object" style="" {% endif %}>
+                                        {{ field }}
+                                    </div>
+                                    {% if field.errors %}
+                                        <div class="msgError_add_object">{{ field.errors }}</div>
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                            <input type="submit" value="Добавить" class=" btn btn-outline-dark">
+                            <a href="{% url 'work:plan_work' slug_proj slug %}" class=" btn btn-outline-dark">Отмена</a>
+                            <br/><br/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+{#            <div class="msgError_add_object" style="font-size: 15px; margin-top: -8px"><i#}
+{#                    class="fa fa-exclamation-triangle" aria-hidden="true"></i> {{ error_perm }}</div>#}
+            {% include 'registration/errorPage_perm.html' %}
+
+        {% endif %}
+    {% else %}
+        {% include 'registration/errorPage_auth.html' %}
+    {% endif %}
+{% endblock %}
+
+{% block add_script %}
+    <script src={% static 'js/add_object_form.js' %}></script>
+{% endblock %}

@@ -16,10 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from materials.views import search_plan_materials
+from work.views import search_plan_works, search_complete_works
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('projects/', include('project.urls', "project"), name='project_view'),
+    path('', include('project.urls', "project"), name='project_view'),
     path('projects/detail/', include('object.urls', 'object'), name='object_view'),
     # path('objects/', include('object.urls')),
-    path('accounts/', include('django.contrib.auth.urls'))
+    path('project/', include('work.urls', 'work'), name="work_view"),
+    path('accounts/', include('django.contrib.auth.urls')),
+
+    path('search_plan_materials/', search_plan_materials, name="search_plan_materials"),
+    path('search_plan_works/', search_plan_works, name="search_plan_works"),
+path('search_complete_works/', search_complete_works, name="search_complete_works"),
+
 ]

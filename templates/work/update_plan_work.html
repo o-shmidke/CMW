@@ -1,0 +1,74 @@
+{% extends 'card_object.html' %}
+{% load static %}
+{% block add_style %}
+    <link rel="stylesheet" href="{% static 'css/form_add_object.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plan_work.css' %}">
+{% endblock %}
+
+{% block info %}
+    {% if user.is_authenticated %}
+        {% if not error_perm %}
+            <div class="container my-4">
+                <div class="display-5 text-center"><h3>Изменить планируемую работу</h3></div>
+                <div class="row  ">
+                    <div class="col-md-6 mx-auto">
+
+                        <form action="{% url 'work:update_plan_work' slug_proj=slug_proj slug=slug  pk=pk %}"
+                              method="post">{% csrf_token %}
+                            <div class="form-group ">
+                                <div style="text-align: left; padding-left: 15px"
+                                     class=" col-md-12  mb-3 {% if form.type_works.errors %} error_add_object{% endif %}">
+                                    <label style="text-align: left; padding-left: 15px" for="id_type_works">Наименование
+                                        работы:</label>
+
+                                    {{ form.type_works }}
+                                    <div class="msgError_add_object">
+
+                                        {% if form.type_works.errors %} {{ form.type_works.errors }} {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div style="text-align: left; padding-left: 15px"
+                                     class="col-md-12 mb-3 {% if form.quantity_plan.errors %} error_add_object{% endif %}">
+                                    <label style="text-align: left; padding-left: 15px" for="id_quantity_plan">Планируемое
+                                        колличество:</label>
+
+                                    {{ form.quantity_plan }}
+                                    <div class="msgError_add_object">
+                                        {% if form.quantity_plan.errors %} {{ form.quantity_plan.errors }} {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div style="text-align: left; padding-left: 15px"
+                                     class="col-md-12 mb-3 {% if form.comment.errors %} error_add_object{% endif %}">
+                                    <label style="text-align: left; padding-left: 15px"
+                                           for="id_comment">Примечание:</label>
+
+                                    {{ form.comment }}
+                                    <div class="msgError_add_object for">
+                                        {% if form.comment.errors %} {{ form.comment.errors }} {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="submit" value="Изменить" class=" btn btn-outline-dark">
+                            <a href="{% url 'work:plan_work' slug_proj=slug_proj slug=slug %}"
+                               class=" btn btn-outline-dark">Отмена</a>
+                            <br/><br/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            {% include 'registration/errorPage_perm.html' %}
+        {% endif %}
+    {% else %}
+        {% include 'registration/errorPage_auth.html' %}
+    {% endif %}
+{% endblock %}
+
+{% block add_script %}
+    <script src={% static 'js/add_object_form.js' %}></script>
+
+{% endblock %}

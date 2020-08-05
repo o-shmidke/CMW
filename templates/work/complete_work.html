@@ -1,0 +1,152 @@
+{% extends 'card_object.html' %}
+{% load static %}
+{% block add_style %}
+    <link rel="stylesheet" href="{% static 'css/plan_work.css' %}">
+    <link rel="stylesheet" href="{% static 'css/objects_table.css' %}">
+    <link rel="stylesheet" href="{% static 'css/materials_view.css' %}">
+{% endblock %}
+{% block info %}
+    {% if user.is_authenticated %}
+        <section class="table_position_works">
+        <div class="nav_object btns_materials">
+                <ul class="nav nav-pills card-header-pills ">
+                    <li class="nav-item" style="margin-left: 70%;  width: 300px">
+                        <form action="" method="post" id="search-form_complete_works">
+                            {% csrf_token %}
+                            <div class="input-group input-group-sm">
+                                {{ form.q.errors }}
+                                <input type="text" name="q" id="q" class="form-control empty" style="font-size: 15px"
+                                       placeholder="&#xF002; Поиск">
+                                {#                                                            {{ form.q }}#}
+                                <input type="hidden" name="slug_o" value="{{ object_list.slug }}">
+                                <input type="hidden" name="slug_p" value="{{ slug_proj }}">
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+            <div class="zone_table_works posts">
+                <table class="table table-sm ">
+                    <thead class="high">
+                    <tr>
+                        <th scope="col" style=" vertical-align: middle" class="higher">Наименование работ</th>
+                        <th scope="col" style="text-align: center; vertical-align: middle" class="higher">Ед.изм.</th>
+                        <th scope="col" style="text-align: center; vertical-align: middle" class="higher">Кол-во (план)
+                        </th>
+                        <th scope="col" style="text-align: center; vertical-align: middle" class="higher">Кол-во (вып)
+                        </th>
+                        <th scope="col" style="text-align: center; vertical-align: middle" class="higher">Н/Ч
+                            план
+                        </th>
+                        <th scope="col" style="text-align: center; vertical-align: middle" class="higher">Н/Ч
+                            затрачено
+                        </th>
+                        <th scope="col" style="text-align: center; vertical-align: middle" class="higher">Н/Ч осталось
+                        </th>
+                        <th scope="col" style="text-align: center; vertical-align: middle; width: 80px" class="higher">
+                            Дата
+                        </th>
+                        <th scope="col" style="text-align: center; vertical-align: middle" class="higher">Примечание
+                        </th>
+
+                        <th scope="col" style="text-align: center; vertical-align: middle" class="higher">
+                            Ответственный
+                        </th>
+                        <th scope="col" style="text-align: center; vertical-align: middle" class="higher">Выполнено
+                        </th>
+                        <th scope="col" class="higher"></th>
+                    </tr>
+                    </thead>
+
+                    <tbody >
+                    {% for table in complete_work %}
+                        <tr>
+                            <td style=" vertical-align: middle">{{ table.type_works.name }}</td>
+                            <td style="text-align: center; vertical-align: middle">{{ table.type_works.unit.name }}</td>
+                            <td style="text-align: center; vertical-align: middle">{{ table.plan.quantity_plan }}</td>
+                            <td style="text-align: center; vertical-align: middle">{{ table.quantity_complete }}</td>
+                            <td style="text-align: center; vertical-align: middle">{{ table.plan.NCH_general }}</td>
+
+                            <td style="text-align: center; vertical-align: middle">{{ table.NCH_spent }}</td>
+                            <td style="text-align: center; vertical-align: middle">{{ table.NCH_left }}</td>
+                            <td style="text-align: center; vertical-align: middle">{{ table.date }}</td>
+                            <td style="vertical-align: middle; text-align:justify-all" >{{ table.comment }}</td>
+
+                            <td style="text-align: center; vertical-align: middle">{{ table.senior }}</td>
+                            <td style="text-align: center; vertical-align: middle; background-color: rgb{{ table.color }}">{{ table.perform_proc }}%</td>
+                            <td style="text-align: center; vertical-align: middle; width:530px" >
+
+                                <a class="btn btn-outline-secondary btn-sm mx-auto" style="width: 30px"
+                                   type="button"
+                                   id="btn_change_object"
+                                   href="{% url 'work:update_complete_work' slug=slug slug_proj=slug_proj pk=table.pk %}">
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                </a>
+
+                                <a class="btn btn-outline-danger btn-sm mx-auto" style="width: 30px"
+                                   type="button"
+                                   id="btn_change_object"
+                                   href="{% url 'work:delete_complete_work'  slug=slug slug_proj=slug_proj pk=table.pk %}">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </a>
+
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    <div class="foot">
+                        <tr>
+                            <td style=" vertical-align: middle" class="footer"><strong>Итого:</strong></td>
+                            <td style="text-align: center; vertical-align: middle" class="footer"></td>
+                            <td style="text-align: center; vertical-align: middle" class="footer"></td>
+                            <td style="text-align: center; vertical-align: middle" class="footer"></td>
+                            <td style="text-align: center; vertical-align: middle" class="footer"></td>
+                            <td style="text-align: center; vertical-align: middle"
+                                class="footer">{{ nch_spent_sum }}</td>
+                            <td style="text-align: center; vertical-align: middle"
+                                class="footer">  {{ nch_left_sum }} </td>
+                            <td style="text-align: center; vertical-align: middle" class="footer"></td>
+                            <td style="text-align: center; vertical-align: middle" class="footer"></td>
+                            <td style="text-align: center; vertical-align: middle" class="footer"></td>
+                            <td style="vertical-align: middle; " width="150" class="footer">{{ perform_proc_sum }}%</td>
+                            <td style="text-align: center; vertical-align: middle" width="80" class="footer">
+
+                        </tr>
+                    </div>
+                    </tbody>
+                </table>
+            </div>
+            {#                        </div>#}
+
+            <ul class="btn_control">
+                <div id="btn_back">
+                    <a style='margin-top: 10px'
+                       href="{% url 'object:home' slug_proj %}"
+                       class=" btn btn-outline-dark"><i
+                            class="fa fa-caret-left" aria-hidden="true"></i></a>
+                </div>
+{#                <li id="btn_back">#}
+{#                    <a href="{% url 'work:dowload_complete_work' slug_proj slug %}" class="btn btn-outline-dark">#}
+{#                       <i class="fa fa-floppy-o" aria-hidden="true"></i></a>#}
+{#                </li>#}
+                <li style="margin-left: 70% ">
+                    <a class="btn btn-outline-dark" id="btn_add_object" type="button"
+                       href="{% url 'work:create_complete_work' slug_proj slug %}">
+                        Добавить
+                    </a>
+                </li>
+            </ul>
+            {#                    </td>#}
+            {#                </tr>#}
+            {#            </table>#}
+
+        </section>
+
+    {% else %}
+        {% include 'registration/errorPage_auth.html' %}
+    {% endif %}
+{% endblock %}
+
+
+{% block add_script %}
+    <script src={% static 'js/search.js' %}></script>
+{% endblock %}

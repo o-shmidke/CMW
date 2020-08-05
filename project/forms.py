@@ -10,6 +10,7 @@ class ProjectForm(forms.ModelForm):
         attrs={'class': "form-control",
                'placeholder': 'Выберите откуда следует поезд'}))
 
+
     class Meta(object):
         model = Project
         fields = ('name_project', 'perform_proc')

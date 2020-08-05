@@ -1,0 +1,92 @@
+<table class="table table-sm ">
+    <thead class="high">
+    <tr>
+        <th scope="col" style=" vertical-align: middle" class="higher">Наименование работ</th>
+        <th scope="col" style="text-align: center; vertical-align: middle" class="higher">Ед.изм.</th>
+        <th scope="col" style="text-align: center; vertical-align: middle" class="higher">Кол-во (план)
+        </th>
+        <th scope="col" style="text-align: center; vertical-align: middle" class="higher">Кол-во (вып)
+        </th>
+        <th scope="col" style="text-align: center; vertical-align: middle" class="higher">Н/Ч
+            план
+        </th>
+        <th scope="col" style="text-align: center; vertical-align: middle" class="higher">Н/Ч
+            затрачено
+        </th>
+        <th scope="col" style="text-align: center; vertical-align: middle" class="higher">Н/Ч осталось
+        </th>
+        <th scope="col" style="text-align: center; vertical-align: middle; width: 80px" class="higher">
+            Дата
+        </th>
+        <th scope="col" style="text-align: center; vertical-align: middle" class="higher">Примечание
+        </th>
+
+        <th scope="col" style="text-align: center; vertical-align: middle" class="higher">
+            Ответственный
+        </th>
+        <th scope="col" style="text-align: center; vertical-align: middle" class="higher">Выполнено
+        </th>
+        <th scope="col" class="higher"></th>
+    </tr>
+    </thead>
+    {% if  not complete_work %}
+        <tr>
+            <td colspan="11"><h4>"{{ q }}" отсутствует в списке</h4></td>
+        </tr>
+    {% endif %}
+    <tbody>
+    {% for table in complete_work %}
+        <tr>
+            <td style=" vertical-align: middle">{{ table.type_works.name }}</td>
+            <td style="text-align: center; vertical-align: middle">{{ table.type_works.unit.name }}</td>
+            <td style="text-align: center; vertical-align: middle">{{ table.plan.quantity_plan }}</td>
+            <td style="text-align: center; vertical-align: middle">{{ table.quantity_complete }}</td>
+            <td style="text-align: center; vertical-align: middle">{{ table.plan.NCH_general }}</td>
+
+            <td style="text-align: center; vertical-align: middle">{{ table.NCH_spent }}</td>
+            <td style="text-align: center; vertical-align: middle">{{ table.NCH_left }}</td>
+            <td style="text-align: center; vertical-align: middle">{{ table.date }}</td>
+            <td style="vertical-align: middle" width="">{{ table.comment }}</td>
+
+            <td style="text-align: center; vertical-align: middle">{{ table.senior }}</td>
+            <td style="text-align: center; vertical-align: middle; background-color: rgb{{ table.color }}">{{ table.perform_proc }}%</td>
+            <td style="text-align: center; vertical-align: middle;" width="130">
+
+                <a class="btn btn-outline-secondary btn-sm mx-auto" style="width: 30px"
+                   type="button"
+                   id="btn_change_object"
+                   href="{% url 'work:update_complete_work' slug=slug slug_proj=slug_proj pk=table.pk %}">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </a>
+
+                <a class="btn btn-outline-danger btn-sm mx-auto" style="width: 30px"
+                   type="button"
+                   id="btn_change_object"
+                   href="{% url 'work:delete_complete_work'  slug=slug slug_proj=slug_proj pk=table.pk %}">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </a>
+
+            </td>
+        </tr>
+    {% endfor %}
+    <div class="foot">
+        <tr>
+            <td style=" vertical-align: middle" class="footer"><strong>Итого:</strong></td>
+            <td style="text-align: center; vertical-align: middle" class="footer"></td>
+            <td style="text-align: center; vertical-align: middle" class="footer"></td>
+            <td style="text-align: center; vertical-align: middle" class="footer"></td>
+            <td style="text-align: center; vertical-align: middle" class="footer"></td>
+            <td style="text-align: center; vertical-align: middle"
+                class="footer">{{ nch_spent_sum }}</td>
+            <td style="text-align: center; vertical-align: middle"
+                class="footer">  {{ nch_left_sum }} </td>
+            <td style="text-align: center; vertical-align: middle" class="footer"></td>
+            <td style="text-align: center; vertical-align: middle" class="footer"></td>
+            <td style="text-align: center; vertical-align: middle" class="footer"></td>
+            <td style="vertical-align: middle; " width="150" class="footer">{{ perform_proc_sum }}%</td>
+            <td style="text-align: center; vertical-align: middle" width="80" class="footer">
+
+        </tr>
+    </div>
+    </tbody>
+</table>

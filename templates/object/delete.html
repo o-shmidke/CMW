@@ -5,19 +5,29 @@
 {% endblock %}
 
 {% block entr %}
-    <div class="container my-4">
-        <div class="display-4 text-center">Удалить Объект</div>
-        <div class="row my-4 ">
-            <div class="col-md-6 text-center mx-auto">
-                <form method="post">{% csrf_token %}
-                    <p>Действительно хотите удалить объект "{{ object }}"?</p>
-                    <div class="text-center my-2">
-                        <input type="submit" value="Удалить" class="btn btn-outline-danger">
+    {% if user.is_authenticated %}
+        {% if not error_perm %}
+            <div class="container my-4">
+                <div class="display-4 text-center">Удалить Объект</div>
+                <div class="row my-4 ">
+                    <div class="col-md-6 text-center mx-auto">
+                        <form method="post">{% csrf_token %}
+                            <p>Действительно хотите удалить объект "{{ object_list.Name_Object }}"?</p>
+                            <div class="text-center my-2">
+                                <input type="submit" value="Удалить" class="btn btn-outline-danger">
+                                <a href="{% url 'object:home' slug_proj=slug_proj %}"
+                                   class=" btn btn-outline-dark">Отмена</a>
+                            </div>
+                        </form>
                     </div>
-                </form>
+                </div>
             </div>
-        </div>
-    </div>
+        {% else %}
+            {% include 'registration/errorPage_perm.html' %}
+        {% endif %}
+    {% else %}
+        {% include 'registration/errorPage_auth.html' %}
+    {% endif %}
 {% endblock %}
 
 {% block add_script %}

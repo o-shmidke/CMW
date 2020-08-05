@@ -1,7 +1,6 @@
 #title_table {
     position: -webkit-sticky;
-    position: sticky;
-    top: 0px;
+
     border-top: none;
 
 }
@@ -10,10 +9,19 @@
     display: flex;
     border: #c6c8ca solid 1px;
     background-color: white;
-    padding-left: 70%;
+    /*padding-left: 0;*/
 }
 .btn_control li{
     margin: 12px;
+}
+#btn_add{
+    padding-right: 6em;
+    /*margin-right: -700%;*/
+    /*text-align: right;*/
+
+}
+.btns{
+    /*padding-right: 10%;*/
 }
 .btn_control .btn_form_add_object_add {
     padding: 5px 15px;
@@ -30,8 +38,9 @@ h3{
      font-size: 22px;
 }
 #btn_back{
-    margin-right: 600px;
-    margin-left: -700px;
+    /*padding-right: 60%;*/
+    padding-left: 6%;
+
 }
 .btn_form_add_object_add i {
     font-size: 25px;

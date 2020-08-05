@@ -1,0 +1,198 @@
+{% extends 'card_object.html' %}
+{% load static %}
+{% block add_style %}
+    <link rel="stylesheet" href="{% static 'css/plan_work.css' %}">
+    <link rel="stylesheet" href="{% static 'css/objects_table.css' %}">
+    <link rel="stylesheet" href="{% static 'css/materials_view.css' %}">
+{% endblock %}
+{% block info %}
+    {% if user.is_authenticated %}
+        <section class="table_position_works">
+            <div class="nav_object btns_materials">
+                <ul class="nav nav-pills card-header-pills ">
+                    <li class="nav-item" style="margin-left: 70%;  width: 300px">
+                        <form action="" method="post" id="search-form_plan_works">
+                            {% csrf_token %}
+                            <div class="input-group input-group-sm">
+                                {{ form.q.errors }}
+                                <input type="text" name="q" id="q" class="form-control empty" style="font-size: 15px"
+                                       placeholder="&#xF002; Поиск">
+                                {#                                                            {{ form.q }}#}
+                                <input type="hidden" name="slug_o" value="{{ object_list.slug }}">
+                                <input type="hidden" name="slug_p" value="{{ slug_proj }}">
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+            <div class="zone_table_works posts">
+
+                <table class="table table-sm ">
+                    <thead class="high ">
+                    <tr>
+                        <th scope="col" style=" vertical-align: middle" class="higher">Наименование работ</th>
+                        <th scope="col" style="text-align: center; vertical-align: middle" class="higher">Ед.изм.
+                        </th>
+                        <th scope="col" style="text-align: center; vertical-align: middle" class="higher">Кол-во
+                            (план)
+                        </th>
+                        <th scope="col" style="text-align: center; vertical-align: middle" class="higher">Кол-во
+                            (вып)
+                        </th>
+
+                        <th scope="col" style="text-align: center; vertical-align: middle" class="higher">Н/Ч на
+                            ед.врем
+                        </th>
+                        <th scope="col" style="text-align: center; vertical-align: middle" class="higher">Н/Ч
+                            итого
+                        </th>
+                        <th scope="col" style="text-align: center; vertical-align: middle" class="higher">Н/Ч
+                            затрачено
+                        </th>
+                        <th scope="col" style="text-align: center; vertical-align: middle" class="higher">Н/Ч
+                            осталось
+                        </th>
+                        <th scope="col" style="text-align: center; vertical-align: middle" class="higher">
+                            Выполнено
+                        </th>
+                        <th scope="col" style="text-align: center; vertical-align: middle" class="higher">Примечание
+                        </th>
+                        {% if not error_perm %}
+                            <th scope="col" class="higher"></th>
+                        {% endif %}
+                    </tr>
+                    </thead>
+
+                    <tbody>
+
+                    {% for key, value in plan_work.items %}
+                        {% if  value %}
+                            <tr>
+                                <td colspan="11"
+                                    style="text-align: center; vertical-align: middle; width: 50px; background-color: #ededed">
+                                    <b>{{ key }}</b></td>
+                            </tr>
+                        {% endif %}
+                        {% for key2 in value %}
+                            <tr>
+                                <td style="text-align: left; padding-left: 10px; vertical-align: middle;">{{ key2.type_works.name }}</td>
+                                <td style="text-align: center; vertical-align: middle; width: 50px">{{ key2.type_works.unit.name }}</td>
+                                <td style="text-align: center; vertical-align: middle; width: 50px">{{ key2.quantity_plan }}</td>
+                                <td style="text-align: center; vertical-align: middle; width: 50px">{{ key2.quantity_complete }}</td>
+                                <td style="text-align: center; vertical-align: middle; width: 50px">{{ key2.type_works.NCH_unit_of_time }}</td>
+                                <td style="text-align: center; vertical-align: middle; width: 50px">{{ key2.NCH_general }}</td>
+                                <td style="text-align: center; vertical-align: middle; width: 50px">{{ key2.NCH_spent }}</td>
+                                <td style="text-align: center; vertical-align: middle; width: 50px">{{ key2.NCH_left }}</td>
+                                <td style="text-align: center; vertical-align: middle; width: 50px; background-color: rgb{{ key2.color }}">{{ key2.perform_proc }}%</td>
+                                <td style="text-align: justify-all; vertical-align: middle; width: 50px">{{ key2.comment }}</td>
+
+                                {% if not  error_perm %}
+                                    <td style="width: 90px;vertical-align: middle;">
+
+                                        <a class="btn btn-outline-secondary btn-sm mx-auto"
+                                           style="width: 30px;  vertical-align: middle;"
+                                           type="button"
+                                           id="btn_change_object"
+                                           href="{% url 'work:update_plan_work' slug_proj=slug_proj slug=object_list.slug  pk=key2.pk %}">
+                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                        </a>
+
+                                        <a class="btn btn-outline-danger btn-sm mx-auto"
+                                           style="width: 30px; vertical-align: middle;"
+                                           type="button"
+                                           id="btn_change_object"
+                                           href="{% url 'work:delete_plan_work' slug_proj=slug_proj slug=object_list.slug  pk=key2.pk %}">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                        </a>
+
+                                    </td>
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+                    {% endfor %}
+                    {#                    {% for table in plan_work %}#}
+                    {#                        <tr>#}
+                    {#                            <td style=" vertical-align: middle">{{ table.type_works.name }}</td>#}
+                    {#                            <td style="text-align: center; vertical-align: middle">{{ table.type_works.unit.name }}</td>#}
+                    {#                            <td style="text-align: center; vertical-align: middle">{{ table.quantity_plan }}</td>#}
+                    {#                            <td style="text-align: center; vertical-align: middle">{{ table.quantity_complete }}</td>#}
+                    {#                            <td style="text-align: center; vertical-align: middle">{{ table.type_works.NCH_unit_of_time }}</td>#}
+                    {#                            <td style="text-align: center; vertical-align: middle">{{ table.NCH_general }}</td>#}
+                    {#                            <td style="text-align: center; vertical-align: middle">{{ table.NCH_spent }}</td>#}
+                    {#                            <td style="text-align: center; vertical-align: middle">{{ table.NCH_left }}</td>#}
+                    {##}
+                    {#                            <td style="text-align: center; vertical-align: middle; background-color: rgb{{ table.color }}">{{ table.perform_proc }}%</td>#}
+                    {#                            <td style="vertical-align: middle" width="150">{{ table.comment }}</td>#}
+                    {#                            {% if not error_perm %}#}
+                    {#                                <td style="text-align: center; vertical-align: middle" width="80">#}
+                    {##}
+                    {#                                    <a class="btn btn-outline-secondary btn-sm mx-auto" style="width: 30px"#}
+                    {#                                       type="button"#}
+                    {#                                       id="btn_change_object"#}
+                    {#                                       href="{% url 'work:update_plan_work' slug_proj=slug_proj slug=object_list.slug  pk=table.pk %}">#}
+                    {#                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>#}
+                    {#                                    </a>#}
+                    {##}
+                    {#                                    <a class="btn btn-outline-danger btn-sm mx-auto" style="width: 30px"#}
+                    {#                                       type="button"#}
+                    {#                                       id="btn_change_object"#}
+                    {#                                       href="{% url 'work:delete_plan_work' slug_proj=slug_proj slug=object_list.slug  pk=table.pk %}">#}
+                    {#                                        <i class="fa fa-trash" aria-hidden="true"></i>#}
+                    {#                                    </a>#}
+                    {##}
+                    {#                                </td>#}
+                    {#                            {% endif %}#}
+                    {#                        </tr>#}
+                    {#                    {% endfor %}#}
+                    <div class="foot">
+                        <tr>
+                            <td style=" vertical-align: middle" class="footer"><strong>Итого:</strong></td>
+                            <td style="text-align: center; vertical-align: middle" class="footer"></td>
+                            <td style="text-align: center; vertical-align: middle" class="footer"></td>
+                            <td style="text-align: center; vertical-align: middle" class="footer"></td>
+                            <td style="text-align: center; vertical-align: middle" class="footer"></td>
+                            <td style="text-align: center; vertical-align: middle"
+                                class="footer"> {{ nch_sum }}</td>
+                            <td style="text-align: center; vertical-align: middle" class="footer"></td>
+                            <td style="text-align: center; vertical-align: middle" class="footer"></td>
+                            <td style="text-align: center; vertical-align: middle" class="footer"></td>
+                            <td style="vertical-align: middle" width="150" class="footer"></td>
+                            {% if not error_perm %}
+                                <td style="text-align: center; vertical-align: middle" width="80" class="footer">
+                            {% endif %}
+                        </tr>
+                    </div>
+                    </tbody>
+                </table>
+            </div>
+
+            <ul class="btn_control">
+                <div id="btn_back">
+                    <a style='margin-top: 10px; margin-bottom: 13px'
+                       href="{% url 'object:home' slug_proj %}"
+                       class=" btn btn-outline-dark"><i
+                            class="fa fa-caret-left" aria-hidden="true"></i></a>
+                </div>
+
+                <li style="margin-left: 70% ">
+                    {% if not error_perm %}
+                        <a class="btn btn-outline-dark" id="btn_add_object" type="button"
+                           href="{% url 'work:create_plan_work' slug_proj slug %}">
+                            Добавить
+                        </a>
+                    {% endif %}
+                </li>
+
+            </ul>
+        </section>
+
+    {% else %}
+        {% include 'registration/errorPage_auth.html' %}
+    {% endif %}
+
+{% endblock %}
+
+{% block add_script %}
+    <script src={% static 'js/search.js' %}></script>
+{% endblock %}
+

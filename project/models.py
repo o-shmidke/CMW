@@ -1,6 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, UserManager
+from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
+from django.shortcuts import reverse
+from time import time
+
+
+def gen_slug(s):
+    new_slug = slugify(s, allow_unicode=True)
+    return new_slug + '-' + str(int(time()))
 
 
 class Position(models.Model):
@@ -24,6 +32,9 @@ class CustomUser(AbstractUser):
         full_name = '%s %s %s' % (self.last_name, self.first_name, self.patronymic_name)
         return full_name.strip()
 
+    def __str__(self):
+        return '%s %s %s' % (self.last_name, self.first_name, self.patronymic_name)
+
     class Meta:
         verbose_name = "Сотрудник"
         verbose_name_plural = "Сотрудники"
@@ -32,6 +43,16 @@ class CustomUser(AbstractUser):
 class Project(models.Model):
     Name_Project = models.CharField(max_length=500, unique=True, verbose_name="Наименование ГК")
     Perform_proc = models.SmallIntegerField(default=0, verbose_name="Выполнено(%)")
+
+    slug = models.SlugField(max_length=150, blank=True)
+
+    def get_absolute_url(self):
+        return reverse('project:home', kwargs={'slug_proj': self.slug})
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = gen_slug(self.Name_Project)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.Name_Project

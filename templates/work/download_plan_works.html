@@ -1,0 +1,38 @@
+{% extends 'card_object.html' %}
+{% load static %}
+{% block add_style %}
+    <link rel="stylesheet" href="{% static 'css/form_add_object.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plan_work.css' %}">
+{% endblock %}
+
+{% block info %}
+    {% if user.is_authenticated %}
+        {% if not error_perm %}
+            <div class="container my-4">
+                <div class="text-center"><h3>Загрузить из файла </h3></div>
+                <div class="row my-4 ">
+                    <div class="col-md-6 text-center mx-auto">
+                        <form method="post" enctype="multipart/form-data">{% csrf_token %}
+                            <input type="file" name="file">
+                            <div class="text-center my-2">
+                                <input type="submit" value="Загрузить файл" class="btn btn-outline-danger">
+                                <a href="{% url 'work:plan_work' slug_proj slug %}"
+                                   class="btn btn-outline-dark">Отмена</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            {#            <div class="msgError_add_object" style="font-size: 15px; margin-top: -8px"><i#}
+            {#                    class="fa fa-exclamation-triangle" aria-hidden="true"></i> {{ error_perm }}</div>#}
+            {% include 'registration/errorPage_perm.html' %}
+        {% endif %}
+    {% else %}
+        {% include 'registration/errorPage_auth.html' %}
+    {% endif %}
+{% endblock %}
+
+{% block add_script %}
+    <script src={% static 'js/add_object_form.js' %}></script>
+{% endblock %}

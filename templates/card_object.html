@@ -1,0 +1,83 @@
+{% extends 'wrapper.html' %}
+
+{% url 'object:detail' slug_proj slug as object_detail_url %}
+{% load static %}
+{% block add_style %}
+    <link rel="stylesheet" href="{% static 'css/form_add_object.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plan_work.css' %}">
+
+{% endblock %}
+
+{% block entr %}
+    <div class="card text-center">
+
+        <div class="card-header">
+            <div class="zag_name">
+                <h3> {{ object_list.Name_Object }} </h3>
+            </div>
+            <div class="nav_object">
+                <ul class="nav nav-pills card-header-pills">
+                    <li class="nav-item">
+                        <a class=" btn btn-outline-dark {% if request.resolver_match.url_name == "detail" %}active{% endif %}"
+                           id="btn_add_object" type="button"
+                           href="{% url 'object:detail'  slug_proj slug %}">
+                            Информация
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-dark {% if request.resolver_match.url_name == "plan_work"  or request.resolver_match.url_name == "create_plan_work" or request.resolver_match.url_name == "delete_plan_work" or request.resolver_match.url_name == "update_plan_work" %}active{% endif %}"
+                           id="btn_add_object" type="button"
+                           href="{% url 'work:plan_work'  slug_proj slug %}">
+                            Работы
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-dark {% if request.resolver_match.url_name == "complete_work" or request.resolver_match.url_name == "create_complete_work" or request.resolver_match.url_name == "delete_complete_work" or request.resolver_match.url_name == "update_complete_work" %}active{% endif %}"
+                           id="btn_add_object" type="button"
+                           href="{% url 'work:complete_work' slug_proj slug %}">
+                            Журнал работ
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="btn btn-outline-dark {% if request.resolver_match.url_name == "plan_materials_view" or request.resolver_match.url_name == "plan_materials_create" or request.resolver_match.url_name == "plan_materials_delete" or request.resolver_match.url_name == "plan_materials_update" %}active{% endif %}"
+                           id="btn_add_object" type="button"
+                           href="{% url 'object:materials:plan_materials_view'  slug_proj slug %}">
+                            Материалы
+                        </a></li>
+                    {% if request.resolver_match.url_name == "plan_work" %}
+
+                        <li style="margin-left: 50% ">
+                            <a href="{% url 'work:dowload_plan_work' slug_proj slug %}"
+                               class="btn btn-outline-dark">
+                                <i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+                        </li>
+                    {% endif %}
+                    {% if request.resolver_match.url_name == "complete_work" %}
+                        <li style="margin-left: 50% ">
+                            <a href="{% url 'work:dowload_complete_work' slug_proj slug %}"
+                               class="btn btn-outline-dark">
+                                <i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+                        </li>
+                    {% endif %}
+                    {% if request.resolver_match.url_name == "plan_materials_view" %}
+
+                        <li style="margin-left: 50% ">
+                            <a href="{% url 'object:materials:dowload_plan_materials' slug_proj slug %}"
+                               class="btn btn-outline-dark">
+                                <i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        <div class="card-body">
+            {% block info %}
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block add_script %}
+    <script src={% static 'js/add_object_form.js' %}></script>
+{% endblock %}

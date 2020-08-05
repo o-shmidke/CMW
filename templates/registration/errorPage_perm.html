@@ -1,0 +1,28 @@
+{% load static %}
+{% block add_style %}
+    <link rel="stylesheet" href="{% static 'css/errorPage_auth.css' %}">
+{% endblock %}
+
+<div class="errPage">
+    <div class="msgError_auth">
+        {#        <div class="iconError_auth">#}
+        {#            <i class="fa fa-exclamation-circle"></i>#}
+        {#        </div>#}
+        <div class="textError_auth">
+
+            <div class="msgError_add_object" style="font-size: 15px; margin-top: -50px">
+                <i class="fa fa-exclamation-circle"></i>
+                <h3>{{ error_perm }}</h3>
+            </div>
+{#            <a href="{% url 'work:plan_work' slug_proj slug %}" class=" btn btn-outline-dark">Назад</a>#}
+        </div>
+
+        {#        <div class="link_autorization">#}
+        {#            <a href="{% url 'login' %}?next={{ request.path }}">Назад</a>#}
+        {#        </div>#}
+    </div>
+</div>
+
+{% block add_script %}
+    <script src={% static 'js/errorPage_auth.js' %}></script>
+{% endblock %}

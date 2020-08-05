@@ -1,44 +1,77 @@
 {% extends 'wrapper.html' %}
 {% load static %}
-{#    {% block add_style %}#}
-{#        <link rel="stylesheet" href="{% static 'css/projects_table.css' %}">#}
-{#    {% endblock %}#}
+{% block add_style %}
+    <link rel="stylesheet" href="{% static 'css/plan_work.css' %}">
+{% endblock %}
 {% block entr %}
     {% if user.is_authenticated %}
 
-        <section class="table_position">
-            <div class="pos_zag">
-                <table>
-                    <thead>
-                    <tr>
-                        <th style="text-align: center"><h4>Наименование ГК</h4></th>
-                        <th style="text-align: center" class="col2"><h4>Выполнено</h4></th>
-                    </tr>
-                    </thead>
-                </table>
-            </div>
+{#        <section class="table_position">#}
+            {#            <div class="pos_zag">#}
+            {#                <table>#}
+            {#                    <thead>#}
+            {#                    <tr>#}
+            {#                        <th style="text-align: center" class="higher"><h4>Наименование ГК</h4></th>#}
+            {#                        <th style="text-align: center"  class="higher"><h4>Выполнено</h4></th>#}
+            {#                    </tr>#}
+            {#                    </thead>#}
+            {#                </table>#}
+            {#            </div>#}
+{##}
+{#            <div class="zone">#}
+{#                <table>#}
+{#                    <thead>#}
+{#                    <tr>#}
+{#                        <th style="text-align: center" class="higher zagolovki"><h4>Наименование ГК</h4></th>#}
+{#                        <th style="text-align: center" class="higher zagolovki"><h4>Выполнено</h4></th>#}
+{#                    </tr>#}
+{#                    </thead>#}
+{#                    {% for table in project_list %}#}
+                        {#                        <form action="{% url 'object:home' %}">#}
+{#                        <tr class="str">#}
+{#                            <td>#}
+{#                                <input type="hidden" value={{ table.pk }} name="project_a">#}
+{#                                <a href="{% url 'object:home' slug_proj=table.slug %}" class="  btn_proj col1"#}
+{#                                   id="btn_ob1"><h5>{{ table.Name_Project }}</h5></a>#}
+{#                            </td>#}
+{#                            <td class="col2">#}
+{#                                <input type="hidden" value={{ table.pk }} name="project_a">#}
+{#                                <a href="{% url 'object:home' slug_proj=table.slug %}" style="text-align: center"#}
+{#                                   class=" btn_proj col1"#}
+{#                                   id="btn_ob1"><h5>{{ table.Perform_proc }}%</h5></a>#}
+{#                            </td>#}
+{#                        </tr>#}
+                        {#                        </form>#}
+{#                    {% endfor %}#}
+{##}
+{#                </table>#}
+{#            </div>#}
+{##}
+{#        </section>#}
+        <div class="zone">
+        <table class="table ">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Наименование ГК</th>
+                <th scope="col">Выполнено</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for table in project_list %}
+                <tr class="str">
+                    <td><input type="hidden" value={{ table.pk }} name="project_a">
+                        <a href="{% url 'object:home' slug_proj=table.slug %}" class="  btn_proj col1"
+                           id="btn_ob1"><h5>{{ table.Name_Project }}</h5></a></td>
+                    <td><input type="hidden" value={{ table.pk }} name="project_a">
+                        <a href="{% url 'object:home' slug_proj=table.slug %}" style="text-align: center"
+                           class=" btn_proj col1"
+                           id="btn_ob1"><h5>{{ table.Perform_proc }}%</h5></a></td>
 
-            <div class="zone">
-                <table>
-
-                    {% for table in project_list %}
-{#                        <form action="{% url 'object:home' %}">#}
-                            <tr class="str">
-                                <td>
-                                    <input type="hidden" value={{ table.pk }} name="project_a">
-                                    <a href="{% url 'object:home' pk=table.pk %}" class="btn_proj col1"
-                                            id="btn_ob1">{{ table.Name_Project }}</a>
-                                </td>
-                                <td style="text-align: center" class="col2">
-                                    <a href="{% url 'object:home' pk=table.pk %}" class="btn_proj col1"
-                                            id="btn_ob1">{{ table.Perform_proc }}</a>
-                                </td>
-                            </tr>
-{#                        </form>#}
-                    {% endfor %}
-                </table>
-            </div>
-        </section>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        </div>
     {% else %}
         {% include 'registration/errorPage_auth.html' %}
     {% endif %}
