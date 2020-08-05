@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9cf457d-cf38-4b22-adc6-b7b5a1e3f8a8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/utils/uploading.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/uploading.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CMW/settings/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CMW/settings/production.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMW/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/CMW/settings/local.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,8 +50,8 @@
       <list>
         <option value="CSS File" />
         <option value="JavaScript File" />
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -73,18 +76,20 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/django-import-export-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/CMW/settings" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\daze0\PycharmProjects\CMW\CMW\settings" />
+      <recent name="C:\Users\daze0\PycharmProjects\CMW\templates\work" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\daze0\PycharmProjects\CMW\CMW\settings" />
       <recent name="C:\Users\daze0\PycharmProjects\CMW\templates\object" />
       <recent name="C:\Users\daze0\PycharmProjects\CMW\templates\create" />
       <recent name="C:\Users\daze0\PycharmProjects\CMW\templates\project" />
       <recent name="C:\Users\daze0\PycharmProjects\CMW\templates" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\daze0\PycharmProjects\CMW\templates\work" />
     </key>
   </component>
   <component name="RunManager">
@@ -173,7 +178,7 @@
       <workItem from="1596551614296" duration="12092000" />
       <workItem from="1596603346248" duration="56000" />
       <workItem from="1596603425212" duration="15887000" />
-      <workItem from="1596627382450" duration="16304000" />
+      <workItem from="1596627382450" duration="17341000" />
     </task>
     <servers />
   </component>
@@ -189,38 +194,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1596212906134" />
-    <state width="1450" height="201" key="GridCell.Tab.0.bottom" timestamp="1596631602032">
+    <state width="1450" height="111" key="GridCell.Tab.0.bottom" timestamp="1596645853012">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1450" height="201" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1596631602032" />
-    <state width="1450" height="201" key="GridCell.Tab.0.center" timestamp="1596631602032">
+    <state width="1450" height="111" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1596645853012" />
+    <state width="1450" height="111" key="GridCell.Tab.0.center" timestamp="1596645853012">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1450" height="201" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1596631602032" />
-    <state width="1450" height="201" key="GridCell.Tab.0.left" timestamp="1596631602032">
+    <state width="1450" height="111" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1596645853012" />
+    <state width="1450" height="111" key="GridCell.Tab.0.left" timestamp="1596645853012">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1450" height="201" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1596631602032" />
-    <state width="1450" height="201" key="GridCell.Tab.0.right" timestamp="1596631602032">
+    <state width="1450" height="111" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1596645853012" />
+    <state width="1450" height="111" key="GridCell.Tab.0.right" timestamp="1596645853012">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1450" height="201" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1596631602032" />
-    <state width="1450" height="201" key="GridCell.Tab.1.bottom" timestamp="1596631549295">
+    <state width="1450" height="111" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1596645853012" />
+    <state width="1450" height="111" key="GridCell.Tab.1.bottom" timestamp="1596645853013">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1450" height="201" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1596631549295" />
-    <state width="1450" height="201" key="GridCell.Tab.1.center" timestamp="1596631549295">
+    <state width="1450" height="111" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1596645853013" />
+    <state width="1450" height="111" key="GridCell.Tab.1.center" timestamp="1596645853012">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1450" height="201" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1596631549295" />
-    <state width="1450" height="201" key="GridCell.Tab.1.left" timestamp="1596631549294">
+    <state width="1450" height="111" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1596645853012" />
+    <state width="1450" height="111" key="GridCell.Tab.1.left" timestamp="1596645853012">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1450" height="201" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1596631549294" />
-    <state width="1450" height="201" key="GridCell.Tab.1.right" timestamp="1596631549295">
+    <state width="1450" height="111" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1596645853012" />
+    <state width="1450" height="111" key="GridCell.Tab.1.right" timestamp="1596645853012">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1450" height="201" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1596631549295" />
+    <state width="1450" height="111" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1596645853012" />
     <state x="349" y="67" key="com.intellij.database.dbimport.ImportDialog" timestamp="1589269170514">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
