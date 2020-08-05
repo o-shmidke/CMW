@@ -2,63 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9cf457d-cf38-4b22-adc6-b7b5a1e3f8a8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/CMW/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/materials/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/materials/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/materials_view.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/plan_work.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/check_form_add.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/search.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/card_object.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/materials/create.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/materials/delete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/materials/update.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/materials/view.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/object/detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/part_views/search_complete_work.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/part_views/search_plan_materials.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/part_views/search_plan_works.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/registration/errorPage_perm.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/work/complete_work.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/work/create_complete_work.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/work/create_plan_work.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/work/delete_complete_work.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/work/delete_plan_work.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/work/download_plan_works.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/work/plan_work.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/work/update_complete_work.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/work/update_plan_work.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/uploading.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/work/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/work/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/75a63e55-9444-4c69-ac07-36983119d742.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/75a63e55-9444-4c69-ac07-36983119d742.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMW/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/CMW/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMW/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/CMW/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/object/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/object/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/object/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/object/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/autorize.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/autorize.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/form_add_object.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/form_add_object.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/objects_table.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/objects_table.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/projects_table.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/projects_table.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/add_object_form.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/add_object_form.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/bootstrap.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/object/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/object/create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/object/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/object/delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/object/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/object/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/object/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/object/update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/project/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/project/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/wrapper.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wrapper.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/django/contrib/auth/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/django/contrib/auth/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/uploading.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/uploading.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,7 +173,7 @@
       <workItem from="1596551614296" duration="12092000" />
       <workItem from="1596603346248" duration="56000" />
       <workItem from="1596603425212" duration="15887000" />
-      <workItem from="1596627382450" duration="15846000" />
+      <workItem from="1596627382450" duration="16304000" />
     </task>
     <servers />
   </component>
