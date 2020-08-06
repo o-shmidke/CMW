@@ -1,2 +1,2 @@
 web:gunicorn CMW.wsgi --log-file -
-heroku ps:scale web=1
+ps:scale web=1
