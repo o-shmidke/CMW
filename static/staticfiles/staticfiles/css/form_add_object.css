@@ -1,0 +1,202 @@
+/*!*#window {*!*/
+/*!*    width: 550px;*!*/
+/*!*    height: 600px;*!*/
+/*!*    margin: 40px auto;*!*/
+/*!*    background: #fff;*!*/
+/*!*    border: 1px solid #fff;*!*/
+/*!*    border-radius: 15px;*!*/
+/*!*    z-index: 150;*!*/
+/*!*    position: fixed;*!*/
+/*!*    left: 0;*!*/
+/*!*    right: 0;*!*/
+/*!*    top: 0px;*!*/
+/*!*    bottom: 0;*!*/
+/*!*    border-top: 6px solid #b9bbbe;*!*/
+/*!*    display: block;*!*/
+/*!*}*!*/
+
+/*!*.down_control .input {*!*/
+/*!*    padding: 5px;*!*/
+/*!*    margin-left: 10px;*!*/
+/*!*    margin-right: 10px;*!*/
+/*!*    text-align: center;*!*/
+/*!*    margin-bottom: 5px;*!*/
+/*!*}*!*/
+
+/*!*.down_control .label_control {*!*/
+/*!*    text-align: left;*!*/
+/*!*    margin-left: 20px;*!*/
+/*!*    font-size: 14px;*!*/
+/*!*    margin-bottom: -5px;*!*/
+/*!*}*!*/
+
+/*!*.down_control .selection_control {*!*/
+/*!*    text-align: center;*!*/
+/*!*}*!*/
+
+/*!*.high_control {*!*/
+/*!*    text-align: center;*!*/
+/*!*}*!*/
+
+/*!*.high_control input {*!*/
+/*!*    padding: 5px;*!*/
+/*!*    margin: 5px 10px;*!*/
+/*!*}*!*/
+
+/*!*.label_select {*!*/
+/*!*    text-align: center;*!*/
+
+/*!*}*!*/
+
+/*!*.input {*!*/
+/*!*    width: 90%;*!*/
+/*!*    border: 1px solid;*!*/
+/*!*    border-radius: 5px;*!*/
+/*!*}*!*/
+
+/*!*.input p {*!*/
+/*!*    color: #757575;*!*/
+/*!*}*!*/
+
+/*!*#title_form_add_object {*!*/
+/*!*    text-align: center;*!*/
+/*!*    padding-top: 15px;*!*/
+/*!*}*!*/
+
+/*!*.btn_form_add {*!*/
+/*!*    background-color: white;*!*/
+/*!*    border-radius: 5px;*!*/
+/*!*    margin-top: 20px;*!*/
+/*!*    margin-left: 10px;*!*/
+
+/*!*    padding: 10px;*!*/
+/*!*    border-bottom: 2px solid #5a6268;*!*/
+/*!*    border-top: 1px solid #5a6268;*!*/
+/*!*    border-left: 1px solid #5a6268;*!*/
+/*!*    border-right: 2px solid #5a6268;*!*/
+/*!*}*!*/
+
+/*!*.btn_form {*!*/
+/*!*    text-align: center;*!*/
+/*!*}*!*/
+
+/*!*!*button:hover {*!*!*/
+/*!*!*    color: white;*!*!*/
+/*!*!*    background-color: #5a6268;*!*!*/
+/*!*!*}*!*!*/
+
+/*!*.form_add_object {*!*/
+/*!*    !*text-align: center;*!*!*/
+/*!*}*!*/
+
+/*!*#gray {*!*/
+/*!*    background-color: rgba(1, 1, 1, 0.75);*!*/
+/*!*    position: fixed;*!*/
+/*!*    left: 0;*!*/
+/*!*    right: 0;*!*/
+/*!*    top: 0;*!*/
+/*!*    bottom: 0;*!*/
+/*!*    z-index: 100;*!*/
+
+/*!*}*!*/
+/*!*.btn_form_add_object{*!*/
+/*!*    text-align: center;*!*/
+/*!*    margin-left: -10px;*!*/
+/*!*}*!*/
+/*!*!*.btn_form_add_object button:hover {*!*!*/
+/*!*!*    color: white;*!*!*/
+/*!*!*    background-color: #5a6268;*!*!*/
+/*!*!*}*!*!*/
+
+/*!*#error{*!*/
+/*!*    margin-top: 10px;*!*/
+/*!*    text-align: center;*!*/
+/*!*    margin-bottom: -20px;*!*/
+
+/*!*}*!*/
+
+/*!*#error_msg{*!*/
+/*!*    font-size: 14px;*!*/
+/*!*}*!*/
+
+
+/*проверка телефона*/
+/*.phone_form {*/
+/*	width: 300px;*/
+/*	margin: 50px auto;*/
+/*	position: relative;*/
+/*}*/
+/*#id_Number_phone_0 {*/
+/*	width: 300px;*/
+/*	box-sizing: border-box;*/
+/*	-webkit-box-sizing: border-box;*/
+/*	-moz-box-sizing: border-box;*/
+/*	padding: 8px 8px 8px 36px;*/
+/*	height: 40px;*/
+/*	border: 1px solid #ccc;*/
+/*	font-size: 16px;*/
+/*	color: #363636;*/
+/*}*/
+/*#id_Number_phone_0:focus {*/
+/*	outline: none;*/
+/*	border-color: #363636;*/
+/*}*/
+/*input#id_Number_phone_0:-moz-placeholder {*/
+/*	color: #363636;*/
+/*}*/
+/*input#id_Number_phone_0::-webkit-input-placeholder {*/
+/*	color: #363636;*/
+/*}*/
+/*.user_phone {*/
+/*	position: relative;*/
+/*}*/
+/*.user_phone:before {*/
+/*	content: "+7";*/
+/*	display: block;*/
+/*	height: 40px;*/
+/*	color: #363636;*/
+/*	position: absolute;*/
+/*	top: 6px;*/
+/*	left: 15px;*/
+/*	font-size: 1px;*/
+/*}*/
+/*.btn_submit {*/
+/*	height: 30px;*/
+/*	position: absolute;*/
+/*	top: 5px;*/
+/*	right: 5px;*/
+/*	background: #363636;*/
+/*	color: #fff;*/
+/*	border: none;*/
+/*	width: 120px;*/
+/*	cursor: pointer;*/
+/*	transition: all 0.5s;*/
+/*	-webkit-transition: all 0.5s;*/
+/*	-moz-transition: all 0.5s;*/
+/*}*/
+/*.btn_submit.disabled {*/
+/*	color: #363636;*/
+/*	background: #ccc;*/
+/*}*/
+
+.error_add_object>input  {
+    border-color: red;
+}
+.error_add_object>input  {
+    border-color: red;
+}
+.error_add_object>select {
+    border-color: red;
+
+}
+.error_add_object>span {
+    border-color: red;
+
+}
+.msgError_add_object{
+    color:red;
+    font-size: 13px;
+    padding-left: 15px;
+
+
+}
