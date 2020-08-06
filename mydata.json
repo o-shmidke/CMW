@@ -467,57 +467,6 @@
     }
 },
 {
-    "model": "work.completeworks",
-    "pk": 288,
-    "fields": {
-        "name_object": 80,
-        "type_works": 6,
-        "plan": 229,
-        "quantity_complete": "2.00",
-        "NCH_left": "10.24",
-        "NCH_spent": "0.64",
-        "comment": "",
-        "date": "2020-08-06",
-        "senior": "  a. .",
-        "perform_proc": 5,
-        "color": "(240, 15, 0)"
-    }
-},
-{
-    "model": "work.completeworks",
-    "pk": 289,
-    "fields": {
-        "name_object": 80,
-        "type_works": 4,
-        "plan": 230,
-        "quantity_complete": "4.00",
-        "NCH_left": "1471.74",
-        "NCH_spent": "309.84",
-        "comment": "",
-        "date": "2020-08-06",
-        "senior": "  a. .",
-        "perform_proc": 17,
-        "color": "(204, 51, 0)"
-    }
-},
-{
-    "model": "work.completeworks",
-    "pk": 290,
-    "fields": {
-        "name_object": 80,
-        "type_works": 3,
-        "plan": 231,
-        "quantity_complete": "1.00",
-        "NCH_left": "0.00",
-        "NCH_spent": "0.68",
-        "comment": "",
-        "date": "2020-08-06",
-        "senior": "  a. .",
-        "perform_proc": 100,
-        "color": "(-45, 300, 0)"
-    }
-},
-{
     "model": "materials.materials",
     "pk": 8,
     "fields": {
