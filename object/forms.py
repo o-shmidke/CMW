@@ -83,7 +83,7 @@ class ObjectForm(forms.ModelForm):
                'placeholder': 'Выберите инженера объекта'}))
     ID_Montazhnik = forms.ModelChoiceField(label='Старший монтажник', required=False,
                                            queryset=CustomUser.objects.filter(
-                                               ID_Position__Name_Position='Монтажник'), widget=forms.Select(
+                                               ID_Position__Name_Position='Бригадир'), widget=forms.Select(
             attrs={'class': "form-control js-example-basic-single",
                    'placeholder': 'Выберите монтажника объекта'}))
 
