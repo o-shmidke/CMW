@@ -7,7 +7,6 @@ from work.models import Unit, Groups
 class Materials(models.Model):
     name = models.CharField(max_length=1000, verbose_name='Наименование материала')
     unit = models.ForeignKey(Unit, on_delete=models.CASCADE, verbose_name='Ед. измерения')
-    group = models.ForeignKey(Groups, on_delete=models.CASCADE, verbose_name='Название группы')
 
     def __str__(self):
         return self.name
