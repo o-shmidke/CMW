@@ -48,6 +48,7 @@ class CompleteWorksForm(forms.ModelForm):
                                         queryset=TypeOfWork.objects.all(),
                                         widget=forms.Select(
                                             attrs={'class': "form-control js-example-basic-single",
+                                                    'id':'type_works_input'
                                                    }))
 
     quantity_complete = forms.DecimalField(label='Выполнено (кол-во)', widget=forms.NumberInput(
@@ -59,16 +60,18 @@ class CompleteWorksForm(forms.ModelForm):
                                                          'placeholder': 'Дата'})
                            )
     comment = forms.CharField(label='Примечание', required=False, widget=forms.Textarea(attrs={'class': "form-control",
-                                                                                               'placeholder': 'Доп.информация'}))
+                                                                                               'placeholder': 'Доп.информация',
+                                                                                               'style':'height: 80px'}))
 
     class Meta(object):
         model = CompleteWorks
         fields = (
-            'type_works', 'quantity_complete', 'date', 'comment')
+            'type_works',
+            'quantity_complete', 'date', 'comment')
 
     def __init__(self, slug=None, *args, **kwargs):
         super(CompleteWorksForm, self).__init__(*args, **kwargs)
-        self.fields['type_works'].queryset = TypeOfWork.objects.filter(planworks__name_object__slug__iexact=slug)
+        # self.fields['type_works'].queryset = TypeOfWork.objects.filter(planworks__name_object__slug__iexact=slug)
 
     def clean_type_works(self):
         a = self.cleaned_data['type_works']
@@ -95,3 +98,29 @@ class SearchWorksForm(forms.ModelForm):
     class Meta(object):
         model = PlanWorks
         fields = ('q', 'slug_o', 'slug_p')
+
+    # def __init__(self, slug=None, *args, **kwargs):
+    #     super(SearchWorksForm, self).__init__(*args, **kwargs)
+    # self.fields['type_works'].queryset = TypeOfWork.objects.filter(planworks__name_object__slug__iexact=slug)
+
+
+class CheckCompleteWorksForm(forms.ModelForm):
+    type_works = forms.ModelChoiceField(label='Наименование работы',
+                                        queryset=TypeOfWork.objects.all(),
+                                        widget=forms.Select(
+                                            attrs={'class': "form-control js-example-basic-single",
+                                                   'id': 'type_works_check',
+                                                   }))
+    slug_o = forms.CharField(label=False, required=True, widget=forms.TextInput(
+        attrs={'class': "form-control "}))
+    slug_p = forms.CharField(label=False, required=True, widget=forms.TextInput(
+        attrs={'class': "form-control "}))
+
+    class Meta(object):
+        model = CompleteWorks
+        fields = (
+            'type_works', 'slug_o', 'slug_p')
+
+    def __init__(self, slug=None, *args, **kwargs):
+        super(CheckCompleteWorksForm, self).__init__(*args, **kwargs)
+        self.fields['type_works'].queryset = TypeOfWork.objects.filter(planworks__name_object__slug__iexact=slug)

@@ -22,7 +22,7 @@ $('#search-form_plan_works').on('keyup input',function (e) {
     e.preventDefault();
 });
 
-
+// ------------------------------------------------------поиск выполненой работы
 $('#search-form_complete_works').on('keyup input',function (e) {
     $.post('/search_complete_works/', $(this).serialize(),function (data) {
         $('.posts').html(data)

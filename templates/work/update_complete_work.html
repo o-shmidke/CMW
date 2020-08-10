@@ -7,37 +7,37 @@
 
 {% block info %}
     {% if user.is_authenticated %}
-    <div class="container my-5">
-        <div class="display-5 text-center"><h3>Изменить выполненную работу</h3></div>
-        {% if error %}
-            <div class="msgError_add_object" style="font-size: 15px; margin-top: -8px"><i
-                    class="fa fa-exclamation-triangle" aria-hidden="true"></i> {{ error }}</div>
-        {% endif %}
-        <div class="row  ">
-            <div class="col-md-5 mx-auto">
-                <form action="{% url 'work:update_complete_work' slug_proj=slug_proj slug=slug  pk=pk %}"
-                      method="post">{% csrf_token %}
-                    {% for field in form %}
-                        <div class="form-group">
-                            <div style="text-align: left; padding-left: 15px">{{ field.label_tag }}</div>
-                            <div {% if field.errors %} class="error_add_object" style="" {% endif %}>
-                                {{ field }}
+        <div class="container my-4">
+            <div class="display-5 text-center"><h3>Изменить выполненную работу</h3></div>
+            {% if error %}
+                <div class="msgError_add_object" style="font-size: 15px; margin-top: -8px"><i
+                        class="fa fa-exclamation-triangle" aria-hidden="true"></i> {{ error }}</div>
+            {% endif %}
+            <div class="row  ">
+                <div class="col-md-6 mx-auto">
+                    <form action="{% url 'work:update_complete_work' slug_proj=slug_proj slug=slug  pk=pk %}"
+                          method="post">{% csrf_token %}
+                        {% for field in form %}
+                            <div class="form-group">
+                                <div style="text-align: left; padding-left: 15px;margin-bottom: -7px; margin-top: -5px">{{ field.label_tag }}</div>
+                                <div {% if field.errors %} class="error_add_object" style="" {% endif %}>
+                                    {{ field }}
+                                </div>
+                                {% if field.errors %}
+                                    <div class="msgError_add_object">{{ field.errors }}</div>
+                                {% endif %}
                             </div>
-                            {% if field.errors %}
-                                <div class="msgError_add_object">{{ field.errors }}</div>
-                            {% endif %}
-                        </div>
-                    {% endfor %}
+                        {% endfor %}
 
-                    <input type="submit" value="Изменить" class=" btn btn-outline-dark">
-                    <a href="{% url 'work:complete_work' slug_proj=slug_proj slug=slug %}"
-                       class=" btn btn-outline-dark">Отмена</a>
-                    <br/><br/>
-                </form>
+                        <input type="submit" value="Изменить" class=" btn btn-outline-dark">
+                        <a href="{% url 'work:complete_work' slug_proj=slug_proj slug=slug %}"
+                           class=" btn btn-outline-dark">Отмена</a>
+                        <br/><br/>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-            {% else %}
+    {% else %}
         {% include 'registration/errorPage_auth.html' %}
     {% endif %}
 {% endblock %}

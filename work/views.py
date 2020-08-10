@@ -13,7 +13,7 @@ from django.views.generic import DeleteView
 from CMW.utils import export_xls
 from project.models import CustomUser
 from utils.uploading import UploadingPlanWorks
-from .forms import PlanWorksForm, CompleteWorksForm, SearchWorksForm
+from .forms import PlanWorksForm, CompleteWorksForm, SearchWorksForm, CheckCompleteWorksForm
 from .models import *
 
 
@@ -244,7 +244,6 @@ def plan_work_create(request, slug_proj, slug):
 
             NCH_left = NCH_general
 
-
             color = (255, 0, 0)
             add = PlanWorks(name_object=name_object, type_works=type_works, quantity_plan=quantity_plan,
                             NCH_general=NCH_general, NCH_left=NCH_left, comment=comment, color=color)
@@ -281,7 +280,6 @@ def delete_plan_work(request, slug, slug_proj, pk):
                   {'slug_proj': slug_proj, 'slug': slug, 'pk': pk, 'work': plan_work, 'object_list': name_object})
 
 
-
 def plan_work_update(request, slug_proj, slug, pk):
     work = PlanWorks.objects.get(pk=pk)
     work_form = PlanWorksForm(slug, instance=work)
@@ -309,7 +307,6 @@ def plan_work_update(request, slug_proj, slug, pk):
                 raznost = quantity_plan - work.quantity_plan
                 quantity_plan = work.quantity_plan + raznost
                 NCH_general = quantity_plan * NCH_unit_of_time
-
 
             if quantity_plan < work.quantity_plan:
                 raznost = work.quantity_plan - quantity_plan
@@ -355,12 +352,14 @@ def complete_work_view(request, slug, slug_proj):
 
 def complete_work_create(request, slug_proj, slug):
     work_form = CompleteWorksForm(slug)
+    check_form = CheckCompleteWorksForm(slug)
     name_object = Object.objects.get(slug__iexact=slug)
     if request.method == "POST":
         work_form = CompleteWorksForm(slug, request.POST or None)
+        check_form = CheckCompleteWorksForm(slug, request.POST or None)
         if work_form.is_valid():
             data = work_form.cleaned_data
-            type_works = data['type_works']
+            type_works = work_form.cleaned_data['type_works']
             date = data['date']
             find_works = CompleteWorks.objects.filter(date=date, type_works__name__iexact=type_works.name,
                                                       name_object__slug__exact=slug)
@@ -412,8 +411,6 @@ def complete_work_create(request, slug_proj, slug):
                 plan_work.color = color
                 plan_work.save()
 
-
-
                 from object.views import refresh_data_object
                 refresh_data_object(slug)
 
@@ -423,10 +420,11 @@ def complete_work_create(request, slug_proj, slug):
             else:
                 return render(request, "work/create_complete_work.html",
                               {"form": work_form, 'slug': slug, 'slug_proj': slug_proj, 'name_object': name_object,
-                               'error': 'Данная работа уже существует в этот день'})
+                               'error': 'Данная работа уже существует в этот день', 'check_form': check_form,'object_list':name_object})
 
     return render(request, 'work/create_complete_work.html',
-                  {'form': work_form, 'slug': slug, 'slug_proj': slug_proj, 'name_object': name_object})
+                  {'form': work_form, 'slug': slug, 'slug_proj': slug_proj, 'name_object': name_object,
+                   'check_form': check_form, 'object_list':name_object})
 
 
 def delete_complete_work(pk, slug):
@@ -471,7 +469,6 @@ class CompleteWorksDeleteView(SuccessMessageMixin, LoginRequiredMixin, DeleteVie
     template_name = 'work/delete_complete_work.html'
     success_message = "Работа(план) успешно удалена"
     login_url = 'login/'
-
 
     def get_success_url(self):
         slug = self.kwargs['slug']
@@ -568,3 +565,38 @@ def complete_work_update(request, slug_proj, slug, pk):
     name_object = Object.objects.get(slug__iexact=slug)
     return render(request, 'work/update_complete_work.html',
                   {'form': work_form, 'slug': slug, 'slug_proj': slug_proj, 'object_list': name_object, 'pk': pk})
+
+
+def check_complete_work(request, slug_proj, slug):
+    # form = CheckCompleteWorksForm()
+
+    if request.method == "POST":
+        form = CheckCompleteWorksForm(slug, request.POST or None)
+        # type_works = form.clean_type_works()
+        if form.is_valid():
+            type_works = form.cleaned_data['type_works']
+            slug = form.cleaned_data['slug_o']
+            plan_work = PlanWorks.objects.get(name_object__slug__exact=slug, type_works__pk=type_works.pk)
+            # type_works = form.cleaned_data['type_works']
+            # slug = form.cleaned_data['slug_o']
+            # slug_proj = form.cleaned_data['slug_p']
+
+            # if len(q) == 0:
+            #     complete_works = CompleteWorks.objects.filter(name_object__slug__iexact=slug)
+            # else:
+            #     if len(q) == 1:
+            #         complete_works = CompleteWorks.objects.filter(type_works__name__istartswith=q.upper(),
+            #                                                       name_object__slug__iexact=slug)
+            #
+            #     else:
+            #         complete_works = CompleteWorks.objects.filter(type_works__name__icontains=q.capitalize(),
+            #                                                       name_object__slug__iexact=slug)
+
+            context = {'quantity_plan': plan_work.quantity_plan, 'quantity_complete': plan_work.quantity_complete,
+                       'type_works': type_works}
+            return_str = render_to_string('part_views/check_complete_works.html', context)
+            return HttpResponse(json.dumps(return_str), content_type='application/json')
+        else:
+            HttpResponseRedirect('work:plan_work')
+    else:
+        HttpResponseRedirect('work:plan_work')

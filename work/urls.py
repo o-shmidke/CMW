@@ -23,4 +23,5 @@ urlpatterns = [
          name="update_complete_work"),
     path('<str:slug_proj>/objects/<str:slug>/work/complete/download/', export_complete_work,
          name="dowload_complete_work"),
+    path('<str:slug_proj>/objects/<str:slug>/work/complete/create/check_complete_works/', check_complete_work, name="check_complete_work"),
 ]

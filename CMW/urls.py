@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 from materials.views import search_plan_materials
-from work.views import search_plan_works, search_complete_works
+from work.views import search_plan_works, search_complete_works, check_complete_work
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,6 +29,6 @@ urlpatterns = [
 
     path('search_plan_materials/', search_plan_materials, name="search_plan_materials"),
     path('search_plan_works/', search_plan_works, name="search_plan_works"),
-path('search_complete_works/', search_complete_works, name="search_complete_works"),
-
+    path('search_complete_works/', search_complete_works, name="search_complete_works"),
+    # path('check_complete_works/', check_complete_work, name="check_complete_work"),
 ]
