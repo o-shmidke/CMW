@@ -1,6 +1,5 @@
 from django.urls import path, include
 
-# from CMW.utils import document_download
 from .views import home, object_create_view, ObjectUpdateView, ObjectDeleteView, detail, documents_view, \
     documents_upload, documents_delete
 

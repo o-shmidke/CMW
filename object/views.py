@@ -3,31 +3,18 @@ import os
 
 import zipfile
 
-# import StringIO
+
 from os import path
 
-try:
-    import cStringIO as stringIOModule
-except ImportError:
-    try:
-        import StringIO as stringIOModule
-    except ImportError:
-        import io as stringIOModule
 
-from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
-from django.core.exceptions import ImproperlyConfigured
-from django.db.models.signals import pre_delete
-from django.dispatch import receiver
-from django.http import HttpResponse
-from django.shortcuts import render, redirect
-from django.urls import reverse_lazy, reverse
-from django.views.generic import CreateView, UpdateView, DeleteView
-from django.views.generic.detail import DetailView
 
-# from project.views import refresh_peform_proc_project
-from CMW import settings
+from django.shortcuts import render, redirect
+from django.urls import  reverse
+from django.views.generic import  UpdateView, DeleteView
+
+
 from project.models import Project
 from work.models import PlanWorks
 from .forms import ObjectForm, DocumentsForm
@@ -255,14 +242,14 @@ def documents_delete(request, slug_proj, slug, pk):
 
 # def getfiles(request, slug_proj, slug):
 #     # Files (local path) to put in the .zip
-#     # FIXME: Change this (get paths from DB etc)
+#
 #     doc = Documents.objects.filter(name_object__slug__exact=slug)
 #     filenames = [a.documents.name for a in doc]
 #     # filenames = ['Ц15-1_2073-ОВ_v2.pdf', ]
 #
 #     # Folder name in ZIP archive which contains the above files
 #     # E.g [thearchive.zip]/somefiles/file2.txt
-#     # FIXME: Set this to something better
+#
 #     zip_subdir = "media"
 #     zip_filename = "%s.zip" % zip_subdir
 #

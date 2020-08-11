@@ -1,30 +1,16 @@
 import json
 
-import xlwt
-from django.contrib.postgres.search import SearchVector
+
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
-# from django.template.loader import render_to_string
+
 from django.template.loader import render_to_string
 
 from CMW.utils import export_xls
-from object.models import Object
+
 from materials.forms import PlanMaterialsForm, SearchPlanMaterialsForm
 from .models import *
 
-
-# def update_data_form_add_materials(request):
-#     form = UpdatePlanMaterialsForm(request.POST)
-#     if form.is_valid():
-#         group = form.cleaned_data['group']
-#         slug = form.cleaned_data['slug_o']
-#         plan_materials = PlanMaterials.objects.filter(group__name__exact=group, name_object__slug__exact=slug)
-#
-#         context = {'plan_materials': plan_materials}
-#         return_str = render_to_string('part_views/update_data_form_add_materials.html', context)
-#         return HttpResponse(json.dumps(return_str), content_type='application/json')
-#     else:
-#         HttpResponseRedirect('object:materials:plan_materials_create')
 
 
 def search_plan_materials(request):
