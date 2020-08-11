@@ -23,14 +23,28 @@ class Position(models.Model):
 
 
 class CustomUser(AbstractUser):
-    patronymic_name = models.CharField(_('Отчество'), max_length=150, blank=True )  # ---add
-    ID_Position = models.ForeignKey(Position, on_delete=models.SET_NULL, blank=True, null=True, verbose_name="Должность",
+    patronymic_name = models.CharField(_('Отчество'), max_length=150, blank=True)  # ---add
+    ID_Position = models.ForeignKey(Position, on_delete=models.SET_NULL, blank=True, null=True,
+                                    verbose_name="Должность",
                                     related_name='ID_Position')  # -------add
+    img = models.ImageField(null=True, blank=True, upload_to='profile_images/', verbose_name='Фото')
     objects = UserManager()
 
     def get_full_name(self):
         full_name = '%s %s %s' % (self.last_name, self.first_name, self.patronymic_name)
         return full_name.strip()
+
+    def get_id_position(self):
+        id_position = self.ID_Position.Name_Position
+        return id_position
+
+    def get_email(self):
+        email = self.email
+        return email
+
+    def get_img(self):
+        img = self.img
+        return img
 
     def __str__(self):
         return '%s %s %s' % (self.last_name, self.first_name, self.patronymic_name)

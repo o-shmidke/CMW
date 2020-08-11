@@ -18,7 +18,7 @@
             <div class="nav_object">
                 <ul class="nav nav-pills card-header-pills">
                     <li class="nav-item">
-                        <a class=" btn btn-outline-dark {% if request.resolver_match.url_name == "detail" %}active{% endif %}"
+                        <a class=" btn btn-outline-dark {% if request.resolver_match.url_name == "detail" or request.resolver_match.url_name == "documents_view" or request.resolver_match.url_name == "documents_delete"%}active{% endif %}"
                            id="btn_add_object" type="button"
                            href="{% url 'object:detail'  slug_proj slug %}">
                             Информация
@@ -68,6 +68,15 @@
                                 <i class="fa fa-floppy-o" aria-hidden="true"></i></a>
                         </li>
                     {% endif %}
+                    {% if request.resolver_match.url_name == "detail" %}
+
+                        <li style="margin-left: 40% ">
+                            <a href="{% url 'object:documents_view' slug_proj slug %}"
+                               class="btn btn-outline-dark">
+                                <i class="fa fa-file-text-o" aria-hidden="true"></i> Документы</a>
+                        </li>
+                    {% endif %}
+
                 </ul>
             </div>
         </div>

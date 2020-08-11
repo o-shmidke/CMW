@@ -1,0 +1,98 @@
+{% extends 'card_object.html' %}
+{% load static %}
+{% block add_style %}
+    <link rel="stylesheet" href="{% static 'css/plan_work.css' %}">
+    <link rel="stylesheet" href="{% static 'css/objects_table.css' %}">
+    <link rel="stylesheet" href="{% static 'css/materials_view.css' %}">
+
+{% endblock %}
+{% block info %}
+    {% if user.is_authenticated %}
+        <section class="table_position_works">
+            <div class="nav_object btns_materials">
+
+                <ul class="nav nav-pills card-header-pills"
+                    style="padding-bottom: 10px; padding-left: 85%; padding-top: -50px;">
+                    {#                    <li class="nav-item">#}
+                    {#                        <a href="{% url 'object:documents_download_all' slug_proj slug%}"#}
+                    {#                           class="btn btn-outline-dark btn-sm">#}
+                    {#                            <i class="fa fa-floppy-o" aria-hidden="true"></i> Скачать все</a>#}
+                    {#                    </li>#}
+                    <li class="nav-item">
+                        {% if not error_perm %}
+                            <a href="{% url 'object:documents_upload' slug_proj slug %}"
+                               class="btn btn-outline-dark btn-sm">
+                                <i class="fa fa-download" aria-hidden="true"></i> Загрузить</a>
+                        {% endif %}
+                    </li>
+                </ul>
+                <div class="zone_table_works posts">
+                    <table class="table table-sm ">
+                        <thead class="high">
+                        <tr>
+                            <th scope="col" style=" vertical-align: middle" class="higher">Наименование</th>
+                            <th scope="col" style="text-align: center; vertical-align: middle"
+                                class="higher"></th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        {% for table in documents %}
+                            <tr class="str" style="transition: all 0.1s ease;">
+                                <td class="full_str_td" style=" vertical-align: middle; text-align: left;">
+                                    <a href="{{ table.documents.url }} "
+                                       class="full_str_a">{{ table.name_document }}
+                                    </a></td>
+
+                                <td class="full_str_td" style=" vertical-align: middle; width: 110px">
+                                    <a href="{{ table.documents.url }} " download
+                                       class="btn btn-outline-dark ">
+                                        <i class="fa fa-download" aria-hidden="true"></i> </a>
+                                    {% if not error_perm %}
+                                        <a href="{% url 'object:documents_delete' slug_proj slug table.pk %}"
+                                           class="btn btn-outline-danger">
+                                            <i class="fa fa-trash" aria-hidden="true"></i> </a>
+                                    {% endif %}
+                                </td>
+
+                            </tr>
+                        {% endfor %}
+                        <div class="foot">
+                            <tr>
+                                <td style=" vertical-align: middle" class="footer"><strong></strong></td>
+                                <td style="text-align: center; vertical-align: middle" class="footer"></td>
+
+                            </tr>
+                        </div>
+                        </tbody>
+                    </table>
+                </div>
+
+                {#            <ul class="btn_control">#}
+                {#                <div id="btn_back">#}
+                {#                    <a style='margin-top: 10px'#}
+                {#                       href="{% url 'object:home' slug_proj %}"#}
+                {#                       class=" btn btn-outline-dark"><i#}
+                {#                            class="fa fa-caret-left" aria-hidden="true"></i></a>#}
+                {#                </div>#}
+                {##}
+                {#                <li style="margin-left: 70% ">#}
+                {#                    <a class="btn btn-outline-dark" id="btn_add_object" type="button"#}
+                {#                       href="{% url 'work:create_complete_work' slug_proj slug %}">#}
+                {#                        Добавить#}
+                {#                    </a>#}
+                {#                </li>#}
+                {#            </ul>#}
+
+            </div>
+        </section>
+
+    {% else %}
+        {% include 'registration/errorPage_auth.html' %}
+    {% endif %}
+{% endblock %}
+
+
+{% block add_script %}
+    <script src={% static 'js/search.js' %}></script>
+{% endblock %}

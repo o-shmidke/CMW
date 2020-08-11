@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +12,7 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap-datetimepicker.min.css' %}"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    {#    <link rel="stylesheet" href="{% static 'css/style.css' %}">#}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/autorize.css' %}">
     <link rel="stylesheet" href="{% static 'css/projects_table.css' %}">
     <link rel="stylesheet" href="{% static 'fonts/glyphicons-halflings-regular.eot' %}">
@@ -35,37 +36,93 @@
                 <div class="icon_logo" id="icon_logo">
                     <div>
                         <i class="fa fa-cog fa-4x fa-fw" id="logo_move"></i>
-
                     </div>
                     <div class="CMW_logo">
                         <h2>CMW</h2>
                     </div>
                 </div>
             </a>
-            <nav class="dws-menu">
-                <ul class='menu__item'>
-                    {% if user.is_authenticated %}
-                        <li>{{ user.get_full_name }}</li>
-                        <li><a href="{% url 'logout' %}?next={{ request.path }}" class="eventBtn  btn-outline-dark">Выход</a>
-                        </li>
-                    {% else %}
-                        <li><a href="{% url 'login' %}?next={{ request.path }}"
-                               class="eventBtn  btn-outline-dark">Вход</a></li>
-                    {% endif %}
+
+            <nav class="dws-menu  ">
+                <ul class='navbar-nav mr-auto'>
+                    {#                    {% if user.is_authenticated %}#}
+                    {#                        <li>{{ user.get_full_name }}</li>#}
+                    {#                        <li><a href="{% url 'logout' %}?next={{ request.path }}" class="eventBtn  btn-outline-dark">Выход</a>#}
+                    {#                        </li>#}
+                    {#                    {% else %}#}
+                    {#                        <li><a href="{% url 'login' %}?next={{ request.path }}"#}
+                    {#                               class="eventBtn  btn-outline-dark">Вход</a></li>#}
+                    {##}
+                    {#                    {% endif %}#}
+
+
+                    <li class=" btn-user " style="padding-right: 50px">
+                        <a class="nav-link  btn  btn-outline-dark " id="navbarDropdown"
+                           role="button" style="width: 200%; text-align: center" onclick="showHide('gb_F')"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-bars" aria-hidden="true" style="font-size: 30px"></i>
+                        </a>
+
+                        <div id="gb_F" aria-labelledby="navbarDropdown">
+                            {% if user.is_authenticated %}
+                                <div style="text-align: center; padding-top: 10px;">
+                                    {% if user.img %}
+                                        <img src="{{ user.img.url }}" width="150" height="150" id="photo">
+                                    {% else %}
+                                        <a type="button" id="upload_photo"
+                                           href="{% url 'project:upload_photo' %}?next={{ request.path }}">
+                                            <img src="/static/img/images.jpg" alt="нет фото" width="150" height="150"
+                                                 id="empty_photo">
+                                        </a>
+                                    {% endif %}
+                                </div>
+                                <div style="text-align: center;">
+                                    <a type="button" style="text-align: center; color: #005cbf; " id="upload_photo"
+                                       href="{% url 'project:upload_photo' %}?next={{ request.path }}"
+                                    >Загрузить фото
+                                    </a>
+                                </div>
+
+                                <h5 class="user_name">{{ user.get_full_name }}</h5>
+                                <div class="dropdown-divider divinder1"></div>
+                                <div style="padding-left: 10px">
+                                    <p>Должность: {{ user.get_id_position }}</p>
+                                    <p>Почта: {{ user.get_email }}</p>
+                                </div>
+                                <div class="dropdown-divider divinder2"></div>
+                                <div class="btn_in_out">
+
+                                {#                        <li>{{ user.get_full_name }}</li>#}
+                                <a href="{% url 'logout' %}?next={{ request.path }}"
+                                   class=" btn btn-outline-dark btn-sm ">Выход</a>
+
+                            {% else %}
+                                <a href="{% url 'login' %}?next={{ request.path }}" style="width: 100px"
+                                   class="btn btn-outline-dark btn-lg ">Вход</a>
+
+                            {% endif %}
+                            </div>
+                            {#                    <a class="dropdown-item" href="#">Something else here</a>#}
+                        </div>
+                    </li>
                 </ul>
             </nav>
         </div>
     </nav>
+
 </header>
+{#{% include 'part_views/create_photo_form.html' %}#}
 {#{% include 'tables/create_plan_work.html' %}#}
 <div class="container">
+    {% block form %}
+    {% endblock %}
     {% block entr %}
     {% endblock %}
 </div>
 
 
 </body>
-<script src={% static 'js/search.js' %}></script>
+{#<script src={% static 'js/search.js' %}></script>#}
 <script src= {% static 'js/wrapper.js' %}></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 {#<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"#}
@@ -77,9 +134,9 @@
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
 
-{#<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"#}
-{#        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"#}
-{#        crossorigin="anonymous"></script>#}
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 {#<script src="{% static 'js/moment-with-locales.min.js' %}"></script>#}
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 

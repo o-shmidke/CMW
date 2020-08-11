@@ -1,17 +1,39 @@
+import io
+import os
+
+import zipfile
+
+# import StringIO
+from os import path
+
+try:
+    import cStringIO as stringIOModule
+except ImportError:
+    try:
+        import StringIO as stringIOModule
+    except ImportError:
+        import io as stringIOModule
+
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.exceptions import ImproperlyConfigured
+from django.db.models.signals import pre_delete
+from django.dispatch import receiver
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 
 # from project.views import refresh_peform_proc_project
+from CMW import settings
 from project.models import Project
 from work.models import PlanWorks
-from .forms import ObjectForm
-from .models import Object
+from .forms import ObjectForm, DocumentsForm
+from .models import Object, Documents
+
+
 # from work.views import refresh_nch_spent
 
 
@@ -24,7 +46,7 @@ def refresh_data_object(slug):
         NCH_general += i.NCH_general
         NCH_spent += i.NCH_spent
     NCH_left = NCH_general - NCH_spent
-    if NCH_general !=0:
+    if NCH_general != 0:
         perform_proc = int((NCH_spent / NCH_general) * 100)
     else:
         perform_proc = 0
@@ -174,13 +196,8 @@ def delete(slug):
 class ObjectDeleteView(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
     model = Object
     template_name = 'object/delete.html'
-    # success_url = reverse_lazy('object:home')
     success_message = "Объект успешно удален"
     login_url = 'login/'
-
-    # def get(self, request, *args, **kwargs):
-    #     messages.success(request, 'Поезд удален')
-    #     return self.post(request, *args, *kwargs)
 
     def get_context_data(self, **kwargs):
         slug = self.kwargs['slug']
@@ -195,3 +212,80 @@ class ObjectDeleteView(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
         delete(slug)
         refresh_peform_proc_project(slug_proj)
         return reverse('object:home', kwargs={'slug_proj': slug_proj})
+
+
+def documents_view(request, slug_proj, slug):
+    name_object = Object.objects.get(slug__iexact=slug)
+    documents = Documents.objects.filter(name_object__slug__exact=slug)
+    if not request.user.has_perm('object.delete_documents') or not request.user.has_perm('object.add_documents'):
+        return render(request, 'object/documents.html',
+                      {'object_list': name_object, 'documents': documents, 'slug_proj': slug_proj, 'slug': slug,
+                       'error_perm': 'У вас недостаточно прав', })
+    return render(request, 'object/documents.html',
+                  {'object_list': name_object, 'documents': documents, 'slug_proj': slug_proj, 'slug': slug})
+
+
+def documents_upload(request, slug_proj, slug):
+    form = DocumentsForm()
+    if request.method == 'POST':
+        form = DocumentsForm(request.POST, request.FILES)
+        if form.is_valid():
+            if 'documents' in request.FILES:
+                name_object = Object.objects.get(slug__iexact=slug)
+                # name_object.documents = request.FILES['documents']
+                files = request.FILES.getlist('documents')
+                for f in files:
+                    s = 'documents/' + str(f)
+                    name = path.basename(s)
+                    add = Documents(documents=f, name_document=name, name_object_id=name_object.pk)
+                    add.save()
+
+            return redirect('object:documents_view', slug_proj=slug_proj, slug=slug)
+
+    return render(request, 'object/upload_documents_form.html', {'form': form, 'slug_proj': slug_proj, 'slug': slug})
+
+
+def documents_delete(request, slug_proj, slug, pk):
+    doc = Documents.objects.get(pk=pk)
+    name_object = Object.objects.get(slug__iexact=slug)
+    if request.method == 'POST':
+        doc.delete()
+        return redirect('object:documents_view', slug_proj=slug_proj, slug=slug)
+    return render(request, 'object/delete_documents_form.html', {'slug_proj': slug_proj, 'slug': slug, 'doc': doc, 'object_list':name_object})
+
+# def getfiles(request, slug_proj, slug):
+#     # Files (local path) to put in the .zip
+#     # FIXME: Change this (get paths from DB etc)
+#     doc = Documents.objects.filter(name_object__slug__exact=slug)
+#     filenames = [a.documents.name for a in doc]
+#     # filenames = ['Ц15-1_2073-ОВ_v2.pdf', ]
+#
+#     # Folder name in ZIP archive which contains the above files
+#     # E.g [thearchive.zip]/somefiles/file2.txt
+#     # FIXME: Set this to something better
+#     zip_subdir = "media"
+#     zip_filename = "%s.zip" % zip_subdir
+#
+#     # Open StringIO to grab in-memory ZIP contents
+#     # s = StringIO.StringIO()
+#     s = stringIOModule.StringIO()
+#     # The zip compressor
+#     zf = zipfile.ZipFile(s, "w")
+#
+#     for fpath in filenames:
+#         # Calculate path for file in zip
+#         fdir, fname = os.path.split(fpath)
+#         zip_path = os.path.join(zip_subdir, fname)
+#
+#         # Add file, at correct path
+#         zf.write(fpath, zip_path)
+#
+#     # Must close zip for all contents to be written
+#     zf.close()
+#
+#     # Grab ZIP file from in-memory, make response with correct MIME-type
+#     resp = HttpResponse(s.getvalue(), mimetype="application/x-zip-compressed")
+#     # ..and correct content-disposition
+#     resp['Content-Disposition'] = 'attachment; filename=%s' % zip_filename
+#
+#     return resp

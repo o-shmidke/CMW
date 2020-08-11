@@ -1,5 +1,8 @@
 {% extends 'registration/../wrapper.html' %}
-{#{% load static %}#}
+{% load static %}
+    {% block add_style %}
+         <link rel="stylesheet" href="{% static 'css/autorize.css' %}">
+    {% endblock %}
 {% block entr %}
 
     <section class="content">
@@ -11,7 +14,7 @@
                         <div class="high">
                             <h3 class="'modal-title"> Авторизация</h3><br/>
                         </div>
-                    </div>
+
 
                     <div class="form-group">
                         <ul class="icons d-flex">
@@ -37,10 +40,11 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="col-xs-offset-2 col-xs-5">
+                        <div class="col-xs-offset-2 col-xs-5" id="btn_login">
                             <input id="btn" class="btn btn-primary btn-dark" role="button" form="register"
                                    value="Войти" type="submit">
                         </div>
+                    </div>
                     </div>
                     <input type="hidden" name="next" value="{{ next }}"/>
                     <div class="vstavka">

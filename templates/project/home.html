@@ -58,7 +58,7 @@
             </thead>
             <tbody>
             {% for table in project_list %}
-                <tr class="str">
+                <tr class="str" style="transition: all 0.1s ease;">
                     <td><input type="hidden" value={{ table.pk }} name="project_a">
                         <a href="{% url 'object:home' slug_proj=table.slug %}" class="  btn_proj col1"
                            id="btn_ob1"><h5>{{ table.Name_Project }}</h5></a></td>

@@ -30,7 +30,7 @@ class Object(models.Model):
     ID_Ingener = models.ForeignKey(CustomUser, on_delete=models.CASCADE, verbose_name='Инженер',
                                    related_name='Инженер', blank=True, null=True)
     ID_Montazhnik = models.ForeignKey(CustomUser, on_delete=models.CASCADE, verbose_name='Старший_монтажник',
-                                      related_name='Старший_монтажник', blank=True,null=True)
+                                      related_name='Старший_монтажник', blank=True, null=True)
     FIO_zakazchika = models.CharField(max_length=500, verbose_name='ФИО заказчика', blank=True)
     Number_phone = models.CharField(max_length=20, verbose_name='Номер телефона заказчика', blank=True)
     Note = models.TextField(verbose_name='Примечание', blank=True)
@@ -51,3 +51,21 @@ class Object(models.Model):
     class Meta:
         verbose_name = "Объект"
         verbose_name_plural = "Объекты"
+
+
+class Documents(models.Model):
+    documents = models.FileField(upload_to='documents', null=True, blank=True)
+    name_document = models.CharField(max_length=500, verbose_name='Имя', blank=True)
+    name_object = models.ForeignKey(Object, on_delete=models.CASCADE, verbose_name='Объект')
+
+    def __str__(self):
+        return self.documents.name
+
+    def delete(self, *args, **kwargs):
+        self.documents.delete()
+        super().delete(*args, **kwargs)
+
+    class Meta:
+        verbose_name = "Документ"
+        verbose_name_plural = "Документы"
+        # ordering = ['name_document']

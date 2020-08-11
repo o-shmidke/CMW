@@ -1,5 +1,9 @@
+import os
+
 import xlwt
 from django.http import HttpResponse
+
+from CMW import settings
 
 
 def export_xls(name_object, file_name, name_sheet, columns, rows):
@@ -29,3 +33,4 @@ def export_xls(name_object, file_name, name_sheet, columns, rows):
 
     wb.save(response)
     return response
+

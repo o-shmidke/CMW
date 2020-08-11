@@ -1,0 +1,37 @@
+{% extends 'wrapper.html' %}
+{% load static %}
+{% block add_style %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+{% block form %}
+    {% if user.is_authenticated %}
+        <a href="{% url 'project:home' %} "style="cursor: default">
+        <div class="gray" >
+        </div>
+        </a>
+        <div class="position_form_upload_photo form-group" id="form_upload_photo">
+            <div class="create_photo form-group">
+                <H3 style="text-align: center; padding-top: 10px">Загрузить фото</H3>
+            <p style="text-align: center">Желательный размер фото: 150х150 px</p>
+                <form action="{% url 'project:upload_photo' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div style="padding: 5px 25px; text-align: center">
+                        {#{{ form.get_form }}#}
+                        {% for field in form %}
+                            {{ field }}
+                        {% endfor %}
+                    </div>
+                    <div style="text-align: center; padding-top: 10px">
+                        <button type="submit" class="btn btn-outline-dark">Загрузить</button>
+                        <a href="{% url 'project:home' %} " class="btn btn-outline-dark" style="margin-left: 20px">Отмена</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% else %}
+        {% include 'registration/errorPage_auth.html' %}
+    {% endif %}
+
+{% endblock %}
+{% block add_script %}
+{% endblock %}

@@ -27,14 +27,14 @@
                     </thead>
                     <tbody>
                     {% for table in object_list %}
-                        <tr class="str">
-                            <td class="str"><a
+                        <tr class="str" style="transition: all 0.1s ease;">
+                            <td ><a
                                     href="{% url 'object:detail' slug=table.slug slug_proj=name_project.slug %}">
                                 <h5>{{ table.Name_Object }}</h5></a></td>
-                            <td class="str"><a
+                            <td ><a
                                     href="{% url 'object:detail' slug=table.slug slug_proj=name_project.slug %}">
                                 <h5>{{ table.NCH_General }}</h5></a></td>
-                            <td class="str"><a
+                            <td ><a
                                     href="{% url 'object:detail' slug=table.slug slug_proj=name_project.slug %}">
                                 <h5>{{ table.NCH_Spent }}</h5></a></td>
                             <td><a href="{% url 'object:detail' slug=table.slug slug_proj=name_project.slug %}">

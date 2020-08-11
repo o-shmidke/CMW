@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 from materials.views import search_plan_materials
 from work.views import search_plan_works, search_complete_works, check_complete_work
@@ -31,4 +33,8 @@ urlpatterns = [
     path('search_plan_works/', search_plan_works, name="search_plan_works"),
     path('search_complete_works/', search_complete_works, name="search_complete_works"),
     # path('check_complete_works/', check_complete_work, name="check_complete_work"),
+    # path('create_photo_form/', create_photo_form, name="create_photo_form"),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

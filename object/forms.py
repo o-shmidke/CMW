@@ -3,7 +3,7 @@ import re
 from django import forms
 
 from project.models import Project, CustomUser
-from .models import Object
+from .models import Object, Documents
 from .views import *
 
 from django.forms import MultiValueField, CharField, ChoiceField, MultiWidget, TextInput, Select
@@ -149,5 +149,16 @@ class ObjectForm(forms.ModelForm):
     class Meta(object):
         model = Object
         fields = (
-            'Name_Object', 'Adress_Object', 'Number_phone', 'FIO_zakazchika',  'ID_Rukovoditel',
+            'Name_Object', 'Adress_Object', 'Number_phone', 'FIO_zakazchika', 'ID_Rukovoditel',
             'ID_Menedger', 'ID_Ingener', 'ID_Montazhnik', "Note")
+
+
+class DocumentsForm(forms.ModelForm):
+    documents = forms.FileField(label='Документы', widget=forms.ClearableFileInput(attrs={'class': "form-control",
+                                                                                          'multiple': True}))
+
+    class Meta:
+        model = Documents
+        fields = ('documents',)
+
+

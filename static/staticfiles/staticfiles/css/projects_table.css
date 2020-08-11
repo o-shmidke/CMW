@@ -103,3 +103,19 @@ a:hover {
     color: #1b1e21;
 }
 
+/*медиа запросы*/
+/*-------меню "пользователь"*/
+@media screen and (min-width: 320px) {
+
+
+}
+
+@media screen and (min-width: 768px) {
+
+}
+
+/*-----------*/
+@media screen and (max-width: 992px) {
+
+
+}

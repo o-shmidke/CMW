@@ -10,6 +10,7 @@ ul, li {
     padding: 0;
     display: block;
 }
+
 header {
     padding-top: 0;
     padding-bottom: 0;
@@ -41,7 +42,7 @@ header {
     padding-top: 15px;
     margin-top: 20px;
     position: relative;
-    margin-left: 30%;
+    margin-left: 27%;
     margin-right: 0%;
     width: 40%;
     text-align: center;
@@ -56,16 +57,17 @@ header {
     margin-top: 0px;
 
 }
+
 /*.menu__item a:hover {*/
 /*    color: white;*/
 /*    background-color: #5a6268;*/
 /*}*/
-.menu__item  li a {
+.menu__item li a {
     font-size: 1.1rem;
     font-family: 'Merriweather', serif;
     font-weight: 500;
-    border:1px solid #c6c8ca;
-    padding:20px ;
+    border: 1px solid #c6c8ca;
+    padding: 20px;
     border-radius: 8px;
     background-color: #f5f5f5;
 }
@@ -83,47 +85,53 @@ header {
 }
 
 
-.dws-menu > ul{
+.dws-menu > ul {
     display: flex;
 }
-.dws-menu > ul li{
+
+.dws-menu > ul li {
     margin-left: 15px;
 }
 
-.CMW_logo h2{
+.CMW_logo h2 {
     margin-top: -53px;
     margin-left: 80px;
     font-size: 35px;
     font-weight: bold;
     color: white;
 }
-.CMW_logo{
-     text-shadow: 4px 4px 4px black, 0 0 0.8em black;
+
+.CMW_logo {
+    text-shadow: 4px 4px 4px black, 0 0 0.8em black;
     font-family: 'Merriweather', serif;
 }
 
 /*медиа запросы*/
 /*-------меню "пользователь"*/
-@media (min-width: 320px) {
+@media screen and (min-width: 320px) {
     .menu__item a {
         font-size: 1.2rem /* волшебное значение от 1.25 rem до 2.5 rem */;
     }
+
+    #btn {
+        width: 80px;
+    }
+
 }
 
-@media (min-width: 960px) {
+@media screen and (min-width: 768px) {
     .menu__item a {
         font-size: 1.3rem;
-        /*width: 0;*/
     }
+
+    #btn {
+        width: 50%;
+    }
+
 }
 
 /*-----------*/
 @media screen and (max-width: 992px) {
-    .logo {
-        /*display: block;*/
-        /*margin: 0 auto;*/
 
-
-    }
 
 }
