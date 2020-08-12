@@ -27,7 +27,7 @@ class CustomUser(AbstractUser):
     ID_Position = models.ForeignKey(Position, on_delete=models.SET_NULL, blank=True, null=True,
                                     verbose_name="Должность",
                                     related_name='ID_Position')  # -------add
-    img = models.ImageField(null=True, blank=True, upload_to='profile_images/', verbose_name='Фото')
+    img = models.ImageField(null=True, blank=True,  verbose_name='Фото', default='img/images.jpg', upload_to='img')
     objects = UserManager()
 
     def get_full_name(self):
@@ -35,7 +35,7 @@ class CustomUser(AbstractUser):
         return full_name.strip()
 
     def get_id_position(self):
-        id_position = self.ID_Position.Name_Position
+        id_position = self.ID_Position
         return id_position
 
     def get_email(self):

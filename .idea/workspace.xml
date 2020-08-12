@@ -2,7 +2,61 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9cf457d-cf38-4b22-adc6-b7b5a1e3f8a8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/object/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/object/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/75a63e55-9444-4c69-ac07-36983119d742.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/75a63e55-9444-4c69-ac07-36983119d742.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMW/settings/production.py" beforeDir="false" afterPath="$PROJECT_DIR$/CMW/settings/production.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMW/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/CMW/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/css/autorize.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/staticfiles/css/autorize.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/css/projects_table.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/staticfiles/css/projects_table.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/staticfiles/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/js/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/staticfiles/js/search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/js/wrapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/staticfiles/js/wrapper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/css/autorize.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/css/bootstrap-datetimepicker-standalone.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/css/bootstrap-datetimepicker.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/css/bootstrap-datetimepicker.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/css/bootstrap-reboot.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/css/bootstrap-reboot.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/css/errorPage_auth.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/css/form_add_object.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/css/form_change_object.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/css/materials_view.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/css/objects_table.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/css/plan_work.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/css/projects_table.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/img/photoshop_logo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/js/add_object_form.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/js/bootstrap-datetimepicker.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/js/bootstrap.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/js/bootstrap.bundle.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/js/bootstrap.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/js/bootstrap.bundle.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/js/bootstrap.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/js/bootstrap.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/js/change_object_form.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/js/check_form_add.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/js/errorPage_auth.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/js/jQuery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/js/jquery-3.2.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/js/jquery.maskedinput.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/js/jquery.maskedinput.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/js/moment-with-locales.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/js/moment-with-locales.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/js/npm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/js/search.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles/staticfiles/js/wrapper.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wrapper.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wrapper.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +145,27 @@
       <recent name="C:\Users\daze0\PycharmProjects\CMW\templates" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Django server.CMW">
+    <configuration name="Test: static.staticfiles.staticfiles" type="DjangoTestsConfigurationType" temporary="true">
+      <module name="CMW" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="static.staticfiles.staticfiles" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="CMW" type="Python.DjangoServer" factoryName="Django server">
       <module name="CMW" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -116,6 +190,11 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Django tests.Test: static.staticfiles.staticfiles" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="showServicesTree" value="false" />
@@ -185,7 +264,8 @@
       <workItem from="1597057703849" duration="24611000" />
       <workItem from="1597122955286" duration="8000" />
       <workItem from="1597122993863" duration="14239000" />
-      <workItem from="1597147899797" duration="22395000" />
+      <workItem from="1597147899797" duration="22854000" />
+      <workItem from="1597244091369" duration="4331000" />
     </task>
     <task id="LOCAL-00001" summary="!">
       <created>1596708519425</created>
@@ -217,38 +297,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1596212906134" />
-    <state width="1450" height="176" key="GridCell.Tab.0.bottom" timestamp="1597168940042">
+    <state width="1450" height="254" key="GridCell.Tab.0.bottom" timestamp="1597247758751">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1450" height="176" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1597168940042" />
-    <state width="1450" height="176" key="GridCell.Tab.0.center" timestamp="1597168940042">
+    <state width="1450" height="254" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1597247758751" />
+    <state width="1450" height="254" key="GridCell.Tab.0.center" timestamp="1597247758751">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1450" height="176" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1597168940042" />
-    <state width="1450" height="176" key="GridCell.Tab.0.left" timestamp="1597168940042">
+    <state width="1450" height="254" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1597247758751" />
+    <state width="1450" height="254" key="GridCell.Tab.0.left" timestamp="1597247758751">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1450" height="176" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1597168940042" />
-    <state width="1450" height="176" key="GridCell.Tab.0.right" timestamp="1597168940042">
+    <state width="1450" height="254" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1597247758751" />
+    <state width="1450" height="254" key="GridCell.Tab.0.right" timestamp="1597247758751">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1450" height="176" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1597168940042" />
-    <state width="1450" height="176" key="GridCell.Tab.1.bottom" timestamp="1597168940042">
+    <state width="1450" height="254" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1597247758751" />
+    <state width="1450" height="254" key="GridCell.Tab.1.bottom" timestamp="1597247758621">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1450" height="176" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1597168940042" />
-    <state width="1450" height="176" key="GridCell.Tab.1.center" timestamp="1597168940042">
+    <state width="1450" height="254" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1597247758621" />
+    <state width="1450" height="254" key="GridCell.Tab.1.center" timestamp="1597247758621">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1450" height="176" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1597168940042" />
-    <state width="1450" height="176" key="GridCell.Tab.1.left" timestamp="1597168940042">
+    <state width="1450" height="254" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1597247758621" />
+    <state width="1450" height="254" key="GridCell.Tab.1.left" timestamp="1597247758621">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1450" height="176" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1597168940042" />
-    <state width="1450" height="176" key="GridCell.Tab.1.right" timestamp="1597168940042">
+    <state width="1450" height="254" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1597247758621" />
+    <state width="1450" height="254" key="GridCell.Tab.1.right" timestamp="1597247758621">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1450" height="176" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1597168940042" />
+    <state width="1450" height="254" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1597247758621" />
     <state x="349" y="67" key="com.intellij.database.dbimport.ImportDialog" timestamp="1589269170514">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -272,5 +352,8 @@
         </breakpoint>
       </default-breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/CMW$Test__static_staticfiles_staticfiles.coverage" NAME="Test: static.staticfiles.staticfiles Coverage Results" MODIFIED="1597246474434" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

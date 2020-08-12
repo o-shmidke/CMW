@@ -36,5 +36,4 @@ urlpatterns = [
     # path('create_photo_form/', create_photo_form, name="create_photo_form"),
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

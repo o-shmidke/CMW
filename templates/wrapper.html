@@ -67,7 +67,7 @@
                             {% if user.is_authenticated %}
                                 <div style="text-align: center; padding-top: 10px;">
                                     {% if user.img %}
-                                        <img src="{{ user.img.url }}" width="150" height="150" id="photo">
+                                        <img  src="{{ user.img.url }}" width="150" height="150" id="photo">
                                     {% else %}
                                         <a type="button" id="upload_photo"
                                            href="{% url 'project:upload_photo' %}?next={{ request.path }}">
@@ -86,8 +86,8 @@
                                 <h5 class="user_name">{{ user.get_full_name }}</h5>
                                 <div class="dropdown-divider divinder1"></div>
                                 <div style="padding-left: 10px">
-                                    <p>Должность: {{ user.get_id_position }}</p>
-                                    <p>Почта: {{ user.get_email }}</p>
+                                    <p>Должность: {% if user.get_id_position %}{{ user.get_id_position }}{% else %}---{% endif %}</p>
+                                    <p>Почта: {% if user.get_email %}{{ user.get_email }}{% else %}---{% endif %}</p>
                                 </div>
                                 <div class="dropdown-divider divinder2"></div>
                                 <div class="btn_in_out">
