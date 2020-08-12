@@ -59,7 +59,7 @@
                                     {% else %}
                                         <a type="button" id="upload_photo"
                                            href="{% url 'project:upload_photo' %}?next={{ request.path }}">
-                                            <img src="{% static '../media/img/images.jpg' %}" alt="нет фото" width="150" height="150"
+                                            <img src="{% static '../staticfiles/img/images.jpg' %}" alt="нет фото" width="150" height="150"
                                                  id="empty_photo">
                                         </a>
                                     {% endif %}
