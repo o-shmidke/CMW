@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d9cf457d-cf38-4b22-adc6-b7b5a1e3f8a8" name="Default Changelist" comment="" />
+    <list default="true" id="d9cf457d-cf38-4b22-adc6-b7b5a1e3f8a8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMW/settings/production.py" beforeDir="false" afterPath="$PROJECT_DIR$/CMW/settings/production.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/Шмидке.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/img/images.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/media/img/images.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/img/pngwing.com.png" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/media/img/pngwing.com.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/documents/Шмидке.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/img/images.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/img/pngwing.com.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wrapper.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wrapper.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,7 +83,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/staticfiles/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/staticfiles" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
@@ -85,6 +95,7 @@
       <recent name="C:\Users\daze0\PycharmProjects\CMW\templates" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\daze0\PycharmProjects\CMW\staticfiles" />
       <recent name="C:\Users\daze0\PycharmProjects\CMW\staticfiles\img" />
       <recent name="C:\Users\daze0\PycharmProjects\CMW\CMW\settings" />
       <recent name="C:\Users\daze0\PycharmProjects\CMW\templates\work" />
@@ -210,7 +221,7 @@
       <workItem from="1597122955286" duration="8000" />
       <workItem from="1597122993863" duration="14239000" />
       <workItem from="1597147899797" duration="22854000" />
-      <workItem from="1597244091369" duration="8984000" />
+      <workItem from="1597244091369" duration="9559000" />
     </task>
     <task id="LOCAL-00001" summary="!">
       <created>1596708519425</created>

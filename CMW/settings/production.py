@@ -133,11 +133,10 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static/"),
-    os.path.join(BASE_DIR, 'media/'),
 ]
 MEDIA_URL = '/media/'
-MEDIA_DIR = os.path.join(BASE_DIR, 'media')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_DIR = os.path.join(BASE_DIR, 'staticfiles/media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles/media')
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
