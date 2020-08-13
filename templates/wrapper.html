@@ -60,7 +60,7 @@
                                     {% if user.img %}
                                         <img src="{{ user.img.url }} " width="150" height="150" id="photo">
                                     {% else %}
-                                        <a type="button" id="upload_photo"
+                                        <a id="upload_photo"
                                            href="{% url 'project:upload_photo' %}?next={{ request.path }}">
                                             <img src="{% static '../staticfiles/media/img/images.jpg' %}" alt="нет фото"
                                                  width="150" height="150"
@@ -69,7 +69,7 @@
                                     {% endif %}
                                 </div>
                                 <div style="text-align: center;">
-                                    <a type="button" style="text-align: center; color: #005cbf; " id="upload_photo"
+                                    <a style="text-align: center; color: #005cbf; " id="upload_photo"
                                        href="{% url 'project:upload_photo' %}?next={{ request.path }}"
                                     >Загрузить фото
                                     </a>

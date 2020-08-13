@@ -83,14 +83,14 @@
                             <td style="text-align: center; vertical-align: middle; width:530px">
 
                                 <a class="btn btn-outline-secondary btn-sm mx-auto" style="width: 30px"
-                                   type="button"
+
                                    id="btn_change_object"
                                    href="{% url 'work:update_complete_work' slug=slug slug_proj=slug_proj pk=table.pk %}">
                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                 </a>
 
                                 <a class="btn btn-outline-danger btn-sm mx-auto" style="width: 30px"
-                                   type="button"
+
                                    id="btn_change_object"
                                    href="{% url 'work:delete_complete_work'  slug=slug slug_proj=slug_proj pk=table.pk %}">
                                     <i class="fa fa-trash" aria-hidden="true"></i>
@@ -135,7 +135,7 @@
                 {#                       <i class="fa fa-floppy-o" aria-hidden="true"></i></a>#}
                 {#                </li>#}
                 <li >
-                    <a class="btn btn-outline-dark" id="btn_add_object" type="button"
+                    <a class="btn btn-outline-dark" id="btn_add_object"
                        href="{% url 'work:create_complete_work' slug_proj slug %}">
                         Добавить
                     </a>
