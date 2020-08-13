@@ -29,7 +29,7 @@
                 <li class="nav-item" style="margin-left: 70%;  width: 300px">
                     <form action="" method="post" id="search-form_plan_materials">
                         {% csrf_token %}
-                        <div class="input-group input-group-sm">
+                        <div class="input-group input-group-sm input_search">
                             {{ search.q.errors }}
                             <input type="text" name="q" id="q" class="form-control empty" style="font-size: 15px"
                                    placeholder="&#xF002; Поиск">
@@ -38,6 +38,11 @@
                         </div>
                     </form>
                 </li>
+                   <li class="btn_download">
+                            <a href="{% url 'object:materials:dowload_plan_materials' slug_proj slug %}"
+                               class="btn btn-outline-dark">
+                                <i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+                        </li>
             </ul>
         </div>
         <div class="zone_table_works posts">
@@ -120,7 +125,7 @@
                         class="fa fa-caret-left" aria-hidden="true"></i></a>
             </div>
             {% if not  error_perm %}
-            <li style="margin-left: 70% ">
+            <li style="">
                 <a class="btn btn-outline-dark" id="btn_add_object" type="button"
                    href="{% url 'object:materials:plan_materials_create' slug_proj slug %}">
                     Добавить

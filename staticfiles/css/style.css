@@ -136,7 +136,7 @@
 }
 
 .btn_in_out a {
-
+text-align: center;
 }
 
 /*.btn_in_out p{*/
@@ -246,27 +246,27 @@
 /*медиа запросы*/
 /*-------меню "пользователь"*/
 
-@media screen and (min-width: 320px) {
-    #gb_F {
-        margin-right: -200px;
+/*@media screen and (min-width: 320px) {*/
+/*    #gb_F {*/
+/*        margin-right: -200px;*/
 
-    }
-}
+/*    }*/
+/*}*/
 
-@media screen and (min-width: 380px) {
-    #gb_F {
-        right: 10px;
-        margin-right: 0;
-    }
-}
+/*@media screen and (min-width: 380px) {*/
+/*    #gb_F {*/
+/*        right: 10px;*/
+/*        margin-right: 0;*/
+/*    }*/
+/*}*/
 
-@media screen and (min-width: 770px) {
-    #gb_F {
-        right: 220px;
-        margin-right: 0;
-    }
+/*@media screen and (min-width: 770px) {*/
+/*    #gb_F {*/
+/*        right: 220px;*/
+/*        margin-right: 0;*/
+/*    }*/
 
-}
+/*}*/
 
 /*@media screen and (min-width: 1200px) {*/
 /*    #gb_F {*/

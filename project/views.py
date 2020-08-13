@@ -1,17 +1,18 @@
 import json
 
+from django.contrib.auth.views import LoginView
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 
-from .forms import CreatePhoto
+from .forms import CreatePhoto, Auth
 from .models import Project, CustomUser
 
 
 def home(request):
     # form = CreatePhoto(request.POST)
     projects = Project.objects.all()
-    return render(request, 'project/home.html', {'project_list': projects,})
+    return render(request, 'project/home.html', {'project_list': projects, })
 
 
 # def create_photo_form(request):
@@ -33,3 +34,7 @@ def upload_photo(request):
                 data_user.save()
             return redirect('project:home', )
     return render(request, 'part_views/create_photo_form.html', {'form': form})
+
+
+class Login(LoginView):
+    form_class = Auth

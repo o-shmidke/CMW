@@ -7,19 +7,21 @@ $('#icon_logo').mouseenter(function () {
 
 
 // ----------------------------------------открыть карточку пользователя
-function showHide(gb_F) {
-    //Если элемент с id-шником element_id существует
-    if (document.getElementById("gb_F")) {
-        //Записываем ссылку на элемент в переменную obj
-        var obj = document.getElementById("gb_F");
-        //Если css-свойство display не block, то:
-        if (obj.style.display != "block") {
-            obj.style.display = "block"; //Показываем элемент
-        } else obj.style.display = "none"; //Скрываем элемент
-    }
-    //Если элемент с id-шником element_id не найден, то выводим сообщение
-    else alert("Элемент с id: " + gb_F + " не найден!");
-}
+// function showHide() {
+//     $('#gb_F')
+//     //Если элемент с id-шником element_id существует
+//     if (document.getElementById("gb_F")) {
+//         //Записываем ссылку на элемент в переменную obj
+//         var obj = document.getElementById("gb_F");
+//         //Если css-свойство display не block, то:
+//         if (obj.style.display === "block") {
+//
+//             obj.style.display = "none"; //Показываем элемент
+//         } else obj.style.display = "block"; //Скрываем элемент
+//     }
+//     //Если элемент с id-шником element_id не найден, то выводим сообщение
+//     else alert("Элемент с id: " + gb_F + " не найден!");
+// }
 
 // ---------------------------------------открытие формы для добавления фото
 // $('#upload_photo').click('mouseclick', function (e) {
@@ -39,7 +41,29 @@ function showHide(gb_F) {
 
 $(document).mouseup(function (e) {
     var container = $("#gb_F ");
-    if (container.has(e.target).length === 0){
+    if (container.has(e.target).length === 0) {
         container.hide();
     }
 });
+
+// $('document').ready(function () {
+//
+//     $('.navbarDropdown').click(function () {
+//           var container = $("#gb_F ");
+//     if (container.has(e.target).length === 0) {
+//         container.hide();
+//         container.visible
+//     }
+//
+//
+//     });
+//
+// });
+$( document ).ready(function(){
+	  // $( "#navbarDropdown" ).click(function(){ // задаем функцию при нажатиии на элемент с классом toggle
+	  //   $( "#gb_F" ).toggle( "fast" ); // скрывыаем, или отображаем последний элемент <div> в документе
+	  // });
+	  $( "#navbarDropdown" ).click(function(){ // задаем функцию при нажатиии на элемент с классом slide-toggle
+	    $( "#gb_F" ).slideToggle( "100" ); // скрывыаем, или отображаем последний элемент <div> в документе
+	  });
+	});

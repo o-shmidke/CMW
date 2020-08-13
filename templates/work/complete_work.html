@@ -8,12 +8,13 @@
 {% block info %}
     {% if user.is_authenticated %}
         <section class="table_position_works">
-        <div class="nav_object btns_materials">
+            <div class="nav_object btns_materials">
                 <ul class="nav nav-pills card-header-pills ">
+
                     <li class="nav-item" style="margin-left: 70%;  width: 300px">
                         <form action="" method="post" id="search-form_complete_works">
                             {% csrf_token %}
-                            <div class="input-group input-group-sm">
+                            <div class="input-group input-group-sm input_search">
                                 {{ form.q.errors }}
                                 <input type="text" name="q" id="q" class="form-control empty" style="font-size: 15px"
                                        placeholder="&#xF002; Поиск">
@@ -22,6 +23,11 @@
                                 <input type="hidden" name="slug_p" value="{{ slug_proj }}">
                             </div>
                         </form>
+                    </li>
+                    <li style="" class="btn_download">
+                        <a href="{% url 'work:dowload_complete_work' slug_proj slug %}"
+                           class="btn btn-outline-dark">
+                            <i class="fa fa-floppy-o" aria-hidden="true"></i></a>
                     </li>
                 </ul>
             </div>
@@ -58,7 +64,7 @@
                     </tr>
                     </thead>
 
-                    <tbody >
+                    <tbody>
                     {% for table in complete_work %}
                         <tr>
                             <td style=" vertical-align: middle">{{ table.type_works.name }}</td>
@@ -70,11 +76,11 @@
                             <td style="text-align: center; vertical-align: middle">{{ table.NCH_spent }}</td>
                             <td style="text-align: center; vertical-align: middle">{{ table.NCH_left }}</td>
                             <td style="text-align: center; vertical-align: middle">{{ table.date }}</td>
-                            <td style="vertical-align: middle; text-align:justify-all" >{{ table.comment }}</td>
+                            <td style="vertical-align: middle; text-align:justify-all">{{ table.comment }}</td>
 
                             <td style="text-align: center; vertical-align: middle">{{ table.senior }}</td>
                             <td style="text-align: center; vertical-align: middle; background-color: rgb{{ table.color }}">{{ table.perform_proc }}%</td>
-                            <td style="text-align: center; vertical-align: middle; width:530px" >
+                            <td style="text-align: center; vertical-align: middle; width:530px">
 
                                 <a class="btn btn-outline-secondary btn-sm mx-auto" style="width: 30px"
                                    type="button"
@@ -124,11 +130,11 @@
                        class=" btn btn-outline-dark"><i
                             class="fa fa-caret-left" aria-hidden="true"></i></a>
                 </div>
-{#                <li id="btn_back">#}
-{#                    <a href="{% url 'work:dowload_complete_work' slug_proj slug %}" class="btn btn-outline-dark">#}
-{#                       <i class="fa fa-floppy-o" aria-hidden="true"></i></a>#}
-{#                </li>#}
-                <li style="margin-left: 70% ">
+                {#                <li id="btn_back">#}
+                {#                    <a href="{% url 'work:dowload_complete_work' slug_proj slug %}" class="btn btn-outline-dark">#}
+                {#                       <i class="fa fa-floppy-o" aria-hidden="true"></i></a>#}
+                {#                </li>#}
+                <li >
                     <a class="btn btn-outline-dark" id="btn_add_object" type="button"
                        href="{% url 'work:create_complete_work' slug_proj slug %}">
                         Добавить

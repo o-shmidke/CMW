@@ -1,0 +1,245 @@
+@media screen and (max-width: 770px) {
+    /*-------------------------------кнопки карточки*/
+    .btn_card {
+        width: 100%;
+    }
+
+    .btn_card li {
+        text-align: center;
+        width: 100%;
+        padding-top: 5px;
+    }
+
+    .btn_card li a {
+        text-align: center;
+        width: 100%;
+    }
+
+    /*------------------------------------кнопка документы*/
+    .btn_docs {
+        width: 100%;
+        margin-top: 20%;
+    }
+
+    .btn_docs a {
+        text-align: center;
+        width: 100%;
+        padding-top: 5px;
+        margin-left: 0;
+    }
+
+    /*------------------------------------------кнопка изменить объект*/
+    .btn_update_obj {
+        margin-left: 70%;
+        margin-top: -35px;
+    }
+
+    /*------------------------------------------кнопка скачать файлы экссель*/
+    .btn_download {
+        margin-top: -40px;
+    }
+
+    /*----------------------------------------строка поиска*/
+    .input_search {
+        margin-left: -20%;
+    }
+
+    /*-------------------------------------------кнопка добавления плановой работы*/
+    .btn_control li {
+        padding-left: 40%
+    }
+
+    /*--------------------------------------------кнопка загрузки документов*/
+    .btn_upload_docs {
+        padding-left: 65%;
+    }
+
+    /*-----------------------------------окно ошибки авторизации*/
+    .msgError_auth {
+        width: 300px;
+
+    }
+
+    .textError_auth h3 {
+        font-size: 12px;
+    }
+
+    .iconError_auth {
+        position: absolute;
+        padding-left: 123px;
+        padding-top: 50px;
+    }
+}
+
+
+@media screen and (min-width: 575px) {
+    /*------------------------------------кнопка документы*/
+    .btn_docs {
+        width: 100%;
+        margin-top: 130%;
+    }
+
+    /*------------------------------------------кнопка изменить объект*/
+    .btn_update_obj {
+        margin-left: 75%;
+        margin-top: -35px;
+    }
+
+    /*------------------------------------------кнопка скачать файлы экссель*/
+    .btn_download {
+        margin-top: -40px;
+    }
+
+    /*-------------------------------------------кнопка добавления плановой работы*/
+    .btn_control li {
+        padding-left: 60%
+    }
+
+    /*--------------------------------------------кнопка загрузки документов*/
+    .btn_upload_docs {
+        padding-left: 75%;
+    }
+
+    /*-----------------------------------окно ошибки авторизации*/
+    .msgError_auth {
+        width: 500px;
+
+    }
+
+    .textError_auth h3 {
+        font-size: 14px;
+    }
+
+    .iconError_auth {
+        position: absolute;
+        padding-left: 223px;
+        padding-top: 50px;
+    }
+}
+
+@media screen and (min-width: 770px) {
+    /*------------------------------------кнопка документы*/
+    .btn_docs {
+        width: 100%;
+        margin-top: 60%;
+    }
+
+    .btn_docs a {
+        text-align: center;
+        width: 100%;
+        padding-top: 5px;
+        margin-left: 0;
+    }
+
+    /*------------------------------------------кнопка изменить объект*/
+    .btn_update_obj {
+        margin-left: 80%;
+        margin-top: -35px;
+    }
+
+    /*------------------------------------------кнопка скачать файлы экссель*/
+    .btn_download {
+        margin-top: -40px;
+    }
+
+    /*----------------------------------------строка поиска*/
+    .input_search {
+        margin-left: -10%;
+    }
+
+    /*-------------------------------------------кнопка добавления плановой работы*/
+    .btn_control li {
+        padding-left: 70%
+    }
+
+    /*--------------------------------------------кнопка загрузки документов*/
+    .btn_upload_docs {
+        padding-left: 85%;
+    }
+
+    /*-----------------------------------окно ошибки авторизации*/
+    .msgError_auth {
+        width: 800px;
+    }
+
+    .textError_auth h3 {
+        font-size: 20px;
+    }
+
+    .iconError_auth {
+        position: absolute;
+        padding-left: 375px;
+        padding-top: 50px;
+    }
+
+}
+
+
+@media screen and (max-width: 1000px) and ( min-width: 770px) {
+    /*-----------------------------------окно ошибки авторизации*/
+    .msgError_auth {
+        width: 700px;
+    }
+
+    .textError_auth h3 {
+        font-size: 20px;
+    }
+
+    .iconError_auth {
+        position: absolute;
+        padding-left: 325px;
+        padding-top: 50px;
+    }
+
+}
+
+
+---------------
+@media screen and (max-width: 320px) {
+    #gb_F {
+        margin-right: -320px;
+        right: 10px;
+
+    }
+}
+@media screen and (min-width: 320px) {
+    #gb_F {
+        margin-right: -200px;
+
+    }
+}
+
+@media screen and (min-width: 380px) {
+    #gb_F {
+        right: 10px;
+        margin-right: 0;
+    }
+}
+
+@media screen and (min-width: 770px) {
+    #gb_F {
+        right: 220px;
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width: 1000px) and ( min-width: 770px) {
+    #gb_F {
+        right: 50px;
+        margin-right: 0;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    #gb_F {
+        right: 50px;
+        margin-right: 0;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    #gb_F {
+        right: 180px;
+        margin-right: 0;
+    }
+}

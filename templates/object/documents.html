@@ -11,14 +11,14 @@
         <section class="table_position_works">
             <div class="nav_object btns_materials">
 
-                <ul class="nav nav-pills card-header-pills"
-                    style="padding-bottom: 10px; padding-left: 85%; padding-top: -50px;">
+                <ul class="nav nav-pills card-header-pills btn_upload_docs"
+                    style="padding-bottom: 10px;  padding-top: -50px;">
                     {#                    <li class="nav-item">#}
                     {#                        <a href="{% url 'object:documents_download_all' slug_proj slug%}"#}
                     {#                           class="btn btn-outline-dark btn-sm">#}
                     {#                            <i class="fa fa-floppy-o" aria-hidden="true"></i> Скачать все</a>#}
                     {#                    </li>#}
-                    <li class="nav-item">
+                    <li class="nav-item btn_upload_docs">
                         {% if not error_perm %}
                             <a href="{% url 'object:documents_upload' slug_proj slug %}"
                                class="btn btn-outline-dark btn-sm">

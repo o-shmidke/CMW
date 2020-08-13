@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/autorize.css' %}">
     <link rel="stylesheet" href="{% static 'css/projects_table.css' %}">
+
     <link rel="stylesheet" href="{% static 'fonts/glyphicons-halflings-regular.eot' %}">
 
     {#    <link rel="stylesheet" href="{% static 'css/objects_table.css' %}">#}
@@ -22,9 +23,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet"/>
     {#    <script src="{% static 'js/jQuery.js' %}"></script>#}
+    <link rel="stylesheet" href="{% static 'css/media_card_of_object.css' %}">
 
     {% block add_style %}
     {% endblock %}
+
 </head>
 
 <body>
@@ -45,21 +48,22 @@
             <nav class="dws-menu  ">
                 <ul class='navbar-nav mr-auto'>
                     <li class=" btn-user " style="padding-right: 50px">
-                        <a class="nav-link  btn  btn-outline-dark " id="navbarDropdown"
-                           role="button" style="width: 200%; text-align: center" onclick="showHide('gb_F')"
+                        <a class="nav-link  btn  btn-outline-dark navbarDropdown " id="navbarDropdown"
+                           role="button" style="width: 200%; text-align: center"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-bars" aria-hidden="true" style="font-size: 30px"></i>
                         </a>
 
-                        <div id="gb_F" aria-labelledby="navbarDropdown">
+                        <div id="gb_F" class="gb_F" aria-labelledby="navbarDropdown">
                             {% if user.is_authenticated %}
                                 <div style="text-align: center; padding-top: 10px;">
                                     {% if user.img %}
-                                        <img  src="{{ user.img.url }} " width="150" height="150" id="photo">
+                                        <img src="{{ user.img.url }} " width="150" height="150" id="photo">
                                     {% else %}
                                         <a type="button" id="upload_photo"
                                            href="{% url 'project:upload_photo' %}?next={{ request.path }}">
-                                            <img src="{% static '../staticfiles/media/img/images.jpg' %}" alt="нет фото" width="150" height="150"
+                                            <img src="{% static '../staticfiles/media/img/images.jpg' %}" alt="нет фото"
+                                                 width="150" height="150"
                                                  id="empty_photo">
                                         </a>
                                     {% endif %}
@@ -74,7 +78,8 @@
                                 <h5 class="user_name">{{ user.get_full_name }}</h5>
                                 <div class="dropdown-divider divinder1"></div>
                                 <div style="padding-left: 10px">
-                                    <p>Должность: {% if user.get_id_position %}{{ user.get_id_position }}{% else %}---{% endif %}</p>
+                                    <p>Должность: {% if user.get_id_position %}{{ user.get_id_position }}{% else %}
+                                        ---{% endif %}</p>
                                     <p>Почта: {% if user.get_email %}{{ user.get_email }}{% else %}---{% endif %}</p>
                                 </div>
                                 <div class="dropdown-divider divinder2"></div>
@@ -85,7 +90,8 @@
                                    class=" btn btn-outline-dark btn-sm ">Выход</a>
 
                             {% else %}
-                                <a href="{% url 'login' %}?next={{ request.path }}" style="width: 100px"
+                                <a href="{% url 'login_user' %}?next={{ request.path }}"
+                                   style="width: 100px; margin: 30px; margin-left:95px "
                                    class="btn btn-outline-dark btn-lg ">Вход</a>
 
                             {% endif %}
@@ -134,6 +140,7 @@
         $('.js-example-basic-multiple').select2();
 
     });
+
 </script>
 
 {% block add_script %}

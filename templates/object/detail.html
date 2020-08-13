@@ -1,92 +1,3 @@
-{#{% extends 'wrapper.html' %}#}
-{#{% load static %}#}
-{#{% block add_style %}#}
-{#    <link rel="stylesheet" href="{% static 'css/form_add_object.css' %}">#}
-{#{% endblock %}#}
-{##}
-{#{% block entr %}#}
-{#    <div class="card text-center">#}
-{#        <div class="card-header">#}
-{#            <ul class="nav nav-pills card-header-pills">#}
-{#                <li class="nav-item">#}
-{#                    <a class="btn btn-outline-dark" id="btn_add_object" type="button"#}
-{#                       href="{% url 'work:plan_work' slug=object_list.slug %}">#}
-{#                        Планируемые работы#}
-{#                    </a>#}
-{#                </li>#}
-{#                <li class="nav-item">#}
-{#                    <a class="btn btn-outline-dark" id="btn_add_object" type="button"#}
-{#                       href="">#}
-{#                        Выполненные работы#}
-{#                    </a>#}
-{#                </li>#}
-{#                <li class="nav-item">#}
-{#                    <a class="btn btn-outline-dark" id="btn_add_object" type="button"#}
-{#                       href="">#}
-{#                        Материалы#}
-{#                    </a></li>#}
-{#            </ul>#}
-{#        </div>#}
-{#        <div class="card-body">#}
-{#            <h5 class="card-title">Объект {{ object_list.Name_Object }}</h5>#}
-{##}
-{#            <div class="row my-4 ">#}
-{#                <div class="col-md-6  mx-auto">#}
-{#                    <p>Адрес: {{ object_list.Adress_Object }}</p>#}
-{#                    <p>Получатель: {{ object_list.FIO_zakazchika }}</p>#}
-{#                    <p>Контактные данные: {{ object_list.Number_phone }}</p>#}
-{#                    <p>Н/Ч: {{ object_list.NCH_General }}</p>#}
-{#                    <p>Выполнено: {{ object_list.Perform_proc }}%</p>#}
-{#                    <p>Примечание: {{ object_list.Note }}</p>#}
-{#                </div>#}
-{#            </div>#}
-{#            </p>#}
-{#            <a class="btn btn-outline-secondary btn-sm mx-auto"#}
-{#               style="width: 30px"#}
-{#               type="button"#}
-{#               id="btn_change_object"#}
-{#               href="#}
-{#{% url 'object:update' slug=table.slug slug_proj=name_project.slug %}#}
-{#">#}
-{#                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>#}
-{#            </a>#}
-{#        </div>#}
-{#    </div>#}
-{#    <div class="container my-4">#}
-{#        <div class="display-4 text-center">Объект {{ object_list.Name_Object }}</div>#}
-{#        <div class="row my-4 ">#}
-{#            <div class="col-md-6  mx-auto">#}
-{#                <p>Адрес: {{ object_list.Adress_Object }}</p>#}
-{#                <p>Получатель: {{ object_list.FIO_zakazchika }}</p>#}
-{#                <p>Контактные данные: {{ object_list.Number_phone }}</p>#}
-{#                <p>Н/Ч: {{ object_list.NCH_General }}</p>#}
-{#                <p>Выполнено: {{ object_list.Perform_proc }}%</p>#}
-{#                <p>Примечание: {{ object_list.Note }}</p>#}
-{#            </div>#}
-{#        </div>#}
-{#        <div class="col-md-6 text-center mx-auto">#}
-{#            <a class="btn btn-outline-dark" id="btn_add_object" type="button"#}
-{#               href="{% url 'work:plan_work' slug=object_list.slug %}">#}
-{#                Планируемые работы#}
-{#            </a>#}
-{#            <a class="btn btn-outline-dark" id="btn_add_object" type="button"#}
-{#               href="">#}
-{#                Выполненные работы#}
-{#            </a>#}
-{#            <div style="margin-top: 10px">#}
-{#                <a class="btn btn-outline-dark" id="btn_add_object" type="button"#}
-{#                   href="">#}
-{#                    Материалы#}
-{#                </a>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-{#{% endblock %}#}
-{##}
-{#{% block add_script %}#}
-{#    <script src={% static 'js/add_object_form.js' %}></script>#}
-{#{% endblock %}#}
-
 {% extends 'card_object.html' %}
 {% load static %}
 {% block add_style %}
@@ -95,6 +6,7 @@
 
 {% block info %}
     {% if user.is_authenticated %}
+
         <div class="row block_info_object1">
             <div class="col-sm-6 block_info_object2">
                 <div class="card info_object1">
@@ -138,28 +50,37 @@
                         <p class="card-text">
                             {% if object_list.ID_Montazhnik != null %}{{ object_list.ID_Montazhnik }}{% else %}
                                 ---{% endif %}</p>
+                        <div class="">
+                            <div style="" class="btn_docs">
+                                <a href="{% url 'object:documents_view' slug_proj slug %}"
+                                   class="btn btn-outline-dark">
+                                    <i class="fa fa-file-text-o" aria-hidden="true"></i> Документы</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
         <div class="block_btn">
-        <a href="{% url 'object:home' slug_proj %}" type="button"
-           class=" btn btn-outline-dark " style="margin-left: -80%"><i
-                class="fa fa-caret-left" aria-hidden="true"></i></a>
+            <a href="{% url 'object:home' slug_proj %}" type="button"
+               class=" btn btn-outline-dark " style="margin-left: -80%"><i
+                    class="fa fa-caret-left" aria-hidden="true"></i></a>
         </div>
         {#        <div class="">#}
         <div class="block_btn">
-            <div style="margin-top: -38px">
+            <div class="btn_update_obj">
                 {% if not error_perm %}
                     <a class="btn btn-outline-dark  "
-                       type="button"
                        id="btn_change_object"
                        href="{% url 'object:update' slug_proj slug %}">
                         Изменить
                     </a>
                 {% endif %}
             </div>
+
         </div>
+
         {#        </div>#}
     {% else %}
 

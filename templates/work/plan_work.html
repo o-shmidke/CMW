@@ -13,7 +13,7 @@
                     <li class="nav-item" style="margin-left: 70%;  width: 300px">
                         <form action="" method="post" id="search-form_plan_works">
                             {% csrf_token %}
-                            <div class="input-group input-group-sm">
+                            <div class="input-group input-group-sm input_search">
                                 {{ form.q.errors }}
                                 <input type="text" name="q" id="q" class="form-control empty" style="font-size: 15px"
                                        placeholder="&#xF002; Поиск">
@@ -22,6 +22,11 @@
                                 <input type="hidden" name="slug_p" value="{{ slug_proj }}">
                             </div>
                         </form>
+                    </li>
+                    <li class="btn_download">
+                        <a href="{% url 'work:dowload_plan_work' slug_proj slug %}"
+                           class="btn btn-outline-dark">
+                            <i class="fa fa-floppy-o" aria-hidden="true"></i></a>
                     </li>
                 </ul>
             </div>
@@ -110,40 +115,7 @@
                             </tr>
                         {% endfor %}
                     {% endfor %}
-                    {#                    {% for table in plan_work %}#}
-                    {#                        <tr>#}
-                    {#                            <td style=" vertical-align: middle">{{ table.type_works.name }}</td>#}
-                    {#                            <td style="text-align: center; vertical-align: middle">{{ table.type_works.unit.name }}</td>#}
-                    {#                            <td style="text-align: center; vertical-align: middle">{{ table.quantity_plan }}</td>#}
-                    {#                            <td style="text-align: center; vertical-align: middle">{{ table.quantity_complete }}</td>#}
-                    {#                            <td style="text-align: center; vertical-align: middle">{{ table.type_works.NCH_unit_of_time }}</td>#}
-                    {#                            <td style="text-align: center; vertical-align: middle">{{ table.NCH_general }}</td>#}
-                    {#                            <td style="text-align: center; vertical-align: middle">{{ table.NCH_spent }}</td>#}
-                    {#                            <td style="text-align: center; vertical-align: middle">{{ table.NCH_left }}</td>#}
-                    {##}
-                    {#                            <td style="text-align: center; vertical-align: middle; background-color: rgb{{ table.color }}">{{ table.perform_proc }}%</td>#}
-                    {#                            <td style="vertical-align: middle" width="150">{{ table.comment }}</td>#}
-                    {#                            {% if not error_perm %}#}
-                    {#                                <td style="text-align: center; vertical-align: middle" width="80">#}
-                    {##}
-                    {#                                    <a class="btn btn-outline-secondary btn-sm mx-auto" style="width: 30px"#}
-                    {#                                       type="button"#}
-                    {#                                       id="btn_change_object"#}
-                    {#                                       href="{% url 'work:update_plan_work' slug_proj=slug_proj slug=object_list.slug  pk=table.pk %}">#}
-                    {#                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>#}
-                    {#                                    </a>#}
-                    {##}
-                    {#                                    <a class="btn btn-outline-danger btn-sm mx-auto" style="width: 30px"#}
-                    {#                                       type="button"#}
-                    {#                                       id="btn_change_object"#}
-                    {#                                       href="{% url 'work:delete_plan_work' slug_proj=slug_proj slug=object_list.slug  pk=table.pk %}">#}
-                    {#                                        <i class="fa fa-trash" aria-hidden="true"></i>#}
-                    {#                                    </a>#}
-                    {##}
-                    {#                                </td>#}
-                    {#                            {% endif %}#}
-                    {#                        </tr>#}
-                    {#                    {% endfor %}#}
+
                     <div class="foot">
                         <tr>
                             <td style=" vertical-align: middle" class="footer"><strong>Итого:</strong></td>
@@ -174,9 +146,9 @@
                             class="fa fa-caret-left" aria-hidden="true"></i></a>
                 </div>
 
-                <li style="margin-left: 70% ">
+                <li style="" class="btn_add_plan_work">
                     {% if not error_perm %}
-                        <a class="btn btn-outline-dark" id="btn_add_object" type="button"
+                        <a class="btn btn-outline-dark" id="btn_add_object"
                            href="{% url 'work:create_plan_work' slug_proj slug %}">
                             Добавить
                         </a>
