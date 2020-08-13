@@ -46,14 +46,14 @@
 
                                     <a class="btn btn-outline-secondary btn-sm mx-auto"
                                        style="width: 30px"
-                                       type="button"
+
                                        id="btn_change_object"
                                        href="{% url 'object:update' slug=table.slug slug_proj=name_project.slug %}">
                                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                     </a>
 
                                     <a class="btn btn-outline-danger btn-sm mx-auto" style="width: 30px"
-                                       type="button"
+
                                        id="btn_change_object"
                                        href="{% url 'object:delete' slug=table.slug slug_proj=name_project.slug %}">
                                         <i class="fa fa-trash" aria-hidden="true"></i>
@@ -77,7 +77,7 @@
                 <li class="ml-lg-auto" id="btn_add">
                     {% if not error_perm %}
                         <a class="btn btn-outline-dark " id="btn_add_object"
-                                               type="button"
+                                               
                                                href="{% url 'object:add' slug_proj=name_project.slug %}">
                         Добавить
                     </a>
