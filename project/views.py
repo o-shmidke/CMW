@@ -36,5 +36,10 @@ def upload_photo(request):
     return render(request, 'part_views/create_photo_form.html', {'form': form})
 
 
-class Login(LoginView):
-    form_class = Auth
+# class Login(LoginView):
+#     form_class = Auth
+#     authentication_form = None
+#     # redirect_field_name = REDIRECT_FIELD_NAME
+#     template_name = 'registration/login.html'
+#     redirect_authenticated_user = False
+#     extra_context = None
