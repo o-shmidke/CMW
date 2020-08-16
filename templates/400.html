@@ -1,6 +1,10 @@
 {% extends 'wrapper.html' %}
 {% block title %} Ошибка 400 {% endblock %}
-
+{% load static %}
+{% block add_style %}
+    <link rel="stylesheet" href="{% static 'css/errorPage_auth.css' %}">
+    <link rel="stylesheet" href="{% static 'css/media_card_of_object.css' %}">
+{% endblock %}
 {% block entr %}
 <div class="errPage">
     <div class="msgError_auth">
