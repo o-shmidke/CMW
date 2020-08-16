@@ -28,7 +28,7 @@ class CustomUser(AbstractUser):
                                     verbose_name="Должность",
                                     related_name='ID_Position')  # -------add
     img = models.ImageField(null=True, blank=True,  verbose_name='Фото', default='img/images.jpg', upload_to='img')
-    objects = UserManager()
+    # objects = UserManager()
 
     def get_full_name(self):
         full_name = '%s %s %s' % (self.last_name, self.first_name, self.patronymic_name)
