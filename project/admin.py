@@ -13,8 +13,9 @@ class UserProfile(admin.ModelAdmin):
         }),
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
     )
-    list_display = ('username', 'email', 'last_name', 'first_name', "patronymic_name","ID_Position", 'is_staff')
+    list_display = ('username', 'email', 'last_name', 'first_name', "patronymic_name", "ID_Position", 'is_staff')
     filter_horizontal = ('groups', 'user_permissions',)
+
 
 # admin.site.register(UserAdmin)
 admin.site.register(CustomUser, UserProfile)
