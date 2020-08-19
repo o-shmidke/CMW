@@ -1,2 +1,3 @@
 
 CMW/settings/local.py
+CMW/db.sqlite3
