@@ -12,11 +12,11 @@ class PlanMaterialsForm(forms.ModelForm):
                                           attrs={'class': "form-control js-example-basic-single",
                                                  'id': 'change_material'
                                                  }))
-    group = forms.ModelChoiceField(label='Группа',
-                                   queryset=Groups.objects.all(),
-                                   widget=forms.Select(
-                                       attrs={'class': "form-control js-example-basic-single", 'id': 'change_group'
-                                              }))
+    # group = forms.ModelChoiceField(label='Группа',
+    #                                queryset=Groups.objects.all(),
+    #                                widget=forms.Select(
+    #                                    attrs={'class': "form-control js-example-basic-single", 'id': 'change_group'
+    #                                           }))
     quantity_plan = forms.DecimalField(label='Планируемое колличество', widget=forms.NumberInput(
         attrs={'class': "form-control", 'placeholder': 'Кол-во'}))
     quantity_delivered = forms.DecimalField(label='Поставленное колличество', widget=forms.NumberInput(
@@ -25,7 +25,7 @@ class PlanMaterialsForm(forms.ModelForm):
     class Meta(object):
         model = PlanMaterials
         fields = (
-             'group','material', 'quantity_plan', 'quantity_delivered')
+             'material', 'quantity_plan', 'quantity_delivered')
 
     def __init__(self, slug=None, *args, **kwargs):
         super(PlanMaterialsForm, self).__init__(*args, **kwargs)

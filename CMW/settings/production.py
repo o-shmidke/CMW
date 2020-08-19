@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'object',
     'work',
     'materials',
+    'import_export',
 ]
 
 MIDDLEWARE = [

@@ -2,20 +2,18 @@ import io
 import os
 
 import zipfile
-
+from datetime import datetime
 
 from os import path
-
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 
 from django.shortcuts import render, redirect
-from django.urls import  reverse
-from django.views.generic import  UpdateView, DeleteView
+from django.urls import reverse
+from django.views.generic import UpdateView, DeleteView
 
-
-from project.models import Project
+from project.models import Project, CustomUser
 from work.models import PlanWorks
 from .forms import ObjectForm, DocumentsForm
 from .models import Object, Documents
@@ -221,10 +219,18 @@ def documents_upload(request, slug_proj, slug):
                 name_object = Object.objects.get(slug__iexact=slug)
                 # name_object.documents = request.FILES['documents']
                 files = request.FILES.getlist('documents')
+                user = request.user
+                user_get = CustomUser.objects.get(id=user.id)
+                first_name = '{:.1}.'.format(user_get.first_name)
+                patronymic_name = '{:.1}.'.format(user_get.patronymic_name)
+                last_name = '{} '.format(user_get.last_name)
+                senior = '{} {} {}'.format(last_name, first_name, patronymic_name)
+                date = datetime.now()
                 for f in files:
                     s = 'documents/' + str(f)
                     name = path.basename(s)
-                    add = Documents(documents=f, name_document=name, name_object_id=name_object.pk)
+                    add = Documents(documents=f, name_document=name, name_object_id=name_object.pk, date=date,
+                                    senior=senior)
                     add.save()
 
             return redirect('object:documents_view', slug_proj=slug_proj, slug=slug)
@@ -238,7 +244,8 @@ def documents_delete(request, slug_proj, slug, pk):
     if request.method == 'POST':
         doc.delete()
         return redirect('object:documents_view', slug_proj=slug_proj, slug=slug)
-    return render(request, 'object/delete_documents_form.html', {'slug_proj': slug_proj, 'slug': slug, 'doc': doc, 'object_list':name_object})
+    return render(request, 'object/delete_documents_form.html',
+                  {'slug_proj': slug_proj, 'slug': slug, 'doc': doc, 'object_list': name_object})
 
 # def getfiles(request, slug_proj, slug):
 #     # Files (local path) to put in the .zip

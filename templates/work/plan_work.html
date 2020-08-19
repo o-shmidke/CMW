@@ -16,7 +16,7 @@
                             <div class="input-group input-group-sm input_search">
                                 {{ form.q.errors }}
                                 <input type="text" name="q" id="q" class="form-control empty" style="font-size: 15px"
-                                       placeholder="&#xF002; Поиск">
+                                       placeholder="&#xF002; Поиск" title="Поиск по работам">
                                 {#                                                            {{ form.q }}#}
                                 <input type="hidden" name="slug_o" value="{{ object_list.slug }}">
                                 <input type="hidden" name="slug_p" value="{{ slug_proj }}">
@@ -25,9 +25,10 @@
                     </li>
                     <li class="btn_download">
                         <a href="{% url 'work:dowload_plan_work' slug_proj slug %}"
-                           class="btn btn-outline-dark">
-                            <i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+                           class="btn btn-outline-dark" title="Сохранить данные в Excell">
+                            <i class="fa fa-floppy-o" aria-hidden="true"> </i> Сохранить</a>
                     </li>
+
                 </ul>
             </div>
             <div class="zone_table_works posts">
@@ -95,8 +96,7 @@
                                     <td style="width: 90px;vertical-align: middle;">
 
                                         <a class="btn btn-outline-secondary btn-sm mx-auto"
-                                           style="width: 30px;  vertical-align: middle;"
-
+                                           style="width: 30px;  vertical-align: middle;" title="Изменить"
                                            id="btn_change_object"
                                            href="{% url 'work:update_plan_work' slug_proj=slug_proj slug=object_list.slug  pk=key2.pk %}">
                                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
@@ -104,7 +104,7 @@
 
                                         <a class="btn btn-outline-danger btn-sm mx-auto"
                                            style="width: 30px; vertical-align: middle;"
-
+                                           title="Удалить"
                                            id="btn_change_object"
                                            href="{% url 'work:delete_plan_work' slug_proj=slug_proj slug=object_list.slug  pk=key2.pk %}">
                                             <i class="fa fa-trash" aria-hidden="true"></i>

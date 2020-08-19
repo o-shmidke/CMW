@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.core.validators import RegexValidator
 from django.shortcuts import reverse
 
@@ -57,6 +59,8 @@ class Documents(models.Model):
     documents = models.FileField(upload_to='documents', null=True, blank=True)
     name_document = models.CharField(max_length=500, verbose_name='Имя', blank=True)
     name_object = models.ForeignKey(Object, on_delete=models.CASCADE, verbose_name='Объект')
+    date = models.DateField(verbose_name='Дата загрузки', default=datetime.now, blank=True, null=True)
+    senior = models.CharField(max_length=300, verbose_name='Ответственный', blank=True, null=True)
 
     def __str__(self):
         return self.documents.name

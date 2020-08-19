@@ -20,9 +20,9 @@
                     {#                    </li>#}
                     <li class="nav-item btn_upload_docs">
 
-                            <a href="{% url 'object:documents_upload' slug_proj slug %}"
-                               class="btn btn-outline-dark btn-sm">
-                                <i class="fa fa-download" aria-hidden="true"></i> Загрузить</a>
+                        <a href="{% url 'object:documents_upload' slug_proj slug %}"
+                           class="btn btn-outline-dark btn-sm" title="Загрузить документ">
+                            <i class="fa fa-download" aria-hidden="true"></i> Загрузить</a>
 
                     </li>
                 </ul>
@@ -31,6 +31,8 @@
                         <thead class="high">
                         <tr>
                             <th scope="col" style=" vertical-align: middle" class="higher">Наименование</th>
+                            <th scope="col" style=" vertical-align: middle; width: 200px" class="higher">Дата добавления</th>
+                            <th scope="col" style=" vertical-align: middle; width: 200px" class="higher">Ответственный</th>
                             <th scope="col" style="text-align: center; vertical-align: middle"
                                 class="higher"></th>
                         </tr>
@@ -43,14 +45,21 @@
                                     <a href="{{ table.documents.url }} "
                                        class="full_str_a">{{ table.name_document }}
                                     </a></td>
-
+                                <td class="full_str_td" style=" vertical-align: middle; text-align: center;">
+                                    <a href="{{ table.documents.url }} "
+                                       class="full_str_a">{{ table.date }}
+                                    </a></td>
+                                <td class="full_str_td" style=" vertical-align: middle; text-align: center;">
+                                    <a href="{{ table.documents.url }} "
+                                       class="full_str_a">{{ table.senior }}
+                                    </a></td>
                                 <td class="full_str_td" style=" vertical-align: middle; width: 110px">
                                     <a href="{{ table.documents.url }} " download
-                                       class="btn btn-outline-dark ">
+                                       class="btn btn-outline-dark " title="Скачать документ">
                                         <i class="fa fa-download" aria-hidden="true"></i> </a>
                                     {% if not error_perm %}
                                         <a href="{% url 'object:documents_delete' slug_proj slug table.pk %}"
-                                           class="btn btn-outline-danger">
+                                           class="btn btn-outline-danger" title="Удалить документ">
                                             <i class="fa fa-trash" aria-hidden="true"></i> </a>
                                     {% endif %}
                                 </td>
@@ -60,6 +69,8 @@
                         <div class="foot">
                             <tr>
                                 <td style=" vertical-align: middle" class="footer"><strong></strong></td>
+                                <td style="text-align: center; vertical-align: middle" class="footer"></td>
+                                <td style="text-align: center; vertical-align: middle" class="footer"></td>
                                 <td style="text-align: center; vertical-align: middle" class="footer"></td>
 
                             </tr>

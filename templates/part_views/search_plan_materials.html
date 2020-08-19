@@ -19,15 +19,15 @@
             </tr>
         {% endif %}
         <tbody>
-        {% for key, value in plan_materials.items %}
-            {% if  value %}
-                <tr>
-                    <td colspan="5"
-                        style="text-align: center; vertical-align: middle; width: 50px; background-color: #ededed">
-                        <b>{{ key }}</b></td>
-                </tr>
-            {% endif %}
-            {% for key2 in value %}
+{#        {% for key, value in plan_materials.items %}#}
+{#            {% if  value %}#}
+{#                <tr>#}
+{#                    <td colspan="5"#}
+{#                        style="text-align: center; vertical-align: middle; width: 50px; background-color: #ededed">#}
+{#                        <b>{{ key }}</b></td>#}
+{#                </tr>#}
+{#            {% endif %}#}
+            {% for key2 in plan_materials %}
                 <tr>
                     <td style="text-align: left; padding-left: 10px; vertical-align: middle;">{{ key2.material.name }}</td>
                     <td style="text-align: center; vertical-align: middle; width: 50px">{{ key2.quantity_plan }}</td>
@@ -55,7 +55,7 @@
                     {% endif %}
                 </tr>
             {% endfor %}
-        {% endfor %}
+{#        {% endfor %}#}
 
 
         <div class="foot">
