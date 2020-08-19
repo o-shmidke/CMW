@@ -1,0 +1,120 @@
+#windowFormChangeObject {
+    width: 550px;
+    height: 600px;
+    margin: 40px auto;
+    background: #fff;
+    border: 1px solid #fff;
+    border-radius: 15px;
+    z-index: 150;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0px;
+    bottom: 0;
+    border-top: 6px solid #b9bbbe;
+    display: none;
+}
+
+.down_control .input {
+    padding: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.down_control .label_control {
+    text-align: left;
+    margin-left: 20px;
+    font-size: 14px;
+    margin-bottom: -5px;
+}
+
+.down_control .selection_control {
+    text-align: center;
+}
+
+.high_control {
+    text-align: center;
+}
+
+.high_control input {
+    padding: 5px;
+    margin: 5px 10px;
+}
+
+.label_select {
+    text-align: center;
+
+}
+
+.input {
+    width: 90%;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+.input p {
+    color: #757575;
+}
+
+#title_form_add_object {
+    text-align: center;
+    padding-top: 15px;
+}
+
+.btn_form_add {
+    background-color: white;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-left: 10px;
+
+    padding: 10px;
+    border-bottom: 2px solid #5a6268;
+    border-top: 1px solid #5a6268;
+    border-left: 1px solid #5a6268;
+    border-right: 2px solid #5a6268;
+}
+
+.btn_form {
+    text-align: center;
+}
+
+/*button:hover {*/
+/*    color: white;*/
+/*    background-color: #5a6268;*/
+/*}*/
+
+.form_add_object {
+    /*text-align: center;*/
+}
+
+#grayFormChangeObject {
+    background-color: rgba(1, 1, 1, 0.75);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+    display: none;
+}
+.btn_form_add_object{
+    text-align: center;
+    margin-left: -10px;
+}
+/*.btn_form_add_object button:hover {*/
+/*    color: white;*/
+/*    background-color: #5a6268;*/
+/*}*/
+
+#error{
+    margin-top: 10px;
+    text-align: center;
+    margin-bottom: -20px;
+    display: none;
+}
+
+#error_msg{
+    font-size: 14px;
+}
