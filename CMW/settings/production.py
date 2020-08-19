@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'work',
     'materials',
     'import_export',
+'storages',
 ]
 
 MIDDLEWARE = [
@@ -135,7 +136,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static/"),
 ]
-MEDIA_URL = '/media/'
+# MEDIA_URL = '/media/'
 MEDIA_DIR = os.path.join(BASE_DIR, 'staticfiles/media')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles/media')
 
@@ -147,6 +148,17 @@ STATICFILES_FINDERS = (
 # https://warehouse.python.org/project/whitenoise/
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+AWS_URL = os.environ.get('AWS_URL')
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_MEDIA_URL = "{}/{}/".format(AWS_URL, AWS_STORAGE_BUCKET_NAME)
+
+MEDIA_URL = AWS_MEDIA_URL
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/'
