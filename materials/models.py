@@ -1,7 +1,7 @@
 from django.db import models
 
 from object.models import Object
-from work.models import Unit, Groups
+from work.models import Unit
 
 
 class Materials(models.Model):

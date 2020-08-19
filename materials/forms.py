@@ -1,7 +1,5 @@
 from django import forms
-from django.contrib.admin import widgets
-from project.models import Project, CustomUser
-from .models import *
+
 from .views import *
 
 

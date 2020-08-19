@@ -1,7 +1,4 @@
-import io
-import os
 
-import zipfile
 from datetime import datetime
 
 from os import path
@@ -18,8 +15,6 @@ from work.models import PlanWorks
 from .forms import ObjectForm, DocumentsForm
 from .models import Object, Documents
 
-
-# from work.views import refresh_nch_spent
 
 
 def refresh_data_object(slug):

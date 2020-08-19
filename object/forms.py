@@ -2,8 +2,6 @@ import re
 
 from django import forms
 
-from project.models import Project, CustomUser
-from .models import Object, Documents
 from .views import *
 
 from django.forms import MultiValueField, CharField, ChoiceField, MultiWidget, TextInput, Select
