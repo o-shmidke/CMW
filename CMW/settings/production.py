@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'work',
     'materials',
     'import_export',
-'storages',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -153,7 +153,7 @@ AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
 AWS_URL = os.environ.get('AWS_URL')
-
+AWS_REGION = os.environ.get('AWS_REGION')
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 AWS_MEDIA_URL = "{}/{}/".format(AWS_URL, AWS_STORAGE_BUCKET_NAME)
