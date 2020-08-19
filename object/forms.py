@@ -2,6 +2,7 @@ import re
 
 from django import forms
 
+from .models import Object, Documents
 from .views import *
 
 from django.forms import MultiValueField, CharField, ChoiceField, MultiWidget, TextInput, Select

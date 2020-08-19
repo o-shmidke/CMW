@@ -1,6 +1,7 @@
 from datetime import datetime
 
-
+from django.core.validators import RegexValidator
+from django.shortcuts import reverse
 
 from django.db import models
 from time import time
