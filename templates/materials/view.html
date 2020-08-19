@@ -26,13 +26,13 @@
                 <li class="btn_download">
                     <a href="{% url 'object:materials:dowload_plan_materials' slug_proj slug %}"
                        class="btn btn-outline-dark" title="Сохранить данные в Excell">
-                        <i class="fa fa-floppy-o" aria-hidden="true"></i> Сохранить</a>
+                        <i class="fa fa-floppy-o" aria-hidden="true"></i></a>
                 </li>
                 {% if not  error_perm %}
                     <li class="btn_download">
                         <a href="{% url 'object:materials:import_plan_materials' slug_proj slug %}"
                            class="btn btn-outline-dark" title="Загрузить данные из Excell файла">
-                            <i class="fa fa-upload" aria-hidden="true"></i> Загрузить</a>
+                            <i class="fa fa-upload" aria-hidden="true"></i></a>
                     </li>
                 {% endif %}
                 {% if error_superuser %}

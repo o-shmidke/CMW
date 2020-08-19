@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9cf457d-cf38-4b22-adc6-b7b5a1e3f8a8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/CMW/resources.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/materials/import_plan_materials.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMW/settings/production.py" beforeDir="false" afterPath="$PROJECT_DIR$/CMW/settings/production.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMW/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/CMW/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materials/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/materials/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materials/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/materials/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materials/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/materials/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materials/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/materials/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materials/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/materials/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/object/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/object/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/object/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/media/documents/Шмидке.doc" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/materials/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/materials/view.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/object/documents.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/object/documents.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/part_views/search_plan_materials.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/part_views/search_plan_materials.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/work/complete_work.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/work/complete_work.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/work/plan_work.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/work/plan_work.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,7 +221,7 @@
       <workItem from="1597681007751" duration="2832000" />
       <workItem from="1597746234104" duration="16047000" />
       <workItem from="1597823835411" duration="13972000" />
-      <workItem from="1597841675969" duration="3108000" />
+      <workItem from="1597841675969" duration="3456000" />
     </task>
     <task id="LOCAL-00001" summary="!">
       <created>1596708519425</created>
