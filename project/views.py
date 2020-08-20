@@ -17,6 +17,7 @@ def upload_photo(request):
             if 'img' in request.FILES:
                 user = request.user
                 data_user = CustomUser.objects.get(pk=user.pk)
+                data_user.delete()
                 data_user.img = request.FILES['img']
                 data_user.save()
             return redirect('project:home', )
