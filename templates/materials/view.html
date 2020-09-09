@@ -49,6 +49,8 @@
                 <thead class="high">
                 <tr>
                     <th scope="col" style=" vertical-align: middle" class="higher">Наименование</th>
+                    <th scope="col" style=" vertical-align: middle" class="higher">Производитель</th>
+                    <th scope="col" style=" vertical-align: middle" class="higher">Артикул</th>
                     <th scope="col" style="text-align: center; vertical-align: middle" class="higher">Планируемое
                         колличество
                     </th>
@@ -74,6 +76,8 @@
                 {% for key2 in plan_materials %}
                     <tr>
                         <td style="text-align: left; padding-left: 10px; vertical-align: middle;">{{ key2.material.name }}</td>
+                    <td style="text-align: left; padding-left: 10px; vertical-align: middle;">{{ key2.material.manufacturer }}</td>
+                    <td style="text-align: left; padding-left: 10px; vertical-align: middle;">{{ key2.material.articul }}</td>
                         <td style="text-align: center; vertical-align: middle; width: 50px">{{ key2.quantity_plan }}</td>
                         <td style="text-align: center; vertical-align: middle; width: 50px">{{ key2.quantity_delivered }}</td>
                         <td style="text-align: center; vertical-align: middle; width: 50px">{{ key2.material.unit.name }}</td>
