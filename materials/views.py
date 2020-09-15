@@ -122,7 +122,7 @@ def search_plan_materials(request):
 
 def export_plan_materials(request, slug_proj, slug):
     name_object = Object.objects.get(slug__iexact=slug).Name_Object
-    file_name = "Planing Materials "
+    file_name = "Planing_Materials_"
     name_sheet = 'Планируемые материалы ' + name_object
 
     columns = ['Наименование', 'Планируемое кол-во', 'Поставленное кол-во', 'Ед.измерения', 'Производитель',
