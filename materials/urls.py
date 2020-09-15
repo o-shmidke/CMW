@@ -13,5 +13,4 @@ urlpatterns = [
     path('plan/download/', export_plan_materials, name="dowload_plan_materials"),
     path('plan/import_plan_materials/', upload_plan_materials, name="import_plan_materials"),
     path('plan/import_materials/', upload_materials, name="import_materials"),
-    # path('plan/search_plan_materials/', search_plan_materials, name="search_plan_materials"),
 ]

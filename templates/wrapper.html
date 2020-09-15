@@ -52,62 +52,62 @@
                 </div>
             </a>
 
-            <nav class="dws-menu  ">
-                <ul class='navbar-nav mr-auto'>
-                    <li class=" btn-user " style="padding-right: 50px">
-                        <a class="nav-link  btn  btn-outline-dark navbarDropdown " id="navbarDropdown"
-                           role="button" style="width: 200%; text-align: center"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-bars" aria-hidden="true" style="font-size: 30px"></i>
-                        </a>
+<nav class="dws-menu  ">
+    <ul class='navbar-nav mr-auto'>
+        <li class=" btn-user " style="padding-right: 50px">
+            <a class="nav-link  btn  btn-outline-dark navbarDropdown " id="navbarDropdown"
+               role="button" style="width: 200%; text-align: center"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-bars" aria-hidden="true" style="font-size: 30px"></i>
+        </a>
 
-                        <div id="gb_F" class="gb_F" aria-labelledby="navbarDropdown">
-                            {% if user.is_authenticated %}
-                                <div style="text-align: center; padding-top: 10px;">
-                                    {% if user.img %}
-                                        <img src="{{ user.img.url }} " width="150" height="187" id="photo">
-                                    {% else %}
-                                        <a id="upload_photo"
-                                           href="{% url 'project:upload_photo' %}?next={{ request.path }}">
-                                            <img src="{% static '../static/media/img/images.jpg' %}" alt="нет фото"
-                                                 width="150" height="187"
-                                                 id="empty_photo">
-                                        </a>
-                                    {% endif %}
-                                </div>
-                                <div style="text-align: center;">
-                                    <a style="text-align: center; color: #005cbf; " id="upload_photo"
-                                       href="{% url 'project:upload_photo' %}?next={{ request.path }}"
-                                    >Загрузить фото
-                                    </a>
-                                </div>
+    <div id="gb_F" class="gb_F" aria-labelledby="navbarDropdown">
+        {% if user.is_authenticated %}
+            <div style="text-align: center; padding-top: 10px;">
+                {% if user.img %}
+                    <img src="{{ user.img.url }} " width="150" height="187" id="photo">
+                {% else %}
+                    <a id="upload_photo"
+                       href="{% url 'project:upload_photo' %}?next={{ request.path }}">
+                        <img src="{% static '../static/media/img/images.jpg' %}" alt="нет фото"
+                             width="150" height="187"
+                             id="empty_photo">
+                    </a>
+                {% endif %}
+            </div>
+            <div style="text-align: center;">
+                <a style="text-align: center; color: #005cbf; " id="upload_photo"
+                   href="{% url 'project:upload_photo' %}?next={{ request.path }}"
+                >Загрузить фото
+                </a>
+            </div>
 
-                                <h5 class="user_name">{{ user.get_full_name }}</h5>
-                                <div class="dropdown-divider divinder1"></div>
-                                <div style="padding-left: 10px">
-                                    <p>Должность: {% if user.get_id_position %}{{ user.get_id_position }}{% else %}
-                                        ---{% endif %}</p>
-                                    <p>Почта: {% if user.get_email %}{{ user.get_email }}{% else %}---{% endif %}</p>
-                                </div>
-                                <div class="dropdown-divider divinder2"></div>
-                                <div class="btn_in_out">
+            <h5 class="user_name">{{ user.get_full_name }}</h5>
+            <div class="dropdown-divider divinder1"></div>
+            <div style="padding-left: 10px">
+                <p>Должность: {% if user.get_id_position %}{{ user.get_id_position }}{% else %}
+                    ---{% endif %}</p>
+                <p>Почта: {% if user.get_email %}{{ user.get_email }}{% else %}---{% endif %}</p>
+            </div>
+            <div class="dropdown-divider divinder2"></div>
+            <div class="btn_in_out">
 
-                                {#                        <li>{{ user.get_full_name }}</li>#}
-                                <a href="{% url 'logout' %}?next={{ request.path }}"
-                                   class=" btn btn-outline-dark btn-sm ">Выход</a>
+                    {#                        <li>{{ user.get_full_name }}</li>#}
+                    <a href="{% url 'logout' %}?next={{ request.path }}"
+                       class=" btn btn-outline-dark btn-sm ">Выход</a>
 
-                            {% else %}
-                                <a href="{% url 'login' %}?next={{ request.path }}"
-                                   style="width: 100px; margin: 30px; margin-left:95px "
-                                   class="btn btn-outline-dark btn-lg ">Вход</a>
+                {% else %}
+                    <a href="{% url 'login' %}?next={{ request.path }}"
+                       style="width: 100px; margin: 30px; margin-left:95px "
+                       class="btn btn-outline-dark btn-lg ">Вход</a>
 
-                            {% endif %}
-                            </div>
-                            {#                    <a class="dropdown-item" href="#">Something else here</a>#}
-                        </div>
-                    </li>
-                </ul>
-            </nav>
+                {% endif %}
+                </div>
+                {#                    <a class="dropdown-item" href="#">Something else here</a>#}
+            </div>
+        </li>
+    </ul>
+</nav>
         </div>
     </nav>
 

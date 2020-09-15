@@ -11,11 +11,6 @@ class PlanMaterialsForm(forms.ModelForm):
                                           attrs={'class': "form-control js-example-basic-single",
                                                  'id': 'change_material'
                                                  }))
-    # group = forms.ModelChoiceField(label='Группа',
-    #                                queryset=Groups.objects.all(),
-    #                                widget=forms.Select(
-    #                                    attrs={'class': "form-control js-example-basic-single", 'id': 'change_group'
-    #                                           }))
     quantity_plan = forms.DecimalField(label='Планируемое колличество', widget=forms.NumberInput(
         attrs={'class': "form-control", 'placeholder': 'Кол-во'}))
     quantity_delivered = forms.DecimalField(label='Поставленное колличество', widget=forms.NumberInput(
@@ -28,20 +23,6 @@ class PlanMaterialsForm(forms.ModelForm):
 
     def __init__(self, slug=None, *args, **kwargs):
         super(PlanMaterialsForm, self).__init__(*args, **kwargs)
-        # self.fields['type_works'].queryset = Materials.objects.filter(planworks__name_object__slug__iexact=slug)
-
-    # def clean_type_works(self):
-    #     a = self.cleaned_data['type_works']
-    #
-    #     if not a:
-    #         raise forms.ValidationError('Необходимо выбрать один из пунктов')
-    #     return a
-    #
-    # def clean_quantity_plan(self):
-    #     a = self.cleaned_data['quantity_plan']
-    #     if not a:
-    #         raise forms.ValidationError('Необходимо заполнить поле')
-    #     return a
 
 
 class SearchPlanMaterialsForm(forms.ModelForm):
