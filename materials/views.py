@@ -36,7 +36,7 @@ def upload_materials(request, slug_proj, slug):
                     if unit != None:
                         if unit != 0:
                             unit = unit.replace(' ', '')
-                        unit = Unit.objects.get(name__iexact=unit)
+                        unit = Unit.objects.get(name=unit)
                     value = Materials(name=name, unit=unit, manufacturer=manufacturer,
                                       code_of_product=code_of_product, articul=articul)
                     value.save()
@@ -69,7 +69,7 @@ def upload_plan_materials(request, slug_proj, slug):
                         if a:
                             print('Материал "', name, '" уже есть в списке')
                             continue
-                        name = Materials.objects.get(articul__iexact=articul)
+                        name = Materials.objects.get(articul=articul)
                         value = PlanMaterials(material=name, quantity_plan=quantity_plan, quantity_delivered=0,
                                               name_object=name_object)
                         value.save()

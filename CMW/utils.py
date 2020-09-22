@@ -8,9 +8,9 @@ from CMW import settings
 
 def export_xls(name_object, file_name, name_sheet, columns, rows):
     response = HttpResponse(content_type='application/ms-excel')
-
+    filename = '{}_{}.xls'.format(file_name, name_object)
     # response['Content-Disposition'] = 'attachment; filename=' + file_name + name_object + '.xls'
-    response['Content-Disposition'] = 'attachment; filename={}_{}.xls'.format(file_name, name_object)
+    response['Content-Disposition'] = 'attachment; filename={}'.format(filename)
 
     wb = xlwt.Workbook(encoding='utf-8')
     ws = wb.add_sheet(name_sheet)
