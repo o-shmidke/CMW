@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9cf457d-cf38-4b22-adc6-b7b5a1e3f8a8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMW/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/CMW/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/work/plan_work.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/work/plan_work.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/wrapper.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/wrapper.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -269,7 +266,7 @@
       <workItem from="1600241144921" duration="30000" />
       <workItem from="1600784641555" duration="6343000" />
       <workItem from="1600796063219" duration="3539000" />
-      <workItem from="1600847700519" duration="15405000" />
+      <workItem from="1600847700519" duration="15651000" />
     </task>
     <task id="LOCAL-00001" summary="!">
       <created>1596708519425</created>
