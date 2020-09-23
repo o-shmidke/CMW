@@ -14,14 +14,35 @@ from .models import *
 from tablib import Dataset
 
 
+def _save_materials(name, manufacturer, code_of_product, unit, articul):
+    """Сохранение материала в БД"""
+    if name != None or articul != None:
+        if unit != None:
+            if unit != 0:
+                unit = unit.replace(' ', '')
+            try:
+                Unit.objects.get(name=unit)
+            except Unit.DoesNotExist:
+                value_unit = Unit(name=unit)
+                value_unit.save()
+            unit = Unit.objects.get(name=unit)
+        try:
+            Materials.objects.get(articul=articul)
+        except Materials.MultipleObjectsReturned:
+            print('multiply')
+        except Materials.DoesNotExist:
+            value = Materials(name=name, unit=unit, manufacturer=manufacturer,
+                              code_of_product=code_of_product, articul=articul)
+            value.save()
+
+
 def upload_materials(request, slug_proj, slug):
+    """Загрузка материалов из файла .xls"""
     if request.method == 'POST':
         materials_resource = MaterialsResource()
         dataset = Dataset()
         new_persons = request.FILES['myfile']
-
         imported_data = dataset.load(new_persons.read())
-
         materials_resource.import_data(dataset, dry_run=True)  # Actually import now
         sch = 0
         for data in imported_data:
@@ -30,81 +51,66 @@ def upload_materials(request, slug_proj, slug):
                 manufacturer = data[2]
                 code_of_product = data[3]
                 unit = data[4]
-
                 articul = data[5]
-                if name != None or articul != None:
-                    if unit != None:
-                        if unit != 0:
-                            unit = unit.replace(' ', '')
-                        unit = Unit.objects.get(name=unit)
-                    value = Materials(name=name, unit=unit, manufacturer=manufacturer,
-                                      code_of_product=code_of_product, articul=articul)
-                    value.save()
+                _save_materials(name, manufacturer, code_of_product, unit, articul)
             sch += 1
-
         return redirect('object:materials:plan_materials_view', slug_proj=slug_proj, slug=slug)
     return render(request, 'materials/import_plan_materials.html', {'slug': slug, 'slug_proj': slug_proj, })
 
 
 def upload_plan_materials(request, slug_proj, slug):
+    """Загрузка планируемых материалов из файла .xls"""
     if request.method == 'POST':
         materials_resource = PlanMaterialsResource()
         dataset = Dataset()
         new_persons = request.FILES['myfile']
-
         imported_data = dataset.load(new_persons.read())
-
         materials_resource.import_data(dataset, dry_run=True)  # Actually import now
         sch = 0
         name_object = Object.objects.get(slug__iexact=slug)
         for data in imported_data:
             if sch > 5:
                 name = data[1]
+                manufacturer = data[2]
+                code_of_product = data[3]
+                unit = data[4]
                 articul = data[5]
                 quantity_plan = data[6]
                 if name != None:
                     if quantity_plan != 0:
-                        # print(a, ' - ', c, ' ', b)
-                        a = PlanMaterials.objects.filter(material__articul__exact=articul, name_object=name_object)
-                        if a:
-                            print('Материал "', name, '" уже есть в списке')
-                            continue
-                        name = Materials.objects.get(articul=articul)
-                        value = PlanMaterials(material=name, quantity_plan=quantity_plan, quantity_delivered=0,
-                                              name_object=name_object)
-                        value.save()
-
+                        try:
+                            Materials.objects.get(articul=articul)
+                        except Materials.DoesNotExist:
+                            _save_materials(name, manufacturer, code_of_product, unit, articul)
+                        try:
+                            PlanMaterials.objects.get(material__articul__exact=articul, name_object=name_object)
+                        except PlanMaterials.DoesNotExist:
+                            material_name = Materials.objects.get(articul=articul)
+                            value = PlanMaterials(material=material_name, quantity_plan=quantity_plan,
+                                                  quantity_delivered=0,
+                                                  name_object=name_object)
+                            value.save()
             sch += 1
-
         return redirect('object:materials:plan_materials_view', slug_proj=slug_proj, slug=slug)
     return render(request, 'materials/import_plan_materials.html', {'slug': slug, 'slug_proj': slug_proj, })
 
 
 def search_plan_materials(request):
+    """Поиск планируемых материалов через строку поиска"""
     form = SearchPlanMaterialsForm(request.POST)
     if form.is_valid():
-        # group = Groups.objects.all()
-        # plan_materials = {}
+
         q = form.cleaned_data['q']
         slug = form.cleaned_data['slug_o']
 
         if len(q) == 0:
-            # plan_materials = PlanMaterials.objects.filter(name_object__slug__exact=slug)
-            # for y in group:
             plan_materials = PlanMaterials.objects.filter(name_object__slug__exact=slug)
 
         else:
             if len(q) == 1:
-                # plan_materials = PlanMaterials.objects.filter(material__name__istartswith=q.upper(),
-                #                                               name_object__slug__exact=slug)
-
-                # for y in group:
                 plan_materials = PlanMaterials.objects.filter(material__name__istartswith=q.upper(),
                                                               name_object__slug__exact=slug)
             else:
-                # plan_materials = PlanMaterials.objects.filter(material__name__icontains=q.capitalize(),
-                #                                               name_object__slug__exact=slug)
-
                 plan_materials = PlanMaterials.objects.filter(material__name__istartswith=q.capitalize(),
                                                               name_object__slug__exact=slug)
 
@@ -121,6 +127,7 @@ def search_plan_materials(request):
 
 
 def export_plan_materials(request, slug_proj, slug):
+    """Скачивание планируемых материалов в файл .xls"""
     name_object = Object.objects.get(slug__iexact=slug).Name_Object
     file_name = "Planing_Materials_"
     name_sheet = 'Планируемые материалы ' + name_object
@@ -140,6 +147,7 @@ def export_plan_materials(request, slug_proj, slug):
 
 
 def view_plan_materials(request, slug_proj, slug):
+    """Отображение списка планируемых материалов"""
     name_object = Object.objects.get(slug__iexact=slug)
     search_form = SearchPlanMaterialsForm()
 
@@ -163,6 +171,7 @@ def view_plan_materials(request, slug_proj, slug):
 
 
 def create_plan_materials(request, slug_proj, slug):
+    """Добавление планируемого материала из БД"""
     form = PlanMaterialsForm()
     name_object = Object.objects.get(slug__iexact=slug)
     if not request.user.has_perm('materials.add_planmaterials'):
@@ -176,7 +185,6 @@ def create_plan_materials(request, slug_proj, slug):
             name_object = Object.objects.get(slug__iexact=slug)
             material = data['material']
             plan_material = PlanMaterials.objects.filter(material__name__iexact=material.name,
-
                                                          name_object__slug__exact=slug)
             if plan_material:
                 return render(request, 'materials/create.html',
@@ -196,6 +204,7 @@ def create_plan_materials(request, slug_proj, slug):
 
 
 def delete_plan_materials(request, slug_proj, slug, pk):
+    """Удаление планируемого материала из БД"""
     material = PlanMaterials.objects.get(pk=pk)
     # -------проверка на доступ
     if not request.user.has_perm('materials.delete_planmaterials'):
@@ -211,6 +220,7 @@ def delete_plan_materials(request, slug_proj, slug, pk):
 
 
 def update_plan_materials(request, slug_proj, slug, pk):
+    """Изменение информации о планируемом материале"""
     # -------проверка на доступ
     if not request.user.has_perm('materials.change_planmaterials'):
         return render(request, "materials/update.html", {'slug': slug, 'slug_proj': slug_proj, 'pk': pk,
@@ -223,7 +233,6 @@ def update_plan_materials(request, slug_proj, slug, pk):
             material_get = data['material']
             quantity_plan = data['quantity_plan']
             quantity_delivered = data['quantity_delivered']
-
             if material_get != material.material:
                 find_material = PlanMaterials.objects.filter(
                     material__name__iexact=material_get,
@@ -235,12 +244,10 @@ def update_plan_materials(request, slug_proj, slug, pk):
                 else:
                     if material_get != material.material:
                         material.material = material_get
-
             if quantity_plan != material.quantity_plan:
                 material.quantity_plan = quantity_plan
             if quantity_delivered != material.quantity_delivered:
                 material.quantity_delivered = quantity_delivered
-
             material.save()
             return redirect("object:materials:plan_materials_view", slug_proj=slug_proj, slug=slug)
     material = PlanMaterials.objects.get(pk=pk, name_object__slug__exact=slug)

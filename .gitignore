@@ -4,3 +4,4 @@ CMW/db.sqlite3
 db.sqlite3
 CMW/settings/__pycache__/local.cpython-38.pyc
 templates/wrapper.html
+db.sqlite3
