@@ -28,7 +28,13 @@
                            class="btn btn-outline-dark" title="Сохранить данные в Excell">
                             <i class="fa fa-floppy-o" aria-hidden="true"> </i> Сохранить</a>
                     </li>
-
+                    {% if superuser %}
+                        <li class="btn_download">
+                            <a href="{% url 'work:upload_works' slug_proj slug%}"
+                               class="btn btn-outline-dark">
+                                <i class="fa fa-upload" aria-hidden="true"></i> import works</a>
+                        </li>
+                    {% endif %}
                 </ul>
             </div>
             <div class="zone_table_works posts">

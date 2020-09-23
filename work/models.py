@@ -31,7 +31,7 @@ class TypeOfWork(models.Model):
     name = models.CharField(max_length=200, unique=True, verbose_name='Наименование работы')
     NCH_unit_of_time = models.DecimalField(verbose_name='Н/Ч на единицу времени', max_digits=6, decimal_places=2)
     unit = models.ForeignKey(Unit, on_delete=models.CASCADE, verbose_name='Ед. измерения')
-    group = models.ForeignKey(Groups, on_delete=models.CASCADE, verbose_name='Название группы')
+    group = models.ForeignKey(Groups, on_delete=models.CASCADE, verbose_name='Название группы', blank=True, null=True)
 
     def __str__(self):
         return self.name + ' (' + self.unit.name + ')'

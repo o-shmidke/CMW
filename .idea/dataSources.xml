@@ -15,5 +15,12 @@
         </library>
       </libraries>
     </data-source>
+    <data-source source="LOCAL" name="cmw@localhost" uuid="48fdcddb-521c-4991-9a16-4e6246ccf068">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <configured-by-url>true</configured-by-url>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/cmw</jdbc-url>
+    </data-source>
   </component>
 </project>

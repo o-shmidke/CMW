@@ -9,7 +9,9 @@ from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 from django.urls import reverse
 from django.views.generic import DeleteView
+from tablib import Dataset
 
+from CMW.resources import WorksResource
 from CMW.utils import export_xls
 from project.models import CustomUser
 from utils.uploading import UploadingPlanWorks
@@ -167,7 +169,45 @@ def download_plan_works(request, slug_proj, slug):
     return render(request, 'work/download_plan_works.html', {'slug_proj': slug_proj, 'slug': slug})
 
 
+def upload_works(request, slug_proj, slug):
+    """Загрузка работ из файла .xls"""
+
+    if request.method == 'POST':
+        materials_resource = WorksResource()
+        dataset = Dataset()
+        new_persons = request.FILES['myfile']
+        imported_data = dataset.load(new_persons.read())
+        materials_resource.import_data(dataset, dry_run=True)  # Actually import now
+        sch = 0
+        # name_object = Object.objects.get(slug__iexact=slug)
+        for data in imported_data:
+            if sch >= 1:
+                name = data[0]
+                unit = data[1]
+                nch_unit_of_time = data[2]
+
+                if name is not None:
+                    from CMW.services import _save_unit
+                    unit = _save_unit(unit)
+                    group = '-'
+                    from CMW.services import _save_group
+                    group = _save_group(group)
+                    try:
+                        TypeOfWork.objects.get(name__iexact=name)
+                    except TypeOfWork.DoesNotExist:
+                        value = TypeOfWork(name=name, unit=unit, NCH_unit_of_time=nch_unit_of_time,
+                                           group=group)
+                        value.save()
+
+            sch += 1
+        return redirect('work:plan_work', slug_proj=slug_proj, slug=slug)
+    return render(request, 'work/import_works.html', {'slug': slug, 'slug_proj': slug_proj, })
+
+
 def plan_work_view(request, slug, slug_proj):
+    superuser = False
+    if request.user.is_superuser:
+        superuser = True
     name_object = Object.objects.get(slug__iexact=slug)
     plan_work = PlanWorks.objects.filter(name_object=name_object.id)
     plan_work_nch_general = [p.NCH_general for p in plan_work]
@@ -184,7 +224,6 @@ def plan_work_view(request, slug, slug_proj):
     complete_work = [p.type_works for p in PlanWorks.objects.filter(name_object=name_object)]
     form_search = SearchWorksForm()
     if complete_work:
-
         for y in complete_work:
             complete_works = [p.perform_proc for p in
                               CompleteWorks.objects.filter(type_works=y.pk, name_object=name_object)]
@@ -201,19 +240,20 @@ def plan_work_view(request, slug, slug_proj):
                 plan_work[y.name] = PlanWorks.objects.filter(type_works__group_id=y.id, name_object__slug__exact=slug)
 
             # --------------------------------------Проверка на доступ
+
         if not request.user.has_perm('work.delete_planworks') and not request.user.has_perm('work.change_planworks'):
             return render(request, "work/plan_work.html",
                           {'object_list': name_object, 'plan_work': plan_work, 'slug_proj': slug_proj, 'slug': slug,
                            'nch_sum': sum, 'proc_sum': sum_proc, 'error_perm': 'У вас недостаточно прав',
-                           'form': form_search})
+                           'form': form_search, 'superuser': superuser})
 
         return render(request, 'work/plan_work.html',
                       {'object_list': name_object, 'plan_work': plan_work, 'slug_proj': slug_proj, 'slug': slug,
-                       'nch_sum': sum, 'proc_sum': sum_proc, 'form': form_search})
+                       'nch_sum': sum, 'proc_sum': sum_proc, 'form': form_search, 'superuser': superuser})
 
     return render(request, 'work/plan_work.html',
                   {'object_list': name_object, 'plan_work': plan_work, 'slug_proj': slug_proj, 'slug': slug,
-                   'nch_sum': sum, 'proc_sum': sum_proc, 'form': form_search})
+                   'nch_sum': sum, 'proc_sum': sum_proc, 'form': form_search, 'superuser': superuser})
 
 
 def plan_work_create(request, slug_proj, slug):
@@ -420,11 +460,12 @@ def complete_work_create(request, slug_proj, slug):
             else:
                 return render(request, "work/create_complete_work.html",
                               {"form": work_form, 'slug': slug, 'slug_proj': slug_proj, 'name_object': name_object,
-                               'error': 'Данная работа уже существует в этот день', 'check_form': check_form,'object_list':name_object})
+                               'error': 'Данная работа уже существует в этот день', 'check_form': check_form,
+                               'object_list': name_object})
 
     return render(request, 'work/create_complete_work.html',
                   {'form': work_form, 'slug': slug, 'slug_proj': slug_proj, 'name_object': name_object,
-                   'check_form': check_form, 'object_list':name_object})
+                   'check_form': check_form, 'object_list': name_object})
 
 
 def delete_complete_work(pk, slug):

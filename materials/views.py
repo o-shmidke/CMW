@@ -14,28 +14,6 @@ from .models import *
 from tablib import Dataset
 
 
-def _save_materials(name, manufacturer, code_of_product, unit, articul):
-    """Сохранение материала в БД"""
-    if name != None or articul != None:
-        if unit != None:
-            if unit != 0:
-                unit = unit.replace(' ', '')
-            try:
-                Unit.objects.get(name=unit)
-            except Unit.DoesNotExist:
-                value_unit = Unit(name=unit)
-                value_unit.save()
-            unit = Unit.objects.get(name=unit)
-        try:
-            Materials.objects.get(articul=articul)
-        except Materials.MultipleObjectsReturned:
-            print('multiply')
-        except Materials.DoesNotExist:
-            value = Materials(name=name, unit=unit, manufacturer=manufacturer,
-                              code_of_product=code_of_product, articul=articul)
-            value.save()
-
-
 def upload_materials(request, slug_proj, slug):
     """Загрузка материалов из файла .xls"""
     if request.method == 'POST':
@@ -52,6 +30,7 @@ def upload_materials(request, slug_proj, slug):
                 code_of_product = data[3]
                 unit = data[4]
                 articul = data[5]
+                from CMW.services import _save_materials
                 _save_materials(name, manufacturer, code_of_product, unit, articul)
             sch += 1
         return redirect('object:materials:plan_materials_view', slug_proj=slug_proj, slug=slug)
@@ -81,6 +60,7 @@ def upload_plan_materials(request, slug_proj, slug):
                         try:
                             Materials.objects.get(articul=articul)
                         except Materials.DoesNotExist:
+                            from CMW.services import _save_materials
                             _save_materials(name, manufacturer, code_of_product, unit, articul)
                         try:
                             PlanMaterials.objects.get(material__articul__exact=articul, name_object=name_object)
