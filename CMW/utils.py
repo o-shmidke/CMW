@@ -4,10 +4,10 @@ from django.http import HttpResponse
 
 def export_xls(name_object, file_name, name_sheet, columns, rows):
     """Скачивание .xls файла"""
-    response = HttpResponse(content_type='application/ms-excel')
+    response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
     filename = '{}{}.xls'.format(file_name, name_object)
     response['Content-Disposition'] = 'attachment; filename="{}"'.format(filename)
-
+    
     wb = xlwt.Workbook(encoding='utf-8')
     ws = wb.add_sheet(name_sheet)
     row_num = 0
