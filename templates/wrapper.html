@@ -65,11 +65,11 @@
         {% if user.is_authenticated %}
             <div style="text-align: center; padding-top: 10px;">
                 {% if user.img %}
-                    <img src=""  width="150" height="187" id="photo">
+                    <img src="{{ user.img.url }}"  width="150" height="187" id="photo">
                 {% else %}
                     <a id="upload_photo"
                        href="{% url 'project:upload_photo' %}?next={{ request.path }}">
-                        <img src="{% static '../static/media/img/images.jpg' %}" alt="нет фото"
+                        <img src="{% static '../static/media/img/image111-111.jpg' %}" alt="нет фото"
                              width="150" height="187"
                              id="empty_photo">
                     </a>
