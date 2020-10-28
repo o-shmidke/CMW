@@ -65,7 +65,7 @@
         {% if user.is_authenticated %}
             <div style="text-align: center; padding-top: 10px;">
                 {% if user.img %}
-                    <img src="{{ user.img.url }}"  width="150" height="187" id="photo">
+                    <img src=""  width="150" height="187" id="photo">
                 {% else %}
                     <a id="upload_photo"
                        href="{% url 'project:upload_photo' %}?next={{ request.path }}">
